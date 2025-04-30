@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"e1f61243263ea46d","x":-223,"y":-294,"width":250,"height":60,"type":"text","text":"Nav"},
+		{"id":"e2ab11c04d2fd283","x":-223,"y":-200,"width":250,"height":60,"type":"text","text":"Hero / Welcome\n"},
+		{"id":"8252e55fd88051e6","x":-223,"y":-100,"width":250,"height":60,"type":"text","text":"Featured Images\n"},
+		{"id":"ff0a8de61b05903d","x":-223,"y":0,"width":250,"height":60,"type":"text","text":"Why Us\n"},
+		{"id":"9876a6d8fa3e43f1","x":-223,"y":100,"width":250,"height":60,"type":"text","text":"Testimonials / Review\n"},
+		{"id":"a678b4ade3b227ae","x":-223,"y":200,"width":250,"height":60,"type":"text","text":"Footer\n"}
+	],
+	"edges":[]
+}
