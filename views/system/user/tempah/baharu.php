@@ -54,7 +54,7 @@
             <!-- //modal -->
             <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-dialog modal-dialog-centered  " role="document">
                     <div class="modal-content">
                         <div class="modal-body p-0">
                             <form action="" method="POST" enctype="multipart/form-data">
@@ -65,20 +65,40 @@
                                     </div>
                                     <div class="card-body">
                                         <form role="form text-left">
-                                            <div class="input-group input-group-static my-3">
-                                                <label>Tarikh</label>
-                                                <input type="text" class="form-control" id="tarikh" name="tarikh">
-                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="input-group input-group-static my-3 ">
+                                                        <label>Tarikh Mula</label>
+                                                        <input type="text" class="form-control" id="tarikh_mula"
+                                                            name="tarikh_mula" readonly>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-6">
 
+                                                    <div class="input-group input-group-static my-3 ">
+                                                        <label>Tarikh Tamat</label>
+                                                        <input type="text" class="form-control" id="tarikh_tamat"
+                                                            name="tarikh_tamat" readonly>
+                                                    </div>
+                                                </div>
 
-                                            <div class="text-center">
-                                                <button type="submit"
-                                                    class="btn btn-round btn-primary btn-lg w-100 mt-4 mb-0"
-                                                    name="tempahan_baharu_form">Tempah</button>
+                                                <div class="input-group input-group-static my-3">
+                                                    <label>Upload File</label>
+                                                    <input type="file" class="form-control file-selector-button" name="file_input"
+                                                        accept=".jpg, .jpeg, .png, .pdf">
+                                                </div>
+
+                                                <div class="text-center">
+                                                    <button type="submit"
+                                                        class="btn btn-round btn-primary btn-lg w-100 mt-4 mb-0"
+                                                        name="tempahan_baharu_form">Tempah</button>
+                                                </div>
+
                                             </div>
                                         </form>
                                     </div>
+
 
                                 </div>
                             </form>
@@ -179,19 +199,26 @@
             select: function (info) {
                 const selectedStart = info.start;
                 const selectedEnd = info.end;
+                // Set check-in time to 14:00 PM (2:00 PM) for the start date
+                // selectedStart.setHours(14, 0, 0, 0); // Set to 14:00:00 (2:00 PM)
 
-                let currentDate = new Date(info.start);
-                const startStr = formatDate(currentDate);
-                $('#tarikh').val(startStr);
+                // Set check-out time to 12:00 PM (12:00 PM) for the end date
+                // selectedEnd.setHours(12, 0, 0, 0);  // Set to 12:00:00 (12:00 PM)
+                // Format the dates (assuming you are using moment.js or similar date formatting function)
+                const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)
+                const endStr = formatDate(selectedEnd);
 
+                // Set the values for tarikh mula and tarikh tamat
+                $('#tarikh_mula').val(startStr);
+                $('#tarikh_tamat').val(endStr);
 
+                console.log(startStr);
+                console.log(endStr);
+
+                // Show the modal (if needed)
                 var modal = new bootstrap.Modal(document.getElementById('eventModal'));
                 modal.show();
-
-
-
-
-            },
+            }
 
 
 

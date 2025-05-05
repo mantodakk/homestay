@@ -50,5 +50,8 @@ include_once('functions/qr/generate.php');
 include('functions/cuti/calendar.php');
 
 
+//tempah
 
+
+include('functions/tempahan/baharu.php');
 

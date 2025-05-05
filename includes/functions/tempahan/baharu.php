@@ -6,50 +6,44 @@ if (isset($_POST['tempahan_baharu_form'])) {
 
 
     // Make sure to sanitize the inputs
-    $user_id = $_POST['user_id'];
-    $permohonan_type = "perlepasan";
-    $status = 1;
-    $dates = $_POST['dates'];
-    $start_times = $_POST['time_start'];
-    $end_times = $_POST['time_end'];
-    $days = count($dates);
-    $time_slip = 0; // or calculate if needed
-
-    $filename = basename($_FILES['bukti']["name"]);
-    $place = $_POST['tempat'];
-    $purpose = $_POST['tujuan'];
-    $lecturer_id = $_POST['lecturer_id'];
+    $user_id = '1';
+    $tarikh_mula = $_POST['tarikh_mula'];
+    $tarikh_tamat = $_POST['tarikh_tamat'];
 
 
-    // Insert into `permohonan`
-    $sql = "INSERT INTO permohonan (user_id, permohonan_type, status, days, time_slip,file,place,purpose,lecturer_id) 
-          VALUES ('$user_id', '$permohonan_type', '$status', '$days', '$time_slip','$filename','$place','$purpose','$lecturer_id')";
+    // Convert the string date inputs to DateTime objects
+    $startDate = new DateTime($tarikh_mula);
+    $endDate = new DateTime($tarikh_tamat);
+
+    // Set check-in time to 14:00 (2:00 PM)
+    $startDate->setTime(14, 0); // 14:00 (2:00 PM)
+
+    // Set check-out time to 12:00 (12:00 PM)
+    $endDate->setTime(12, 0); // 12:00 (12:00 PM)
+
+
+    // $filename = basename($_FILES['bukti']["name"]);
+
+    // Format the dates as needed (for example, 'Y-m-d H:i:s')
+    $formattedStartDate = $startDate->format('Y-m-d H:i:s');
+    $formattedEndDate = $endDate->format('Y-m-d H:i:s');
+
+    // // Insert into `permohonan`
+    $sql = "INSERT INTO bookings (user_id,tarikh_mula,tarikh_tamat) 
+          VALUES ('$user_id', '$formattedStartDate', '$formattedEndDate')";
     if (mysqli_query($conn, $sql)) {
-        $permohonan_id = mysqli_insert_id($conn);
+ 
+    } else{
+        echo "Error: " . mysqli_error($conn);
 
-        // Insert into `permohonan_dates`
-        for ($i = 0; $i < count($dates); $i++) {
-            $date = mysqli_real_escape_string($conn, $dates[$i]);
-            $time_start = mysqli_real_escape_string($conn, $start_times[$i]);
-            $time_end = mysqli_real_escape_string($conn, $end_times[$i]);
-
-            $sql2 = "INSERT INTO permohonan_dates (permohonan_id, date, time_start, time_end)
-                   VALUES ($permohonan_id, '$date', '$time_start', '$time_end')";
-            mysqli_query($conn, $sql2);
-        }
-
-
-        $result = uploadFile('bukti', 'assets/uploads/permohonan/' . $permohonan_id . '/');
-
-        if ($result['success']) {
-            echo "File uploaded: " . $result['file_path'];
-        } else {
-            echo "Error: " . $result['message'];
-        }
-
-        // Redirect after success
-        header("Location: " . $basePath2 . "/permohonan/perlepasan");
-        exit();
     }
+    $uploadResult = uploadFile('file_input');  // Adjust 'file_input' to match the form's input name for file
+
+ 
+
+    //     // Redirect after success
+    header("Location: " . $basePath2 . "/tempah/baharu");
+    exit();
+    // }
 }
 
