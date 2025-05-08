@@ -52,6 +52,7 @@ $routes = [
     //tempah
 
     'tempah/baharu' => 'tempah_baharu',
+    'tempahan/calendar' => 'tempahan_calendar',
 
 
     //cuti

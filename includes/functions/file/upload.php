@@ -1,7 +1,7 @@
 <?php
 
 
-function uploadFile($fileInputName, $targetDir = "uploads/", $allowedTypes = ['jpg', 'png', 'jpeg', 'pdf'], $maxSizeMB = 5) {
+function uploadFile($fileInputName, $targetDir = "assets/uploads/", $allowedTypes = ['jpg', 'png', 'jpeg', 'pdf'], $maxSizeMB = 5) {
     if (!isset($_FILES[$fileInputName]) || $_FILES[$fileInputName]['error'] !== UPLOAD_ERR_OK) {
         return ['success' => false, 'message' => 'No file uploaded or upload error.'];
     }

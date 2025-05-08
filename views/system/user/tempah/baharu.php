@@ -125,7 +125,7 @@
                 center: '',
                 end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
             },
-
+            eventOverlap: false,  
             views: {
                 month: {
                     titleFormat: {
@@ -156,6 +156,7 @@
                 if (info.event.display === 'background') {
                     info.jsEvent.preventDefault(); // Prevent any action
                 }
+                
             },
             validRange: function (nowDate) {
                 // Create a new Date object for today at 14:00
@@ -175,6 +176,19 @@
                     method: 'POST',
                     extraParams: {
                         cuti_calendar: 'cuti_calendar'
+                    },
+                    failure: function () {
+                        alert('Failed to load events from Source 1');
+                    },
+
+                },
+
+                {
+                    url: '<?php echo $basePath2 ?>/tempahan/calendar',
+                    method: 'POST',
+                    extraParams: {
+                        tempahan_calendar: 'tempahan_calendar',
+                        user_id: '<?php echo $_SESSION['user_details']['id'] ?>',
                     },
                     failure: function () {
                         alert('Failed to load events from Source 1');
