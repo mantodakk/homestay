@@ -35,6 +35,7 @@ $requestMethod = $_SERVER['REQUEST_METHOD'];
 // Route Definitions
 $routes = [
     '' => 'home',
+    '/' => 'home',
 
 
 

@@ -48,8 +48,11 @@ function logout()
 function notFound($requestUri)
 {
     http_response_code(404);
-    echo "404 Not Found\n";
-    echo $requestUri;
+    // echo "404 Not Found\n";
+    // echo $requestUri;
+    include('includes/server.php');
+
+    include 'views/system/auth/404.php';
 
 }
 
@@ -83,8 +86,8 @@ function register_2()
 function dashboard()
 {
     include('includes/server.php');
-    // checkLogin();
-    // $role = checkRole();
+    checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],

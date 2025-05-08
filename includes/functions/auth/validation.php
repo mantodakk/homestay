@@ -10,15 +10,11 @@ function checkRole()
         $role = $_SESSION['user_details']['role'];
         // Check for different roles
         if ($role == 1) {
-            return 'bppl';
+            return 'admin';
         } elseif ($role == 2) {
-            return 'kb';
-        } elseif ($role == 3) {
-            return 'lecturer';
-        } elseif ($role == 4) {
-            return 'guard';
-        } elseif ($role == 5) {
-            return 'student';
+            return 'guest';
+        } else{
+
         }
     }
 

@@ -3,7 +3,7 @@
 if (isset($_POST['login'])) {
     $errors = array();
 
-    echo "<script>console.log('test');</script>";
+    echo "<script>console.log('testregister');</script>";
 
     $login = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -19,10 +19,9 @@ if (isset($_POST['login'])) {
         $password = md5($password);
 
 
-        $query = "SELECT a.id,a.username,a.email,a.role,b.name as nama , b.ic,b.phone,b.birth_date,b.ndp,b.kursus,b.semester,b.bengkel 
+        $query = "SELECT a.id,a.name,a.email,a.role 
                     FROM users a 
-                    LEFT JOIN user_details b ON b.user_id = a.id
-                     WHERE email='$login' AND password='$password'
+                      WHERE email='$login' AND password='$password'
                     ";
                     
         $results = mysqli_query($conn, $query);

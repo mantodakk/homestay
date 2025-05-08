@@ -59,6 +59,7 @@ if (isset($_POST['tempahan_baharu_form'])) {
 if (isset($_POST['tempahan_calendar'])) {
 
     $user_id = $_POST['user_id'];
+    $role = $_POST['role'];
     $start = $_POST['start']; // e.g. '2025-05-01'
     $end = $_POST['end'];     // e.g. '2025-05-31'
 
@@ -90,7 +91,10 @@ if (isset($_POST['tempahan_calendar'])) {
             $events[] = [
                 "start" => $startDate->format('Y-m-d'),
                 "end" => $endDate->format('Y-m-d'),
-                "display" => 'background',
+                // "start" => $startDate->format('Y-m-d H:i:s'),
+                // "end" => $endDate->format('Y-m-d H:i:s'),
+
+                // "display" => 'background',
                 "backgroundColor" => 'grey',
                 "overlap" => false
             ];

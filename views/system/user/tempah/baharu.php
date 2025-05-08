@@ -85,8 +85,8 @@
 
                                                 <div class="input-group input-group-static my-3">
                                                     <label>Upload File</label>
-                                                    <input type="file" class="form-control file-selector-button" name="file_input"
-                                                        accept=".jpg, .jpeg, .png, .pdf">
+                                                    <input type="file" class="form-control file-selector-button"
+                                                        name="file_input" accept=".jpg, .jpeg, .png, .pdf">
                                                 </div>
 
                                                 <div class="text-center">
@@ -122,10 +122,10 @@
             initialView: "dayGridMonth",
             headerToolbar: {
                 start: 'title', // will normally be on the left. if RTL, will be on the right
-                center: '',
+                center: 'dayGridMonth',
                 end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
             },
-            eventOverlap: false,  
+            eventOverlap: false,
             views: {
                 month: {
                     titleFormat: {
@@ -156,17 +156,17 @@
                 if (info.event.display === 'background') {
                     info.jsEvent.preventDefault(); // Prevent any action
                 }
-                
+
             },
             validRange: function (nowDate) {
-                // Create a new Date object for today at 14:00
-                const start = new Date(nowDate.valueOf());
-                start.setHours(14, 0, 0, 0); // 14:00:00.000
 
-                return {
-                    start: start.toISOString()
-                    // Optional: add 'end' if you want to restrict the upper limit too
-                };
+                // const start = new Date(nowDate.valueOf());
+                // start.setHours(14, 0, 0, 0); // 14:00:00.000
+
+                // return {
+                //     start: start.toISOString()
+                //     // Optional: add 'end' if you want to restrict the upper limit too
+                // };
             },
 
 
@@ -188,36 +188,30 @@
                     method: 'POST',
                     extraParams: {
                         tempahan_calendar: 'tempahan_calendar',
-                        user_id: '<?php echo $_SESSION['user_details']['id'] ?>',
+                        user_id: '1',
+                        role: '1',
                     },
                     failure: function () {
                         alert('Failed to load events from Source 1');
                     },
 
                 },
-                // {
-                //     url: '/api/events2',
-                //     method: 'POST',
-                //     extraParams: {
-                //         type: 'cuti'
-                //     },
-                //     failure: function () {
-                //         alert('Failed to load events from Source 2');
-                //     },
-                //     color: 'green',
-                //     textColor: 'white'
-                // },
+
             ],
 
             selectable: true,
             select: function (info) {
+                if (info.view.type === 'timeGridWeek') {
+
+                    return; // Do nothing
+                }
                 const selectedStart = info.start;
                 const selectedEnd = info.end;
                 // Set check-in time to 14:00 PM (2:00 PM) for the start date
-                // selectedStart.setHours(14, 0, 0, 0); // Set to 14:00:00 (2:00 PM)
+                selectedStart.setHours(14, 0, 0, 0); // Set to 14:00:00 (2:00 PM)
 
                 // Set check-out time to 12:00 PM (12:00 PM) for the end date
-                // selectedEnd.setHours(12, 0, 0, 0);  // Set to 12:00:00 (12:00 PM)
+                selectedEnd.setHours(12, 0, 0, 0);  // Set to 12:00:00 (12:00 PM)
                 // Format the dates (assuming you are using moment.js or similar date formatting function)
                 const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)
                 const endStr = formatDate(selectedEnd);
@@ -226,8 +220,8 @@
                 $('#tarikh_mula').val(startStr);
                 $('#tarikh_tamat').val(endStr);
 
-                console.log(startStr);
-                console.log(endStr);
+                console.log(selectedStart);
+                console.log(selectedEnd);
 
                 // Show the modal (if needed)
                 var modal = new bootstrap.Modal(document.getElementById('eventModal'));

@@ -212,7 +212,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Material XD Version</h6>
@@ -255,7 +255,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Add Progress Track</h6>
@@ -292,7 +292,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
@@ -329,7 +329,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm me-3" alt="spotify">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-spotify.svg" class="avatar avatar-sm me-3" alt="spotify">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
@@ -372,7 +372,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm me-3" alt="jira">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-jira.svg" class="avatar avatar-sm me-3" alt="jira">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
@@ -406,7 +406,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="<?php echo $rootPath; ?>/assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm me-3" alt="invision">
+                            <img src="<?php echo $rootPath; ?>/assets/img/logos/small-logos/logo-invision.svg" class="avatar avatar-sm me-3" alt="invision">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>

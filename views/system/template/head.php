@@ -2,9 +2,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $rootPath; ?>/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/img/logo.jpg">
   <title>
-    Material Dashboard 3 by Creative Tim
+  Villa D'hati
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />

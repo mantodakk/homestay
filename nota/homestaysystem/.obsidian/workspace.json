@@ -30,12 +30,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Template.md",
+                "file": "Design/Home Note.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Template"
+              "title": "Home Note"
             }
           }
         ],
@@ -183,18 +183,23 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "foldercanvas:Folder Canvas": false,
+      "obsidian-kanban:Create new board": false
     }
   },
   "active": "f8589b5ca294d21e",
   "lastOpenFiles": [
-    "Design/Home.canvas",
-    "Design/Home Note.md",
+    "Task.md",
+    "Time.md",
     "Template.md",
     "Untitled.md",
     "Untitled 1.md",
+    "Untitled 2.md",
+    "Untitled 3.md",
     "Welcome.md",
-    "Time.md",
+    "Design/Home Note.md",
+    "Design/Home.canvas",
     "Design"
   ]
 }

@@ -15,7 +15,7 @@
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/sweetalert.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery.fancybox.js"></script>
 
-  <script>
+  <!-- <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
@@ -247,7 +247,7 @@
         },
       },
     });
-  </script>
+  </script> -->
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
