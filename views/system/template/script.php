@@ -1,10 +1,10 @@
-  <!--   Core JS Files   -->
-  <script src="<?php echo $rootPath; ?>/assets/js/core/popper.min.js"></script>
-  <script src="<?php echo $rootPath; ?>/assets/js/core/bootstrap.min.js"></script>
-  <script src="<?php echo $rootPath; ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="<?php echo $rootPath; ?>/assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
-  <script src="<?php echo $rootPath; ?>/assets/js/plugins/fullcalendar.min.js"></script>
+<!--   Core JS Files   -->
+<script src="<?php echo $rootPath; ?>/assets/js/core/popper.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/core/bootstrap.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/fullcalendar.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js"></script>
 
 
@@ -15,7 +15,7 @@
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/sweetalert.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery.fancybox.js"></script>
 
-  <!-- <script>
+<!-- <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
@@ -248,15 +248,74 @@
       },
     });
   </script> -->
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+<script>
+  var win = navigator.platform.indexOf('Win') > -1;
+  if (win && document.querySelector('#sidenav-scrollbar')) {
+    var options = {
+      damping: '0.5'
     }
-  </script>
-  <!-- Github buttons -->
-   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?php echo $rootPath; ?>/assets/js/material-dashboard.min.js?v=3.2.0"></script>
+    Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+  }
+</script>
+<!-- Github buttons -->
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="<?php echo $rootPath; ?>/assets/js/material-dashboard.min.js?v=3.2.0"></script>
+
+
+
+
+<script src="https://js.pusher.com/beams/2.1.0/push-notifications-cdn.js"></script>
+
+<script>
+
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js', {
+      updateViaCache: 'none'  // Ensure service worker and scripts are always fresh
+    }) // your custom path
+        .then(registration => {
+          console.log("Service Worker registered:", registration);
+
+          const beamsClient = new PusherPushNotifications.Client({
+            instanceId: 'e5f0a799-22e8-4046-8b42-d0fcff394367',
+            serviceWorkerRegistration: registration  // 🔑 THIS is required
+          });
+
+
+          beamsClient.start()
+            .then(() => {
+              // Subscribe the device to the correct interest
+              beamsClient.addDeviceInterest('asd')
+                .then(() => {
+                  console.log('Successfully subscribed to  ');
+                })
+                .catch(err => {
+                  console.error('Error subscribing to interest', err);
+                });
+            })
+            .catch((err) => {
+              console.error('Error initializing PusherBeams:', err);
+            });
+        })
+        .catch((err) => {
+          console.error('Error registering service worker:', err);
+        });
+
+    });
+  }
+
+</script>
+
+
+ 
+<script>
+  const beamsClient = new PusherPushNotifications.Client({
+    instanceId: 'e5f0a799-22e8-4046-8b42-d0fcff394367',
+  });
+
+  beamsClient.start()
+    .then(() => beamsClient.addDeviceInterest('hello'))
+    .then(() => console.log('Successfully registered and subscribed!'))
+    .catch(console.error);
+</script>

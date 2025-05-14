@@ -67,6 +67,8 @@
                                         <form role="form text-left">
                                             <div class="row">
                                                 <div class="col-6">
+                                                <input type="hidden" class="form-control"  
+                                                name="user_id" value="<?php  echo $_SESSION['user_details']['id']?>" >
                                                     <div class="input-group input-group-static my-3 ">
                                                         <label>Tarikh Mula</label>
                                                         <input type="text" class="form-control" id="tarikh_mula"
@@ -156,17 +158,21 @@
                 if (info.event.display === 'background') {
                     info.jsEvent.preventDefault(); // Prevent any action
                 }
+                var eventId = info.event.id;
+
+                console.log("Event ID: " + eventId);
+                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId ;
+
 
             },
             validRange: function (nowDate) {
 
-                // const start = new Date(nowDate.valueOf());
-                // start.setHours(14, 0, 0, 0); // 14:00:00.000
+                const start = new Date(nowDate.valueOf());
+                start.setHours(14, 0, 0, 0); // 14:00:00.000
 
-                // return {
-                //     start: start.toISOString()
-                //     // Optional: add 'end' if you want to restrict the upper limit too
-                // };
+                return {
+                    start: start.toISOString()
+                };
             },
 
 
@@ -188,8 +194,8 @@
                     method: 'POST',
                     extraParams: {
                         tempahan_calendar: 'tempahan_calendar',
-                        user_id: '1',
-                        role: '1',
+                        user_id: '<?php echo $_SESSION['user_details']['id'] ?>',
+                        role: '<?php echo $_SESSION['user_details']['role'] ?>',
                     },
                     failure: function () {
                         alert('Failed to load events from Source 1');

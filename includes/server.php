@@ -22,7 +22,8 @@ include_once('functions/file/delete.php');
 //routes
 
  include_once('functions/routes/general.php');
- include_once('functions/routes/user.php');
+ include_once('functions/routes/guest.php');
+ include_once('functions/routes/admin.php');
  
  
 
@@ -41,6 +42,7 @@ include_once('functions/auth/validation.php');
 
 //notification
 include_once('functions/notification/sweetalert.php');
+include_once('functions/notification/pusher.php');
 
 //qr
 include_once('functions/qr/generate.php');
@@ -54,4 +56,5 @@ include('functions/cuti/calendar.php');
 
 
 include('functions/tempahan/baharu.php');
+include('functions/tempahan/details.php');
 

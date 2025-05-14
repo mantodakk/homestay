@@ -45,7 +45,7 @@ $routes = [
     'logout' => 'logout',
     'profile' => 'profile',
 
- 
+
     //userprofile
     'profile/update' => 'profile_update',
 
@@ -54,6 +54,7 @@ $routes = [
 
     'tempah/baharu' => 'tempah_baharu',
     'tempahan/calendar' => 'tempahan_calendar',
+    'tempahan/notify_admin' => 'tempahan_notify_admin',
 
 
     //cuti
@@ -68,7 +69,18 @@ switch (true) {
         // Route exists, execute the corresponding function
         call_user_func($routes[$requestUri]);
         break;
- 
+
+    case strpos($requestUri, 'tempah/details/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[2]) && is_numeric($parts[2])) {
+            $tempah_id = $parts[2]; // Extract booking ID
+            tempah($tempah_id);
+        } else {
+            notFound($requestUri);
+        }
+        break;
+
     default:
         // If none of the above conditions match, call notFound()
         notFound($requestUri);

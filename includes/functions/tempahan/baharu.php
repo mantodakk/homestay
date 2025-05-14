@@ -6,7 +6,7 @@ if (isset($_POST['tempahan_baharu_form'])) {
 
 
     // Make sure to sanitize the inputs
-    $user_id = '1';
+    $user_id = $_POST['user_id'];
     $tarikh_mula = $_POST['tarikh_mula'];
     $tarikh_tamat = $_POST['tarikh_tamat'];
 
@@ -96,7 +96,8 @@ if (isset($_POST['tempahan_calendar'])) {
 
                 // "display" => 'background',
                 "backgroundColor" => 'grey',
-                "overlap" => false
+                "overlap" => false,
+                "id" => $row['id'],
             ];
         } else {
             $events[] = [
@@ -107,7 +108,9 @@ if (isset($_POST['tempahan_calendar'])) {
 
                 "title" => "Tempahan #" . $row['id'],
                 "className" => $className,
-                "overlap" => false
+                "overlap" => false,
+                "id" => $row['id'],
+
             ];
         }
     }

@@ -1,11 +1,72 @@
 {
-	"nodes":[
-		{"id":"e1f61243263ea46d","x":-223,"y":-294,"width":250,"height":60,"type":"text","text":"Nav"},
-		{"id":"e2ab11c04d2fd283","x":-223,"y":-200,"width":250,"height":60,"type":"text","text":"Hero / Welcome\n"},
-		{"id":"8252e55fd88051e6","x":-223,"y":-100,"width":250,"height":60,"type":"text","text":"Featured Images\n"},
-		{"id":"ff0a8de61b05903d","x":-223,"y":0,"width":250,"height":60,"type":"text","text":"Why Us\n"},
-		{"id":"9876a6d8fa3e43f1","x":-223,"y":100,"width":250,"height":60,"type":"text","text":"Testimonials / Review\n"},
-		{"id":"a678b4ade3b227ae","x":-223,"y":200,"width":250,"height":60,"type":"text","text":"Footer\n"}
-	],
-	"edges":[]
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "height": 60,
+      "id": "e1f61243263ea46d",
+      "styleAttributes": {
+      },
+      "text": "Nav",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": -294
+    },
+    {
+      "height": 60,
+      "id": "e2ab11c04d2fd283",
+      "styleAttributes": {
+      },
+      "text": "Hero / Welcome\n",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": -200
+    },
+    {
+      "height": 60,
+      "id": "8252e55fd88051e6",
+      "styleAttributes": {
+      },
+      "text": "Featured Images\n",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": -100
+    },
+    {
+      "height": 60,
+      "id": "ff0a8de61b05903d",
+      "styleAttributes": {
+      },
+      "text": "Why Us\n",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": 0
+    },
+    {
+      "height": 60,
+      "id": "9876a6d8fa3e43f1",
+      "styleAttributes": {
+      },
+      "text": "Testimonials / Review\n",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": 100
+    },
+    {
+      "height": 60,
+      "id": "a678b4ade3b227ae",
+      "styleAttributes": {
+      },
+      "text": "Footer\n",
+      "type": "text",
+      "width": 250,
+      "x": -223,
+      "y": 200
+    }
+  ]
 }

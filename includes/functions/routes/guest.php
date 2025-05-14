@@ -16,7 +16,7 @@ function tempah_baharu()
 
  
 
-        include 'views/system/user/tempah/baharu.php';
+        include 'views/system/tempah/baharu.php';
 
 }
 
