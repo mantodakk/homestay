@@ -42,21 +42,17 @@
         type="text/javascript"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
 
-    
+
      <script type="text/javascript">
 
         $(document).ready(function () {
-            if ($(window).width() >= 991) {
-
-                setTimeout(function () {
-                    var rellax = new Rellax('.rellax', {
+ 
+                var rellax = new Rellax('.rellax', {
                         center: true
                     });
-                }, 5000);
 
                 var rellaxHeader = new Rellax('.rellax-header');
                 var rellaxText = new Rellax('.rellax-text');
-            }
-
+ 
         });
     </script>

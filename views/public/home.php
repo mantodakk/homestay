@@ -179,20 +179,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="images-container">
-                            <div class="image-container1">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/card3.jpg">
+                            <div class="image-container1  " data-rellax-speed="-3" >
+                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0031.jpg"  >
                             </div>
-                            <div class="image-container2">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/card6.jpg">
+                            <div class="image-container2  "  data-rellax-speed="1">
+                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0032.jpg"  >
                             </div>
-                            <div class="image-container3">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/card7.jpg">
+                            <div class="image-container3  "  data-rellax-speed="-3">
+                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0046.jpg"  >
+
                             </div>
-                            <div class="image-container4">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/card5.jpg">
+                            <div class="image-container4  "   data-rellax-speed="1">
+                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0036.jpg" >
                             </div>
-                            <div class="image-container5">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/card4.jpg">
+                            <div class="image-container5  "  data-rellax-speed="-3">
+                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0033.jpg" >
+
                             </div>
                         </div>
                     </div>
@@ -206,9 +208,9 @@
                     <div class="col-md-5">
                         <div class="image-container">
                             <img class="img img-raised rounded img-comments rellax" data-rellax-speed="1"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/content1.jpg">
+                                src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0040.jpg">
                             <img class="img img-raised rounded img-blog rellax" data-rellax-speed="4"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/content4.jpg">
+                                src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0043.jpg">
                         </div>
                     </div>
 
@@ -679,19 +681,19 @@
                 </div>
             </div>
         </div> -->
-        <!-- 
+
         <div class="section section-testimonials" data-background-color="black">
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-center">
+                <!-- <div class="col-md-8 ml-auto mr-auto text-center">
                     <h2 class="title">Trusted by 245,000+ People</h2>
                     <h5 class="description">The UI Kits, Templates and Dashboards that we've created are used by
                         <b>245,000+ web developers</b> in over <b>426,000 Web Projects</b>. This is what some of them
                         think:
                     </h5>
-                </div>
+                </div> -->
             </div>
 
-            <div class="row">
+            <div class="row" style="height: 300px;">
 
                 <div class="col-md-2">
                     <div class="testimonials-people">
@@ -710,13 +712,13 @@
 
                 <div class="col-md-8">
                     <div id="carouselExampleIndicators2" class="carousel slide">
-                        <ol class="carousel-indicators">
+                        <!-- <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-                        </ol>
+                        </ol> -->
 
-                        <div class="carousel-inner" role="listbox">
+                        <!-- <div class="carousel-inner" role="listbox">
 
                             <div class="carousel-item active justify-content-center">
                                 <div class="card card-testimonial card-plain">
@@ -806,7 +808,7 @@
                         <a class="carousel-control-next" href="presentation.html#carouselExampleIndicators2"
                             role="button" data-slide="next">
                             <i class="now-ui-icons arrows-1_minimal-right"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
@@ -827,7 +829,7 @@
 
             </div>
 
-        </div> -->
+        </div>
 
 
         <!-- <div class="section section-pricing" id="sectionBuy">
