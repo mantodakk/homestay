@@ -51,10 +51,12 @@ include_once('functions/qr/generate.php');
 //cuti
 include('functions/cuti/calendar.php');
 
-
+//views
+include('functions/page_views/page_views.php');
 //tempah
 
 
 include('functions/tempahan/baharu.php');
 include('functions/tempahan/details.php');
+include('functions/tempahan/senarai.php');
 

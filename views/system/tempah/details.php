@@ -42,287 +42,148 @@
 
                 </div>
                 <div class="row">
-                    <div class="row mt-3">
 
-                        <div class="col-12 col-md-6 col-xl-6 mt-md-0 mt-4 position-relative">
-                            <div class="card card-plain h-100">
-                                <div class="card-header pb-0 p-3">
-                                    <div class="row">
-                                        <div class="col-md-8 d-flex align-items-center">
-                                            <h6 class="mb-0">Maklumat Tempahan</h6>
-                                        </div>
-                                        <div class="col-md-4 text-end">
+                    <div class="col-12 col-xl-6 mt-xl-0 mt-4 position-relative">
+                        <div class="card card-plain h-100">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <h6 class="mb-0">Maklumat Tempahan</h6>
+                                    </div>
+                                    <div class="col-md-4 text-end">
 
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body p-3">
-
-                                    <hr class="horizontal gray-light my-2">
-                                    <ul class="list-group">
-                                        <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
-                                                class="text-dark">ID:</strong> <?php echo $tempah['id'] ?></li>
-                                        <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                                class="text-dark">Tarikh Check In:</strong>
-                                            <?php echo $tempah['tarikh_mula'] ?></li>
-                                        <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                                class="text-dark">Tarikh Check Out:</strong>
-                                            <?php echo $tempah['tarikh_tamat'] ?></li>
-                                        <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                                class="text-dark">Status:</strong> <?php echo $tempah['status'] ?></li>
-
-                                    </ul>
-                                </div>
                             </div>
-                            <hr class="vertical dark">
+                            <div class="card-body p-3">
+
+                                <hr class="horizontal gray-light my-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                            class="text-dark">ID:</strong> <?php echo $tempah['id'] ?></li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarikh
+                                            Check In:</strong>
+                                        <?php echo $tempah['tarikh_mula'] ?></li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarikh
+                                            Check Out:</strong>
+                                        <?php echo $tempah['tarikh_tamat'] ?></li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                            class="text-dark">Status:</strong> <?php echo $tempah['status'] ?></li>
+
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-12 col-xl-6 mt-xl-0 mt-4">
-                            <div class="card card-plain h-100">
-                                <div class="card-header p-3">
-                                    <div
-                                        class="icon icon-lg icon-shape bg-gradient-info shadow text-center border-radius-lg float-start">
-                                        <i class="material-symbols-rounded opacity-10">splitscreen</i>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-                                            <h6 class="mb-0">To do list</h6>
-                                        </div>
-                                        <div class="col-md-6 d-flex justify-content-end align-items-center">
-                                            <small>23 - 30 March 2020</small>
-                                        </div>
-                                    </div>
+                        <hr class="vertical dark">
+                    </div>
+
+                    <div class="col-12 col-xl-6 mt-xl-0 mt-4">
+
+                        <?php
+
+                        if (!isset($_SESSION["tempah_$tempah_id"]['guest_todo'])) {
+                            $_SESSION["tempah_$tempah_id"]['guest_todo'] = [
+                                'check_in' => false,
+                                'check_out' => false
+                            ];
+                        }
+                        $guestTodo = $_SESSION["tempah_$tempah_id"]['guest_todo'];
+
+
+
+                        ?>
+
+                        <div class="card card-plain h-100">
+                            <div class="card-header p-3">
+                                <div
+                                    class="icon icon-lg icon-shape bg-gradient-info shadow text-center border-radius-lg float-start">
+                                    <i class="material-symbols-rounded opacity-10">key</i>
                                 </div>
-                                <div class="card-body p-3">
-                                    <ul class="list-group list-group-flush" data-toggle="checklist">
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item checklist-item-primary ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="flexCheckDefault">
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Check status</h6>
-                                                    <div class="dropstart  float-lg-end ms-auto">
-                                                        <a href="javascript:;" class="cursor-pointer"
-                                                            id="dropdownTable2" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            <i class="material-symbols-rounded text-secondary text-sm">
-                                                                settings
-                                                            </i>
-                                                        </a>
-                                                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                                                            aria-labelledby="dropdownTable2" style="">
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Another action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Something else here</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-center ms-4 mt-3 ps-1">
-                                                    <div>
-                                                        <p class="mb-0 text-secondary">Date</p>
-                                                        <span class="text-xs">24 March 2019</span>
-                                                    </div>
-                                                    <div class="ms-auto">
-                                                        <p class="mb-0 text-secondary">Project</p>
-                                                        <span class="text-xs">2414_VR4sf3#</span>
-                                                    </div>
-                                                    <div class="mx-auto">
-                                                        <p class="mb-0 text-secondary">Company</p>
-                                                        <span class="text-xs">Creative Tim</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item checklist-item-dark ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="flexCheckDefault1" checked="">
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Management discussion</h6>
-                                                    <div class="dropstart  float-lg-end ms-auto">
-                                                        <a href="javascript:;" class="cursor-pointer"
-                                                            id="dropdownTable3" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            <i class="material-symbols-rounded text-secondary text-sm">
-                                                                settings
-                                                            </i>
-                                                        </a>
-                                                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                                                            aria-labelledby="dropdownTable3" style="">
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Another action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Something else here</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center ms-4 mt-3 ps-1">
-                                                    <div>
-                                                        <p class="mb-0 text-secondary">Date</p>
-                                                        <span class="text-xs">24 March 2019</span>
-                                                    </div>
-                                                    <div class="ms-auto">
-                                                        <p class="mb-0 text-secondary">Project</p>
-                                                        <span class="text-xs">4411_8sIsdd23</span>
-                                                    </div>
-                                                    <div class="mx-auto">
-                                                        <p class="mb-0 text-secondary">Company</p>
-                                                        <span class="text-xs">Apple</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item checklist-item-warning ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="flexCheckDefault2" checked="">
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">New channel distribution</h6>
-                                                    <div class="dropstart  float-lg-end ms-auto">
-                                                        <a href="javascript:;" class="cursor-pointer" id="dropdownTable"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="material-symbols-rounded text-secondary text-sm">
-                                                                settings
-                                                            </i>
-                                                        </a>
-                                                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                                                            aria-labelledby="dropdownTable" style="">
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Another action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Something else here</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center ms-4 mt-3 ps-1">
-                                                    <div>
-                                                        <p class="mb-0 text-secondary">Date</p>
-                                                        <span class="text-xs">25 March 2019</span>
-                                                    </div>
-                                                    <div class="ms-auto">
-                                                        <p class="mb-0 text-secondary">Project</p>
-                                                        <span class="text-xs">827d_kdl33D1s</span>
-                                                    </div>
-                                                    <div class="mx-auto">
-                                                        <p class="mb-0 text-secondary">Company</p>
-                                                        <span class="text-xs">Slack</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item checklist-item-success ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="flexCheckDefault3">
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">IOS App development</h6>
-                                                    <div class="dropstart float-lg-end ms-auto">
-                                                        <a href="javascript:;" class="cursor-pointer"
-                                                            id="dropdownTable1" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            <i class="material-symbols-rounded text-secondary text-sm">
-                                                                settings
-                                                            </i>
-                                                        </a>
-                                                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                                                            aria-labelledby="dropdownTable1" style="">
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Another action</a></li>
-                                                            <li><a class="dropdown-item border-radius-md"
-                                                                    href="javascript:;">Something else here</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center ms-4 mt-3 ps-1">
-                                                    <div>
-                                                        <p class="mb-0 text-secondary">Date</p>
-                                                        <span class="text-xs font-weight-bolder">26 March 2019</span>
-                                                    </div>
-                                                    <div class="ms-auto">
-                                                        <p class="mb-0 text-secondary">Project</p>
-                                                        <span class="text-xs">88s1_349DA2sa</span>
-                                                    </div>
-                                                    <div class="mx-auto">
-                                                        <p class="mb-0 text-secondary">Company</p>
-                                                        <span class="text-xs">Facebook</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-0">Guest To-Do List</h6>
+                                    </div>
+                                    <!-- <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                            <small>Today</small>
+                                        </div> -->
                                 </div>
                             </div>
-                            <hr class="vertical dark">
+                            <div class="card-body p-3">
+                                <ul class="list-group list-group-flush" data-toggle="checklist">
 
+                                    <!-- Task 1 -->
+                                    <li class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                        <div class="checklist-item checklist-item-success ps-2 ms-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check is-filled">
+                                                    <input class="form-check-input  me-2" type="checkbox" value=""
+                                                        id="checkIn" <?php echo $guestTodo['check_in'] ? 'checked' : '' ?>>
+                                                </div>
+                                                <h6 class="mb-0 text-dark text-sm"> Go to the lobby/counter to
+                                                    collect your key</h6>
+                                            </div>
+                                        </div>
+                                        <hr class="horizontal dark mt-4 mb-0">
+                                    </li>
 
+                                    <!-- Task 2 -->
+                                    <li class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                        <div class="checklist-item checklist-item-warning ps-2 ms-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check is-filled">
+                                                    <input class="form-check-input  me-2" type="checkbox" value=""
+                                                        id="checkOut" <?php echo $guestTodo['check_in'] ? 'checked' : '' ?>>
+                                                </div>
+                                                <h6 class="mb-0 text-dark text-sm"> Return to the lobby/counter to
+                                                    check out</h6>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mt-4">
-                        <div class="col-12">
-                            <div class="mb-3 ps-3">
-                                <h6 class="mb-1">Admin</h6>
-                                <p class="text-sm">Contact Information</p>
-                            </div>
-                            <div class="row">
-
-                                <?php foreach ($admins as $admin) { ?>
-                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                        <div class="card card-blog card-plain">
-                                            <div class="card-header p-0 m-2">
-
-                                            </div>
-                                            <div class="card-body p-3">
-                                                <!-- <p class="mb-0 text-sm"></p> -->
-                                                <a href="javascript:;">
-                                                    <h5>
-                                                        <?php echo $admin['email'] ?>
-                                                    </h5>
-                                                </a>
-                                                <p class="mb-4 text-sm">
-                                                    Phone
-                                                </p>
 
 
 
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <button type="button" id="notify" data-admin="<?php echo $admin['id'] ?>"
-                                                        class="btn btn-outline-primary btn-sm mb-0">Notify</button>
+                    <div class="col-12    mt-4 ">
+                        <div class="mb-3 ps-3">
+                            <h6 class="mb-1">Admin</h6>
+                            <p class="text-sm">Contact Information</p>
+                        </div>
+                        <div class="row">
 
-                                                </div>
+                            <?php foreach ($admins as $admin) { ?>
+                                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                                    <div class="card card-blog card-plain">
+                                        <div class="card-header p-0 m-2">
+
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <!-- <p class="mb-0 text-sm"></p> -->
+                                            <a href="javascript:;">
+                                                <h5>
+                                                    <?php echo $admin['email'] ?>
+                                                </h5>
+                                            </a>
+                                            <!-- <p class="mb-4 text-sm">
+                                                Phone
+                                            </p> -->
+
+
+
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <button type="button" id="notify" data-admin="<?php echo $admin['id'] ?>"
+                                                    class="btn btn-outline-primary btn-sm mb-0">Notify</button>
+
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                <?php } ?>
+                            <?php } ?>
 
 
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -400,38 +261,38 @@
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
     <script>
-    // jQuery to handle the button click event
-    $(document).ready(function() {
-        // When the 'Notify' button is clicked
-        $('#notify').click(function() {
-            // Get the admin ID from the 'data-admin' attribute
-            var adminId = $(this).data('admin');
-            
-            // Log adminId to check it's working
-            console.log('Notify admin with ID:', adminId);
+        // jQuery to handle the button click event
+        $(document).ready(function () {
+            // When the 'Notify' button is clicked
+            $('#notify').click(function () {
+                // Get the admin ID from the 'data-admin' attribute
+                var adminId = $(this).data('admin');
 
-            // Perform an AJAX request
-            $.ajax({
-                url: '<?php echo $basePath2 ?>/tempahan/notify_admin', // Replace with your PHP endpoint
-                method: 'POST',
-                data: { 
-                    tempahan_notify_admin : "tempahan_notify_admin",
-                    admin_id: adminId,
-                 }, // Sending admin_id to the server
-                success: function(response) {
-                    // Handle the server response
-                    var data = JSON.parse(response); // Parse the JSON response from PHP
-                   
-                },
-                error: function(xhr, status, error) {
-                    // Handle any errors that occur during the AJAX request
-                    console.error('AJAX Error: ' + status + ' ' + error);
-                    alert('Failed to send notification');
-                }
+                // Log adminId to check it's working
+                console.log('Notify admin with ID:', adminId);
+
+                // Perform an AJAX request
+                $.ajax({
+                    url: '<?php echo $basePath2 ?>/tempahan/notify_admin', // Replace with your PHP endpoint
+                    method: 'POST',
+                    data: {
+                        tempahan_notify_admin: "tempahan_notify_admin",
+                        admin_id: adminId,
+                    }, // Sending admin_id to the server
+                    success: function (response) {
+                        // Handle the server response
+                        var data = JSON.parse(response); // Parse the JSON response from PHP
+
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle any errors that occur during the AJAX request
+                        console.error('AJAX Error: ' + status + ' ' + error);
+                        alert('Failed to send notification');
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>

@@ -27,6 +27,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.js"></script>
+
+<!-- Kanban scripts -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/dragula/dragula.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/jkanban/jkanban.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/sweetalert.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery.fancybox.js"></script>
+
+
   <script src="<?php echo $rootPath; ?>/assets/js/now-design-system-pro.min.js" type="text/javascript"></script>
   <script>
   </script>
@@ -87,3 +100,31 @@
       });
     }
   </script>
+
+
+
+
+    <script>
+        // On page load, send an AJAX request to track the page view
+        $(document).ready(function() {
+            // Send an AJAX request to track page views
+                    var pageUrl = window.location.href;
+
+            $.ajax({
+                url: 'views/update',  // Path to your PHP file that handles the tracking
+                type: 'POST',
+                data: { page_view: true,
+                                  page_url: pageUrl  // Send the current page URL
+
+                 },  // The data to send to the PHP file
+                success: function(response) {
+                    // Parse the response and update the view count on the page
+                    var data = JSON.parse(response);
+                    // $('#view-count').text(data.view_count); // Display the view count
+                },
+                error: function() {
+                    console.log('Error in tracking page view');
+                }
+            });
+        });
+    </script>

@@ -6,6 +6,7 @@
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/fullcalendar.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.js"></script>
 
 
 <!-- Kanban scripts -->
@@ -271,9 +272,7 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js', {
-      updateViaCache: 'none'  // Ensure service worker and scripts are always fresh
-    }) // your custom path
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js') // your custom path
         .then(registration => {
           console.log("Service Worker registered:", registration);
 
@@ -286,9 +285,9 @@
           beamsClient.start()
             .then(() => {
               // Subscribe the device to the correct interest
-              beamsClient.addDeviceInterest('asd')
+              beamsClient.addDeviceInterest('<?php echo $_SESSION['user_details']['id'] ?>')
                 .then(() => {
-                  console.log('Successfully subscribed to  ');
+                  console.log('Successfully subscribed to <?php echo $_SESSION['user_details']['id'] ?>');
                 })
                 .catch(err => {
                   console.error('Error subscribing to interest', err);
@@ -310,12 +309,6 @@
 
  
 <script>
-  const beamsClient = new PusherPushNotifications.Client({
-    instanceId: 'e5f0a799-22e8-4046-8b42-d0fcff394367',
-  });
+ 
 
-  beamsClient.start()
-    .then(() => beamsClient.addDeviceInterest('hello'))
-    .then(() => console.log('Successfully registered and subscribed!'))
-    .catch(console.error);
 </script>

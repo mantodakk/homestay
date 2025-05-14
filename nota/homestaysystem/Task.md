@@ -15,8 +15,8 @@ kanban-plugin: board
 - [ ] DAMAGE (ADMIN)
 - [ ] REVIEW (ADMIN)
 - [ ] REVIEW (USER)
-- [ ] DASHBOARD (USER)
 - [ ] DASHBOARD (ADMIN)
+- [ ] Removing excess (functions)
 
 
 ## Bugs
@@ -28,6 +28,7 @@ kanban-plugin: board
 - [ ] Booking (USER)
 - [ ] Booking (ADMIN)
 - [ ] CUTI (ADMIN)
+- [ ] DASHBOARD (USER)
 
 
 ## Done

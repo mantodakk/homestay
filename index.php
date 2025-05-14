@@ -16,8 +16,7 @@ if (strpos($requestUri, $basePath) === 0) {
 
 }
 
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-
+ 
 
 
 
@@ -55,12 +54,16 @@ $routes = [
     'tempah/baharu' => 'tempah_baharu',
     'tempahan/calendar' => 'tempahan_calendar',
     'tempahan/notify_admin' => 'tempahan_notify_admin',
+    'tempah/senarai' => 'tempah_senarai',
+    'tempahan/senarai' => 'tempahan_senarai',
 
 
     //cuti
     'cuti/calendar' => 'cuti_calendar',
 
-
+    //views
+    'views/update' => 'views_update',
+    'views/get' => 'views_get',
 ];
 
 
