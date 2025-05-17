@@ -58,6 +58,10 @@ include('functions/page_views/page_views.php');
 //review
 include('functions/review/baharu.php');
 
+//report
+include('functions/kerosakan/senarai.php');
+
+
 
 //tempah
 

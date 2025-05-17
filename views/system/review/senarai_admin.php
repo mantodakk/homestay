@@ -70,10 +70,16 @@
                                                 Star
                                             </th>
 
-                                            <!-- <th
+                                            <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Student_name</th> -->
+                                                created_at</th>
 
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Status</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            </th>
 
 
                                         </tr>
@@ -103,7 +109,7 @@
 
             <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
 
-           
+
         </div>
 
 
@@ -155,9 +161,25 @@
                     // { "data": "lecturer_name" },
                     { "data": "description", class: " ", responsivePriority: 2 },
                     { "data": "star", class: " ", responsivePriority: 3 },
+                    { "data": "created_at", class: " ", responsivePriority: 3 },
                     // { "data": "start" },
                     // { "data": "end" },
 
+
+                    { "data": "status", class: " ", responsivePriority: 3 },
+
+                    {
+                        data: null,
+                        class: "text-center",
+                        responsivePriority: 5,
+                        render: function (data, type, row) {
+                            return `
+                <button class="btn btn-sm btn-warning change-status-btn" data-id="${row.id}">
+                    Change Status
+                </button>
+            `;
+                        }
+                    }
 
 
 
@@ -165,8 +187,37 @@
 
                 ],
             });
+
+
+
+
+
         });
 
+        $(document).on('click', '.change-status-btn', function () {
+            const reviewId = $(this).data('id');
+
+            // if (!confirm('Change status for review ID: ' + reviewId + '?')) return;
+
+            $.ajax({
+                url: '<?php echo $rootPath ?>/review/senarai',
+                type: 'POST',
+                data: {
+                    review_update_status: "review_update_status",
+                    review_id: reviewId
+
+                },
+                dataType: 'json',
+                success: function (response) {
+                    // alert('Status updated.');
+                    console.log("updated");
+                    $('#eventsTable').DataTable().ajax.reload(); // Reload table
+                },
+                error: function () {
+                    // alert('AJAX error.');
+                }
+            });
+        });
 
 
 

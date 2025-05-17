@@ -17,14 +17,14 @@ if (isset($_POST['reviewbaharu'])) {
 
     // --- Save the review ---
     $review_sql = "INSERT INTO reviews (user_id,description, star, status)
-                   VALUES ('$user_id','$description', '$star', 1)";
+                   VALUES ('$user_id','$description', '$star', 0)";
     $conn->query($review_sql);
 
     // Optional: Redirect or show success message
     header("Location: " . $basePath2 . "/review/senarai");
     exit;
 }
- 
+
 
 
 
@@ -69,5 +69,17 @@ if (isset($_POST['senarai_review'])) {
         'recordsFiltered' => (int) $filtered_records,
         'data' => $reviews_data
     ]);
+    exit;
+}
+
+if (isset($_POST['review_update_status'])) {
+    $review_id = (int) $_POST['review_id'];
+
+    $sql = "UPDATE reviews SET status = IF(status = 1, 0, 1) WHERE id = $review_id";
+    $result = $conn->query($sql);
+
+    header('Content-Type: application/json');
+    $response = ['success' => true];
+    echo json_encode($response);
     exit;
 }

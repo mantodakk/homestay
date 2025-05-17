@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2025 at 10:45 AM
+-- Generation Time: May 17, 2025 at 10:24 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -35,22 +35,26 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `tarikh_tamat` datetime DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int DEFAULT '1',
+  `status2` int DEFAULT '0',
   `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `payment_file` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`, `status`, `reason`, `payment_file`) VALUES
-(6, 1, '2025-05-19 14:00:00', '2025-05-20 12:00:00', '2025-05-08 05:55:49', 1, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
-(7, 2, '2025-05-18 14:00:00', '2025-05-19 12:00:00', '2025-05-08 05:55:49', 1, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
-(8, 1, '2025-05-20 14:00:00', '2025-05-21 12:00:00', '2025-05-08 09:55:10', 1, NULL, ''),
-(9, 1, '2025-05-21 14:00:00', '2025-05-22 12:00:00', '2025-05-08 09:55:41', 1, NULL, ''),
-(10, 1, '2025-05-22 14:00:00', '2025-05-24 12:00:00', '2025-05-08 16:49:39', 1, NULL, 'schedule_calendar.pdf'),
-(11, 3, '2025-05-24 14:00:00', '2025-05-25 12:00:00', '2025-05-14 19:04:00', 1, NULL, '');
+INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`, `status`, `status2`, `reason`, `payment_file`) VALUES
+(6, 1, '2025-05-19 14:00:00', '2025-05-20 12:00:00', '2025-05-08 05:55:49', 1, NULL, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
+(7, 2, '2025-05-18 14:00:00', '2025-05-19 12:00:00', '2025-05-08 05:55:49', 1, NULL, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
+(8, 1, '2025-05-20 14:00:00', '2025-05-21 12:00:00', '2025-05-08 09:55:10', 1, NULL, NULL, ''),
+(9, 1, '2025-05-21 14:00:00', '2025-05-22 12:00:00', '2025-05-08 09:55:41', 1, NULL, NULL, ''),
+(10, 1, '2025-05-22 14:00:00', '2025-05-24 12:00:00', '2025-05-08 16:49:39', 2, 4, NULL, 'schedule_calendar.pdf'),
+(11, 3, '2025-05-24 14:00:00', '2025-05-25 12:00:00', '2025-05-14 19:04:00', 1, NULL, NULL, ''),
+(12, 2, '2025-05-29 14:00:00', '2025-05-30 12:00:00', '2025-05-17 20:18:17', 1, NULL, NULL, NULL),
+(13, 2, '2025-05-30 14:00:00', '2025-05-31 12:00:00', '2025-05-17 20:19:44', 1, NULL, NULL, ''),
+(14, 2, '2025-05-31 14:00:00', '2025-06-01 12:00:00', '2025-05-17 22:24:06', 1, 0, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -62,17 +66,20 @@ DROP TABLE IF EXISTS `booking_details`;
 CREATE TABLE IF NOT EXISTS `booking_details` (
   `id` int NOT NULL AUTO_INCREMENT,
   `booking_id` int NOT NULL,
-  `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `ic` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `int_cond` int DEFAULT NULL,
   `file` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `status` int DEFAULT '2',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking_details`
+--
+
+INSERT INTO `booking_details` (`id`, `booking_id`, `int_cond`, `file`, `created_at`) VALUES
+(5, 10, 2, '1746894718222.jpg', '2025-05-17 22:16:34'),
+(7, 10, 3, '1746899231303.jpg', '2025-05-17 22:23:22');
 
 -- --------------------------------------------------------
 
@@ -88,14 +95,15 @@ CREATE TABLE IF NOT EXISTS `cuti` (
   `tarikh_tamat` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cuti`
 --
 
 INSERT INTO `cuti` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`) VALUES
-(1, 1, '2025-05-06', '2025-05-06', '2025-04-30 07:56:13');
+(1, 1, '2025-05-06', '2025-05-06', '2025-04-30 07:56:13'),
+(2, 1, '2025-05-28', '2025-05-28', '2025-05-17 19:01:57');
 
 -- --------------------------------------------------------
 
@@ -116,7 +124,14 @@ CREATE TABLE IF NOT EXISTS `damage` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `damage`
+--
+
+INSERT INTO `damage` (`id`, `title`, `description`, `status`, `user_id`, `category_id`, `priority`, `cost`, `created_at`, `updated_at`) VALUES
+(51, 'test', 'asdas', 0, 1, NULL, 1, 232, '2025-05-17 20:16:48', '2025-05-17 20:16:48');
 
 -- --------------------------------------------------------
 
@@ -131,7 +146,15 @@ CREATE TABLE IF NOT EXISTS `damage_attachments` (
   `file` text COLLATE utf8mb4_general_ci,
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `damage_attachments`
+--
+
+INSERT INTO `damage_attachments` (`id`, `damage_id`, `file`, `uploaded_at`) VALUES
+(8, 51, 'assets/uploads/kerosakan/51/1746899231303.jpg', '2025-05-17 20:16:48'),
+(7, 51, 'assets/uploads/kerosakan/51/1746894718222.jpg', '2025-05-17 20:16:48');
 
 -- --------------------------------------------------------
 

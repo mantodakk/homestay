@@ -60,15 +60,15 @@
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <div class="card card-plain">
                                     <div class="card-header pb-0 text-left">
-                                        <h5 class="">Tempahan</h5>
-                                        <p class="mb-0">Enter your email and password to sign in</p>
+                                        <h5 class="">Cuti</h5>
+                                        <!-- <p class="mb-0">Enter your email and password to sign in</p> -->
                                     </div>
                                     <div class="card-body">
                                         <form role="form text-left">
                                             <div class="row">
                                                 <div class="col-6">
-                                                <input type="hidden" class="form-control"  
-                                                name="user_id" value="<?php  echo $_SESSION['user_details']['id']?>" >
+                                                    <input type="hidden" class="form-control" name="user_id"
+                                                        value="<?php echo $_SESSION['user_details']['id'] ?>">
                                                     <div class="input-group input-group-static my-3 ">
                                                         <label>Tarikh Mula</label>
                                                         <input type="text" class="form-control" id="tarikh_mula"
@@ -84,17 +84,17 @@
                                                             name="tarikh_tamat" readonly>
                                                     </div>
                                                 </div>
-
+                                                <!-- 
                                                 <div class="input-group input-group-static my-3">
                                                     <label>Upload File</label>
                                                     <input type="file" class="form-control file-selector-button"
-                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf">
-                                                </div>
+                                                        name="file_input" accept=".jpg, .jpeg, .png, .pdf">
+                                                </div> -->
 
                                                 <div class="text-center">
                                                     <button type="submit"
                                                         class="btn btn-round btn-primary btn-lg w-100 mt-4 mb-0"
-                                                        name="tempahan_baharu_form">Tempah</button>
+                                                        name="tempahan_cuti_admin">Tambah</button>
                                                 </div>
 
                                             </div>
@@ -161,14 +161,14 @@
                 var eventId = info.event.id;
 
                 console.log("Event ID: " + eventId);
-                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId ;
+                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId;
 
 
             },
             validRange: function (nowDate) {
 
                 const start = new Date(nowDate.valueOf());
-                start.setHours(14, 0, 0, 0); // 14:00:00.000
+                start.setHours(0, 0, 0, 0); // 14:00:00.000
 
                 return {
                     start: start.toISOString()
@@ -181,10 +181,10 @@
                     url: '<?php echo $basePath2 ?>/cuti/calendar',
                     method: 'POST',
                     extraParams: {
-                        cuti_calendar: 'cuti_calendar'
+                        cuti_calendar_admin: 'cuti_calendar_admin'
                     },
                     failure: function () {
-                        alert('Failed to load events from Source 1');
+                        alert('Failed to load events from Source 1a');
                     },
 
                 },
@@ -193,7 +193,7 @@
                     url: '<?php echo $basePath2 ?>/tempahan/calendar',
                     method: 'POST',
                     extraParams: {
-                        tempahan_calendar: 'tempahan_calendar',
+                        tempahan_calendar_2: 'tempahan_calendar_2',
                         user_id: '<?php echo $_SESSION['user_details']['id'] ?>',
                         role: '<?php echo $_SESSION['user_details']['role'] ?>',
                     },
@@ -204,35 +204,47 @@
                 },
 
             ],
+            selectAllow: function (selectInfo) {
+                const selectedStart = selectInfo.start;
+                const allEvents = calendar.getEvents();
+
+                // Format dates to 'YYYY-MM-DD' for easy comparison
+                const selectedDateStr = formatDate(selectedStart);
+
+                // Get day before
+                const dayBefore = new Date(selectedStart);
+                dayBefore.setDate(dayBefore.getDate() - 1);
+                const dayBeforeStr = formatDate(dayBefore);
+
+                for (let event of allEvents) {
+                    const eventStart = formatDate(event.start);
+                    if (eventStart === selectedDateStr || eventStart === dayBeforeStr) {
+                        // Block if there's an event today or the day before
+                        return false;
+                    }
+                }
+
+                return true; // Allow if no conflicts
+            },
 
             selectable: true,
             select: function (info) {
-                if (info.view.type === 'timeGridWeek') {
-
-                    return; // Do nothing
-                }
                 const selectedStart = info.start;
-                const selectedEnd = info.end;
-                // Set check-in time to 14:00 PM (2:00 PM) for the start date
-                selectedStart.setHours(14, 0, 0, 0); // Set to 14:00:00 (2:00 PM)
+                const selectedEnd = new Date(info.end);
+                selectedEnd.setDate(selectedEnd.getDate() - 1); // Make end inclusive
 
-                // Set check-out time to 12:00 PM (12:00 PM) for the end date
-                selectedEnd.setHours(12, 0, 0, 0);  // Set to 12:00:00 (12:00 PM)
-                // Format the dates (assuming you are using moment.js or similar date formatting function)
-                const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)
+                const startStr = formatDate(selectedStart);
                 const endStr = formatDate(selectedEnd);
 
-                // Set the values for tarikh mula and tarikh tamat
                 $('#tarikh_mula').val(startStr);
                 $('#tarikh_tamat').val(endStr);
 
-                console.log(selectedStart);
-                console.log(selectedEnd);
+                console.log("Selected:", startStr, "to", endStr);
 
-                // Show the modal (if needed)
-                var modal = new bootstrap.Modal(document.getElementById('eventModal'));
+                const modal = new bootstrap.Modal(document.getElementById('eventModal'));
                 modal.show();
             }
+
 
 
 

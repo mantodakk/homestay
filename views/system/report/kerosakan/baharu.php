@@ -31,17 +31,83 @@
 
         <div class="container-fluid py-2">
             <div class="row">
+                <div class="ms-3">
+                    <h3 class="mb-0 h4 font-weight-bolder">Kerosakan</h3>
+                    <p class="mb-4">
+                        <!-- Tell us about your experience -->
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>New Kerosakan</h5>
+                    </div>
+                    <div class="card-body pt-0">
+                        <form method="POST" enctype="multipart/form-data">
 
-                <div class="col-12">
-                    <div class="card card-calendar">
-                        <div class="card-body p-3">
-                            <div class="calendar fc fc-media-screen fc-direction-ltr fc-theme-standard"
-                                data-bs-toggle="calendar" id="calendar">
 
+                            <input type="hidden" class="form-control" name="user_id"
+                                value="<?php echo $_SESSION['user_details']['id'] ?>">
+
+                            <div class="input-group input-group-outline my-4">
+                                <label class="form-label">Title</label>
+                                <input type="text" class="form-control" name="title" required>
                             </div>
-                        </div>
+
+                            <label class="form-label">Description</label>
+                            <div class="input-group input-group-dynamic">
+                                <textarea class="form-control" name="description" rows="3" required></textarea>
+                            </div>
+
+                            <!--                           
+
+                            <div class="input-group input-group-outline my-4">
+                                <label class="form-label">Category </label>
+                                <input type="number" class="form-control" name="category_id" min="0">
+                            </div> -->
+                            <div class="input-group input-group-static my-4">
+                                <label class="ms-0" for="exampleFormControlSelect1">Priority</label>
+                                <select class="form-control" name="priority" id="exampleFormControlSelect1">
+                                    <option value="1">High</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">Low</option>
+                                </select>
+                            </div>
+
+
+                            <div class="input-group input-group-outline my-4">
+                                <label class="form-label">Cost</label>
+                                <input type="number" step="0.01" class="form-control" name="cost" min="0">
+                            </div>
+
+
+                            <div class="input-group input-group-static my-3">
+                                <label class="ms-0" for="exampleFormControlSelect2">Upload File</label>
+                                <input type="file" class="form-control file-selector-button"  name="attachment[]" id="exampleFormControlSelect2"
+                                    accept=".jpg, .jpeg, .png, .pdf" multiple>
+                            </div>
+
+                            <!-- Review Guidelines -->
+                            <h5 class="mt-5">Review Guidelines</h5>
+                            <p class="text-muted mb-2">
+                                Please write constructive and helpful reviews. For example:
+                            </p>
+                            <ul class="text-muted ps-4 mb-0 float-start">
+                                <li><span class="text-sm">Be clear and concise</span></li>
+                                <li><span class="text-sm">Avoid offensive language</span></li>
+                                <li><span class="text-sm">Provide helpful feedback</span></li>
+                                <li><span class="text-sm">Rate honestly (1 to 5 stars)</span></li>
+                            </ul>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn bg-gradient-dark btn-sm float-end mt-6 mb-0"
+                                name="add_kerosakan">
+                                Submit Review
+                            </button>
+                        </form>
+
                     </div>
                 </div>
+
 
             </div>
 
@@ -52,62 +118,7 @@
             <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
 
             <!-- //modal -->
-            <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered  " role="document">
-                    <div class="modal-content">
-                        <div class="modal-body p-0">
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <div class="card card-plain">
-                                    <div class="card-header pb-0 text-left">
-                                        <h5 class="">Tempahan</h5>
-                                        <p class="mb-0">Enter your email and password to sign in</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <form role="form text-left">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                <input type="hidden" class="form-control"  
-                                                name="user_id" value="<?php  echo $_SESSION['user_details']['id']?>" >
-                                                    <div class="input-group input-group-static my-3 ">
-                                                        <label>Tarikh Mula</label>
-                                                        <input type="text" class="form-control" id="tarikh_mula"
-                                                            name="tarikh_mula" readonly>
-                                                    </div>
-                                                </div>
 
-                                                <div class="col-6">
-
-                                                    <div class="input-group input-group-static my-3 ">
-                                                        <label>Tarikh Tamat</label>
-                                                        <input type="text" class="form-control" id="tarikh_tamat"
-                                                            name="tarikh_tamat" readonly>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group input-group-static my-3">
-                                                    <label>Upload File</label>
-                                                    <input type="file" class="form-control file-selector-button"
-                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf">
-                                                </div>
-
-                                                <div class="text-center">
-                                                    <button type="submit"
-                                                        class="btn btn-round btn-primary btn-lg w-100 mt-4 mb-0"
-                                                        name="tempahan_baharu_form">Tempah</button>
-                                                </div>
-
-                                            </div>
-                                        </form>
-                                    </div>
-
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
@@ -161,7 +172,7 @@
                 var eventId = info.event.id;
 
                 console.log("Event ID: " + eventId);
-                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId ;
+                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId;
 
 
             },

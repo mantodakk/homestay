@@ -57,7 +57,7 @@
                 </div>
               </div>
             </li>
-            <li class="mb-2">
+            <!-- <li class="mb-2">
               <a class="dropdown-item border-radius-md" href="<?php  echo $rootPath?>/profile">
                 <div class="d-flex py-1">
                 
@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </a>
-            </li>
+            </li> -->
 
             <li class="mb-2">
               <a class="dropdown-item border-radius-md" href="<?php  echo $rootPath?>/logout">

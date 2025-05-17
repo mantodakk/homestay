@@ -16,7 +16,7 @@ if (strpos($requestUri, $basePath) === 0) {
 
 }
 
- 
+
 
 
 
@@ -65,10 +65,13 @@ $routes = [
 
 
     //report
+    'aduan/kerosakan/senarai' => 'report_kerosakan_list',
+    'aduan/kerosakan/baharu' => 'report_kerosakan_baharu',
 
 
     //cuti
     'cuti/calendar' => 'cuti_calendar',
+    'cuti/senarai' => 'cuti_senarai',
 
     //views
     'views/update' => 'views_update',
@@ -88,6 +91,17 @@ switch (true) {
         if (isset($parts[2]) && is_numeric($parts[2])) {
             $tempah_id = $parts[2]; // Extract booking ID
             tempah($tempah_id);
+        } else {
+            notFound($requestUri);
+        }
+        break;
+
+    case strpos($requestUri, 'aduan/kerosakan/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[2]) && is_numeric($parts[2])) {
+            $kerosakan_id = $parts[2]; // Extract booking ID
+            kerosakan($kerosakan_id);
         } else {
             notFound($requestUri);
         }

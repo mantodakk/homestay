@@ -70,6 +70,71 @@
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Status:</strong> <?php echo $tempah['status'] ?></li>
 
+                                    <li class="list-group-item border-0 ps-0 text-sm">
+                                        <strong class="text-dark">Payment File:</strong>
+                                        <?php
+                                         if (!empty($tempah['payment_file'])) {
+                                            $paymentFile = $tempah['payment_file']; // Assuming the payment file path is stored in the `payment_file` column
+                                            ?>
+                                            <a href="<?php echo $rootPath . "/assets/uploads/" . $paymentFile; ?>"
+                                                class="fancybox" data-fancybox="gallery" data-caption="Payment File">
+                                                <button class="btn btn-outline-primary btn-sm">View Payment File</button>
+                                            </a>
+                                            <?php
+                                        } else {
+                                            echo "<span>No payment file available.</span>";
+                                        }
+                                        ?>
+                                    </li>
+                                        <strong class="text-dark">Pictures:</strong>
+
+                                    <li class="list-group-item border-0 ps-0 text-sm">
+                                        <?php
+                                        // Debug output - Optional for troubleshooting
+                                        
+                                        // Loop through the $tempah_details array
+                                        foreach ($tempah_details as $detail) {
+                                            if (!empty($detail['file'])) {
+                                                $filepath = $detail['file']; // Assuming the payment file path is stored in the `payment_file` column
+                                                $name = $detail['int_cond']; // Assuming the payment file path is stored in the `payment_file` column
+                                                ?>
+                                                <a href="<?php echo $rootPath . "/assets/uploads/" . htmlspecialchars($filepath); ?>"
+                                                    class="fancybox" data-fancybox="gallery" data-caption="<?php echo $name ?>">
+                                                    <button class="btn btn-outline-primary btn-sm">View Picture</button>
+                                                </a>
+                                                <?php
+                                            } else {
+                                                echo "<span>No payment file available.</span>";
+                                            }
+                                        }
+                                        ?>
+                                    </li>
+
+
+                                    <?php if ($tempah['status'] == 1) { // Check if the status is '1' ?>
+
+
+                                        <li class="list-group-item border-0 ps-0 text-sm">
+                                            <strong class="text-dark">Actions:</strong>
+                                            <div class="d-flex">
+                                                <form method="POST">
+                                                    <input type="hidden" name="tempah_id"
+                                                        value="<?php echo $tempah['id']; ?>" />
+                                                    <input type="hidden" name="guest_id"
+                                                        value="<?php echo $tempah['user_id']; ?>" />
+                                                    <button type="submit" name="approve_booking"
+                                                        class="btn btn-success btn-sm me-2">Approve</button>
+                                                    <input type="hidden" name="tempah_id"
+                                                        value="<?php echo $tempah['id']; ?>" />
+                                                    <button type="submit" name="reject_booking"
+                                                        class="btn btn-danger btn-sm">Reject</button>
+                                                </form>
+                                            </div>
+                                        </li>
+
+                                    <?php } ?>
+
+
                                 </ul>
                             </div>
                         </div>
@@ -80,13 +145,7 @@
 
                         <?php
 
-                        if (!isset($_SESSION["tempah_$tempah_id"]['guest_todo'])) {
-                            $_SESSION["tempah_$tempah_id"]['guest_todo'] = [
-                                'check_in' => false,
-                                'check_out' => false
-                            ];
-                        }
-                        $guestTodo = $_SESSION["tempah_$tempah_id"]['guest_todo'];
+
 
 
 
@@ -108,38 +167,105 @@
                                 </div>
                             </div>
                             <div class="card-body p-3">
-                                <ul class="list-group list-group-flush" data-toggle="checklist">
+                                <form method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="tempah_id" value="<?php echo $tempah['id']; ?>" />
+                                    <ul class="list-group list-group-flush" data-toggle="checklist">
 
-                                    <!-- Task 1 -->
-                                    <li class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                        <div class="checklist-item checklist-item-success ps-2 ms-3">
-                                            <div class="d-flex align-items-center">
-                                                <div class="form-check is-filled">
-                                                    <input class="form-check-input  me-2" type="checkbox" value=""
-                                                        id="checkIn" <?php echo $guestTodo['check_in'] ? 'checked' : '' ?>>
+                                        <!-- Task 1 -->
+                                        <li
+                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                            <div class="checklist-item ps-2 ms-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check is-filled">
+                                                        <input class="form-check-input me-2" type="checkbox"
+                                                            name="task_1" value="1" id="checkIn" <?php echo ($tempah['status2'] >= 1) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 0) ? 'disabled' : ''; ?>>
+                                                    </div>
+                                                    <h6 class="mb-0 text-dark text-sm">Go to the lobby/counter to
+                                                        collect your key</h6>
                                                 </div>
-                                                <h6 class="mb-0 text-dark text-sm"> Go to the lobby/counter to
-                                                    collect your key</h6>
                                             </div>
-                                        </div>
-                                        <hr class="horizontal dark mt-4 mb-0">
-                                    </li>
+                                            <hr class="horizontal dark mt-4 mb-0">
+                                        </li>
 
-                                    <!-- Task 2 -->
-                                    <li class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                        <div class="checklist-item checklist-item-warning ps-2 ms-3">
-                                            <div class="d-flex align-items-center">
-                                                <div class="form-check is-filled">
-                                                    <input class="form-check-input  me-2" type="checkbox" value=""
-                                                        id="checkOut" <?php echo $guestTodo['check_in'] ? 'checked' : '' ?>>
+                                        <!-- Task 2 -->
+                                        <li
+                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                            <div class="checklist-item ps-2 ms-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check is-filled">
+                                                        <input class="form-check-input me-2" type="checkbox"
+                                                            name="task_2" value="1" id="takePicture1" <?php echo ($tempah['status2'] >= 2) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 1) ? 'disabled' : ''; ?>>
+                                                    </div>
+                                                    <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
+                                                        for comparison of the condition of the house</h6>
+
+
+
                                                 </div>
-                                                <h6 class="mb-0 text-dark text-sm"> Return to the lobby/counter to
-                                                    check out</h6>
-                                            </div>
-                                        </div>
-                                    </li>
 
-                                </ul>
+
+                                                <?php if ($tempah['status2'] == 1) { ?>
+                                                    <div class="input-group input-group-static my-3">
+                                                        <label>Upload Picture</label>
+                                                        <input type="file" class="form-control file-selector-button"
+                                                            name="pic_task2[]" accept=".jpg, .jpeg, .png, .pdf">
+                                                    </div>
+                                                <?php } ?>
+
+                                            </div>
+                                            <hr class="horizontal dark mt-4 mb-0">
+                                        </li>
+
+                                        <!-- Task 3 -->
+                                        <li
+                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                            <div class="checklist-item ps-2 ms-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check is-filled">
+                                                        <input class="form-check-input me-2" type="checkbox"
+                                                            name="task_3" value="1" id="takePicture2" <?php echo ($tempah['status2'] >= 3) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 2) ? 'disabled' : ''; ?>>
+                                                    </div>
+                                                    <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
+                                                        for comparison of the condition of the house</h6>
+                                                </div>
+
+                                                <?php if ($tempah['status2'] == 2) { ?>
+                                                    <div class="input-group input-group-static my-3">
+                                                        <label>Upload Picture</label>
+                                                        <input type="file" class="form-control file-selector-button"
+                                                            name="pic_task3[]" accept=".jpg, .jpeg, .png, .pdf">
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                            <hr class="horizontal dark mt-4 mb-0">
+                                        </li>
+
+                                        <!-- Task 4 -->
+                                        <li
+                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                            <div class="checklist-item ps-2 ms-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check is-filled">
+                                                        <input class="form-check-input me-2" type="checkbox"
+                                                            name="task_4" value="1" id="checkOut" <?php echo ($tempah['status2'] >= 4) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 3) ? 'disabled' : ''; ?>>
+                                                    </div>
+                                                    <h6 class="mb-0 text-dark text-sm">Return to the lobby/counter to
+                                                        check out</h6>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+
+                                    <!-- Submit Button -->
+                                    <div class="text-end mt-3">
+                                        <button type="submit" name="update_booking_details"
+                                            class="btn btn-primary">Update Booking Details</button>
+                                    </div>
+
+                                </form>
+
+
                             </div>
                         </div>
                     </div>
