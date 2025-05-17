@@ -306,44 +306,4 @@
 
 </script>
 
-
-<script src="https://js.pusher.com/beams/2.1.0/push-notifications-cdn.js"></script>
-
-<script>
-
-
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js') // your custom path
-        .then(registration => {
-          console.log("Service Worker registered:", registration);
-
-          const beamsClient = new PusherPushNotifications.Client({
-            instanceId: 'e5f0a799-22e8-4046-8b42-d0fcff394367',
-            serviceWorkerRegistration: registration  // 🔑 THIS is required
-          });
-
-
-          beamsClient.start()
-            .then(() => {
-              // Subscribe the device to the correct interest
-              beamsClient.addDeviceInterest('<?php echo $_SESSION['user_details']['id'] ?>')
-                .then(() => {
-                  console.log('Successfully subscribed to <?php echo $_SESSION['user_details']['id'] ?>');
-                })
-                .catch(err => {
-                  console.error('Error subscribing to interest', err);
-                });
-            })
-            .catch((err) => {
-              console.error('Error initializing PusherBeams:', err);
-            });
-        })
-        .catch((err) => {
-          console.error('Error registering service worker:', err);
-        });
-
-    });
-  }
-
-</script>
+ 
