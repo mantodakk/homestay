@@ -4,8 +4,8 @@
 function tempah_baharu()
 {
     include('includes/server.php');
-    // checkLogin();
-    // $role = checkRole();
+    checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],

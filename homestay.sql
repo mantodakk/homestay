@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 08, 2025 at 11:10 AM
+-- Generation Time: May 17, 2025 at 10:45 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `payment_file` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
@@ -48,7 +48,9 @@ INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created
 (6, 1, '2025-05-19 14:00:00', '2025-05-20 12:00:00', '2025-05-08 05:55:49', 1, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
 (7, 2, '2025-05-18 14:00:00', '2025-05-19 12:00:00', '2025-05-08 05:55:49', 1, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
 (8, 1, '2025-05-20 14:00:00', '2025-05-21 12:00:00', '2025-05-08 09:55:10', 1, NULL, ''),
-(9, 1, '2025-05-21 14:00:00', '2025-05-22 12:00:00', '2025-05-08 09:55:41', 1, NULL, '');
+(9, 1, '2025-05-21 14:00:00', '2025-05-22 12:00:00', '2025-05-08 09:55:41', 1, NULL, ''),
+(10, 1, '2025-05-22 14:00:00', '2025-05-24 12:00:00', '2025-05-08 16:49:39', 1, NULL, 'schedule_calendar.pdf'),
+(11, 3, '2025-05-24 14:00:00', '2025-05-25 12:00:00', '2025-05-14 19:04:00', 1, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -168,6 +170,29 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `page_views`
+--
+
+DROP TABLE IF EXISTS `page_views`;
+CREATE TABLE IF NOT EXISTS `page_views` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `page_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `view_date` date NOT NULL,
+  `view_count` int DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_page_date` (`page_name`,`view_date`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `page_views`
+--
+
+INSERT INTO `page_views` (`id`, `page_name`, `view_date`, `view_count`) VALUES
+(1, 'index', '2025-05-15', 16);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -180,6 +205,30 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   `expires_at` timestamp NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+DROP TABLE IF EXISTS `reviews`;
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `description` text COLLATE utf8mb4_general_ci,
+  `star` double DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `user_id`, `description`, `star`, `status`, `created_at`) VALUES
+(4, 2, 'asdasda', 3, 1, '2025-05-17 10:05:53');
 
 -- --------------------------------------------------------
 
@@ -198,14 +247,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `role` (`role`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `image`, `created_at`) VALUES
-(1, 'test', 'admin@gmail.com', 'a8f5f167f44f4964e6c998dee827110c', 2, NULL, '2025-05-08 10:48:32');
+(1, 'admin', 'admin@gmail.com', 'a8f5f167f44f4964e6c998dee827110c', 1, NULL, '2025-05-08 10:48:32'),
+(2, 'guest', 'guest@gmail.com', 'a8f5f167f44f4964e6c998dee827110c', 2, NULL, '2025-05-08 10:48:32');
 
 -- --------------------------------------------------------
 

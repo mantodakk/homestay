@@ -33,7 +33,7 @@
 
 
             <div class="row ">
-                <div class="col-lg-8 col-12 mb-lg-0 mb-4">
+                <div class=" col-12 mb-lg-0 mb-4">
                     <div class="card">
                         <div class="card-header pb-0">
                             <div class="row">
@@ -64,17 +64,12 @@
                                             </th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Tarikh Mula</th>
+                                                Description</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Tarikh Tamat
+                                                Star
                                             </th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Status</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            </th>
+
                                             <!-- <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Student_name</th> -->
@@ -108,63 +103,7 @@
 
             <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
 
-            <!-- //modal -->
-            <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered  " role="document">
-                    <div class="modal-content">
-                        <div class="modal-body p-0">
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <div class="card card-plain">
-                                    <div class="card-header pb-0 text-left">
-                                        <h5 class="">Tempahan</h5>
-                                        <p class="mb-0">Enter your email and password to sign in</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <form role="form text-left">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <input type="hidden" class="form-control" name="user_id"
-                                                        value="<?php echo $_SESSION['user_details']['id'] ?>">
-                                                    <div class="input-group input-group-static my-3 ">
-                                                        <label>Tarikh Mula</label>
-                                                        <input type="text" class="form-control" id="tarikh_mula"
-                                                            name="tarikh_mula" readonly>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-6">
-
-                                                    <div class="input-group input-group-static my-3 ">
-                                                        <label>Tarikh Tamat</label>
-                                                        <input type="text" class="form-control" id="tarikh_tamat"
-                                                            name="tarikh_tamat" readonly>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group input-group-static my-3">
-                                                    <label>Upload File</label>
-                                                    <input type="file" class="form-control file-selector-button"
-                                                        name="file_input" accept=".jpg, .jpeg, .png, .pdf">
-                                                </div>
-
-                                                <div class="text-center">
-                                                    <button type="submit"
-                                                        class="btn btn-round btn-primary btn-lg w-100 mt-4 mb-0"
-                                                        name="tempahan_baharu_form">Tempah</button>
-                                                </div>
-
-                                            </div>
-                                        </form>
-                                    </div>
-
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
 
 
@@ -189,10 +128,10 @@
                 paging: true,         // Disable pagination
 
                 ajax: {
-                    url: "<?php echo $rootPath ?>/tempahan/senarai",
+                    url: "<?php echo $rootPath ?>/review/senarai",
                     "type": "POST",
                     "data": function (d) {
-                        d.senarai_tempahan_list = true;
+                        d.senarai_review = true;
                         d.role = '<?php echo $_SESSION['user_details']['role'] ?>';
                         d.user_id = '<?php echo $_SESSION['user_details']['id'] ?>';
 
@@ -214,52 +153,12 @@
                     { "data": "id", class: "text-center", responsivePriority: 1 },
                     // { "data": "student_name" },
                     // { "data": "lecturer_name" },
-                    { "data": "tarikh_mula", class: " ", responsivePriority: 2 },
-                    { "data": "tarikh_tamat", class: " ", responsivePriority: 3 },
+                    { "data": "description", class: " ", responsivePriority: 2 },
+                    { "data": "star", class: " ", responsivePriority: 3 },
                     // { "data": "start" },
                     // { "data": "end" },
 
 
-                    {
-                        "data": "status",
-                        "class": " ",
-                        "responsivePriority": 2,
-                        "render": function (data, type, row, meta) {
-                            let statusLabel = '';
-                            let btnClass = '';
-
-                            switch (data) {
-                                case '0':
-                                case 0:
-                                    statusLabel = 'Rejected';
-                                    btnClass = 'btn btn-danger  ';
-                                    break;
-                                case '1':
-                                case 1:
-                                    statusLabel = 'Pending';
-                                    btnClass = 'btn btn-warning  ';
-                                    break;
-                                case '2':
-                                case 2:
-                                    statusLabel = 'Approved';
-                                    btnClass = 'btn btn-success ';
-                                    break;
-                                default:
-                                    statusLabel = 'Unknown';
-                                    btnClass = 'btn btn-secondary btn-sm';
-                            }
-
-                            return `<button class="${btnClass}" disabled>${statusLabel}</button>`;
-                        }
-                    },
-                    {
-                        "data": "id",
-                        "class": " ",
-                        "responsivePriority": 1,
-                        "render": function (data, type, row, meta) {
-                            return `<a class="btn btn-primary  "  href="<?php echo $rootPath ?>/tempah/details/${data}">More</a>`;
-                        }
-                    }
 
 
 
