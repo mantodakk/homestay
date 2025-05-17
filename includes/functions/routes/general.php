@@ -97,6 +97,41 @@ function dashboard()
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     if ($role == 'admin') {
+
+
+
+        // Count total records (without any filter)
+        $totaluser_sql = "SELECT COUNT(id) AS total 
+                        FROM users
+                       WHERE role != 1;";
+        $totaluser_result = $conn->query($totaluser_sql);
+        $total_users = $totaluser_result->fetch_assoc()['total'];
+
+        $totalbook_sql = "SELECT COUNT(id) AS total 
+                        FROM bookings
+                       WHERE status > 1;";
+        $totalbook_result = $conn->query($totalbook_sql);
+        $total_book = $totalbook_result->fetch_assoc()['total'];
+
+        $totaldmg_sql = "SELECT COUNT(id) AS total 
+                        FROM damage
+                       WHERE status > 1;";
+        $totaldmg_result = $conn->query($totaldmg_sql);
+        $total_dmg = $totaldmg_result->fetch_assoc()['total'];
+
+        $totalrev_sql = "SELECT COALESCE(AVG(star), 0) AS average 
+                 FROM reviews
+                 WHERE status > 0;";
+
+        $totalrev_result = $conn->query($totalrev_sql);
+        $total_rev = $totalrev_result->fetch_assoc()['average'];
+
+        // while ($row = $result->fetch_assoc()) {
+
+
+        // }
+
+
         include 'views/system/dashboard/dashboard_admin.php';
 
     } else {
@@ -161,24 +196,6 @@ function profile_update()
 
 
 
-function cuti_calendar()
-{
-    include('includes/server.php');
-    // checkLogin();
-    // $role = checkRole();
-
-    // $breadcrumbs = [
-    //     ['title' => 'Home', 'url' => ''],
-    //     ['title' => 'Dashboard', 'url' => '/dashboard'],
-    // ];
-
-    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-
-
-
-
-}
-
 
 
 
@@ -203,6 +220,11 @@ function tempahan_calendar()
 function tempahan_notify_admin()
 {
     include('includes/server.php');
+
+
+
+
+
     // checkLogin();
     // $role = checkRole();
 
@@ -240,7 +262,7 @@ function tempahan_senarai()
 function tempah_senarai()
 {
     include('includes/server.php');
-    // checkLogin();
+    checkLogin();
     // $role = checkRole();
 
     // $breadcrumbs = [
@@ -268,7 +290,9 @@ function tempah($tempah_id)
 {
     // Include the database connection
     include('includes/server.php');
-    // $role = checkRole();
+    checkLogin();
+
+    $role = checkRole();
 
     // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
     $tempah_id = (int) $tempah_id;  // Cast to integer to ensure safety
@@ -291,7 +315,7 @@ function tempah($tempah_id)
 
 
 
-    $sql = "SELECT * FROM users WHERE role = '1'";
+    $sql = "SELECT * FROM users WHERE role = '1' ";
 
     // Execute the query
     $result = $conn->query($sql);
@@ -338,170 +362,56 @@ function tempah($tempah_id)
 
 
 
-if (isset($_POST['senarai_permohonan_list'])) {
+function review_baharu()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
 
-
-    $start = isset($_POST['start']) && $_POST['start'] >= 0 ? (int) $_POST['start'] : 0;
-    $length = isset($_POST['length']) && $_POST['length'] > 0 ? (int) $_POST['length'] : 5;
-    $role = isset($_POST['role']) ? $_POST['role'] : 5;
-    $user_id = isset($_POST['user_id']) ? $_POST['user_id'] : 0;
-    $bengkel = isset($_POST['bengkel']) ? $_POST['bengkel'] : '';
-    $search_value = isset($_POST['search']['value']) ? trim($_POST['search']['value']) : '';
-    $draw = isset($_POST['draw']) ? (int) $_POST['draw'] : 1;
-
-
-    $sql = "SELECT 
-                p.id AS permohonan_id,
-                MIN(pd.date) AS start_date,
-                MAX(pd.date) AS end_date,
-                p.status, p.user_id, p.permohonan_type, p.status, p.days, p.time_slip, p.file, p.place, p.purpose,
-                p.lecturer_id, p.kb_id, 
-                ud.name AS student_name, 
-                ud.ndp, 
-                ud.image AS student_image, 
-                udlect.name AS lecturer_name, 
-                udlect.bengkel
-            FROM permohonan_dates pd
-            LEFT JOIN permohonan p ON pd.permohonan_id = p.id
-            LEFT JOIN user_details ud ON p.user_id = ud.user_id
-            LEFT JOIN user_details udlect ON p.lecturer_id = udlect.user_id";
-
-    $whereClause = "";
-
-    if (!empty($_POST['start_date']) && !empty($_POST['end_date'])) {
-        $start_date = date('Y-m-d', strtotime($_POST['start_date']));
-        $end_date = date('Y-m-d', strtotime($_POST['end_date']));
-        $whereClause .= " WHERE (pd.date BETWEEN '$start_date' AND '$end_date')";
-    }
-
-    if (!empty($search_value)) {
-        $search_value_escaped = $conn->real_escape_string($search_value);
-        if (empty($whereClause)) {
-            $whereClause .= " WHERE ";
-        } else {
-            $whereClause .= " AND ";
-        }
-
-        $whereClause .= "(
-            ud.name LIKE '%$search_value_escaped%' OR 
-            ud.ndp LIKE '%$search_value_escaped%' OR 
-            udlect.name LIKE '%$search_value_escaped%' OR 
-            p.place LIKE '%$search_value_escaped%' OR 
-            p.purpose LIKE '%$search_value_escaped%'
-        )";
-
-
-    }
-
-    if ($role == "3") {
-        if (empty($whereClause)) {
-            $whereClause .= " WHERE ";
-        } else {
-            $whereClause .= " AND ";
-        }
-        $whereClause .= "p.lecturer_id = '$user_id'";
-
-
-    }
-    if ($role == "2") {
-        if (empty($whereClause)) {
-            $whereClause .= " WHERE ";
-        } else {
-            $whereClause .= " AND ";
-        }
-        $whereClause .= "udlect.bengkel = '$bengkel'";
-
-    }
-
-    if ($role == "5") {
-        if (empty($whereClause)) {
-            $whereClause .= " WHERE ";
-        } else {
-            $whereClause .= " AND ";
-        }
-        $whereClause .= "p.user_id = '$user_id'";
-
-
-    }
-
-    $sql .= $whereClause;
-    $sql .= " GROUP BY p.id LIMIT $start, $length";
-
-    $result = $conn->query($sql);
-
-    // Count filtered records
-    $count_filtered_sql = "SELECT COUNT(DISTINCT p.id) AS total 
-                           FROM permohonan_dates pd
-                           LEFT JOIN permohonan p ON pd.permohonan_id = p.id
-                           LEFT JOIN user_details ud ON p.user_id = ud.user_id
-                           LEFT JOIN user_details udlect ON p.lecturer_id = udlect.user_id";
-    $count_filtered_sql .= $whereClause;
-
-    $count_filtered_result = $conn->query($count_filtered_sql);
-    $filtered_records = $count_filtered_result->fetch_assoc()['total'];
-
-    // Count total records (without any filter)
-    $count_total_sql = "SELECT COUNT(DISTINCT p.id) AS total 
-                        FROM permohonan_dates pd
-                        LEFT JOIN permohonan p ON pd.permohonan_id = p.id";
-    $count_total_result = $conn->query($count_total_sql);
-    $total_records = $count_total_result->fetch_assoc()['total'];
-
-    // Prepare data array
-    $event_groups = [];
-
-    while ($row = $result->fetch_assoc()) {
-        if (!empty($row['file'])) {
-            $file_extension = strtolower(pathinfo($row['file'], PATHINFO_EXTENSION));
-            switch ($file_extension) {
-                case 'pdf':
-                    $file_type = 'iframe';
-                    break;
-                case 'jpg':
-                case 'jpeg':
-                case 'png':
-                case 'gif':
-                    $file_type = 'image';
-                    break;
-                default:
-                    $file_type = 'unknown';
-                    break;
-            }
-        } else {
-            $file_type = null;
-        }
-
-        $event_data = [
-            'permohonan_id' => $row['permohonan_id'],
-            'student_name' => $row['student_name'],
-            'lecturer_name' => $row['lecturer_name'],
-            'place' => $row['place'],
-            'purpose' => $row['purpose'],
-            'start' => $row['start_date'],
-            'end' => $row['end_date'],
-            'status' => $row['status'],
-            'bengkel' => $row['bengkel'],
-            'ndp' => $row['ndp'],
-            'file' => $file_type ? $rootPath . "/assets/uploads/permohonan/" . $row['permohonan_id'] . "/" . $row['file'] : null,
-            'file_ext' => $file_type,
-        ];
-
-        if (!empty($event_data['permohonan_id'])) {
-            $event_groups[] = $event_data;
-        }
-    }
-
-    // JSON response
-    $response = [
-        'draw' => $draw,
-        'recordsTotal' => (int) $total_records,
-        'recordsFiltered' => (int) $filtered_records,
-        'data' => $event_groups
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Profile', 'url' => '/profile'],
     ];
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
-    echo json_encode($response);
-    exit;
+
+
+    //     include 'views/system/admin/dashboard.php';
+
+    // } elseif ($role == 'guide') {
+    //     include 'views/system/guide/dashboard.php';
+
+    // } else {
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/system/review/baharu.php';
+
 }
+
+function review_senarai()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Profile', 'url' => '/profile'],
+    ];
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+
+
+    //     include 'views/system/admin/dashboard.php';
+
+    // } elseif ($role == 'guide') {
+    //     include 'views/system/guide/dashboard.php';
+
+    // } else {
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/system/review/senarai.php';
+
+}
+
 
 
 

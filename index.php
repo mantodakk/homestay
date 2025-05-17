@@ -58,6 +58,15 @@ $routes = [
     'tempahan/senarai' => 'tempahan_senarai',
 
 
+    //review
+
+    'review/baharu' => 'review_baharu',
+    'review/senarai' => 'review_senarai',
+
+
+    //report
+
+
     //cuti
     'cuti/calendar' => 'cuti_calendar',
 

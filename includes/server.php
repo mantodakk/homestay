@@ -53,7 +53,16 @@ include('functions/cuti/calendar.php');
 
 //views
 include('functions/page_views/page_views.php');
+
+
+//review
+include('functions/review/baharu.php');
+
+
 //tempah
+
+
+
 
 
 include('functions/tempahan/baharu.php');

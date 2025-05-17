@@ -43,7 +43,7 @@
               <div class="d-flex justify-content-between">
                 <div>
                   <p class="text-sm mb-0 text-capitalize">Total Users</p>
-                  <h4 class="mb-0">$53k</h4>
+                  <h4 class="mb-0"><?php  echo $total_users ?></h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
                   <i class="material-symbols-rounded opacity-10">weekend</i>
@@ -62,7 +62,7 @@
               <div class="d-flex justify-content-between">
                 <div>
                   <p class="text-sm mb-0 text-capitalize">Total Bookings</p>
-                  <h4 class="mb-0">2300</h4>
+                  <h4 class="mb-0"><?php  echo $total_book ?></h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
                   <i class="material-symbols-rounded opacity-10">person</i>
@@ -79,7 +79,7 @@
               <div class="d-flex justify-content-between">
                 <div>
                   <p class="text-sm mb-0 text-capitalize">Total Damage Left</p>
-                  <h4 class="mb-0">3,462</h4>
+                  <h4 class="mb-0"><?php  echo $total_dmg ?></h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
                   <i class="material-symbols-rounded opacity-10">leaderboard</i>
@@ -98,7 +98,7 @@
               <div class="d-flex justify-content-between">
                 <div>
                   <p class="text-sm mb-0 text-capitalize">Average Star Review</p>
-                  <h4 class="mb-0">$103,430</h4>
+                  <h4 class="mb-0"><?php  echo $total_rev ?></h4>
                 </div>
                 <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
                   <i class="material-symbols-rounded opacity-10">weekend</i>

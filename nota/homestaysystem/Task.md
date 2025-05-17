@@ -13,6 +13,7 @@ kanban-plugin: board
 
 - [ ] DAMAGE (ADMIN)
 - [ ] REVIEW (ADMIN)
+- [ ] CUTI (ADMIN)
 - [ ] REVIEW (USER)
 - [ ] Removing excess (functions)
 
@@ -27,7 +28,6 @@ kanban-plugin: board
 - [ ] DASHBOARD (ADMIN)
 - [ ] DAMAGE (USER)
 - [ ] Booking (ADMIN)
-- [ ] CUTI (ADMIN)
 - [ ] DASHBOARD (USER)
 
 

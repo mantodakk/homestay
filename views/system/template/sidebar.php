@@ -83,13 +83,15 @@
                             <div class="collapse" id="sidebar_kerosakan" style="">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item ms-2">
-                                        <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/aduan/kerosakan/baharu">
+                                        <a class="nav-link text-dark "
+                                            href="<?php echo $rootPath; ?>/aduan/kerosakan/baharu">
                                             <span class="sidenav-mini-icon"> B </span>
                                             <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
                                         </a>
                                     </li>
                                     <li class="nav-item ms-2">
-                                        <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/aduan/kerosakan/senarai">
+                                        <a class="nav-link text-dark "
+                                            href="<?php echo $rootPath; ?>/aduan/kerosakan/senarai">
                                             <span class="sidenav-mini-icon"> S </span>
                                             <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
                                         </a>
@@ -97,7 +99,32 @@
                                 </ul>
                             </div>
                         </li>
-                         
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item ">
+                <a data-bs-toggle="collapse" href="#sidebar_cuti" class="nav-link text-dark collapsed"
+                    aria-controls="sidebar_cuti" role="button" aria-expanded="false">
+                    <i class="material-symbols-rounded opacity-5   me-2 ">account_circle</i>
+                    <span class="nav-link-text ms-1 ps-1">Cuti</span>
+                </a>
+                <div class="collapse" id="sidebar_cuti" style="">
+                    <ul class="nav ">
+                        <li class="nav-item  ms-1">
+                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/cuti/baharu">
+                                <span class="sidenav-mini-icon"> B </span>
+                                <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ms-1">
+                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/cuti/senarai">
+                                <span class="sidenav-mini-icon"> S </span>
+                                <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </li>

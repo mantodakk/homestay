@@ -145,47 +145,51 @@
                     </div>
 
 
+                    <?php if ($role == 'guest') { ?>
+                        <div class="col-12    mt-4 ">
+                            <div class="mb-3 ps-3">
+                                <h6 class="mb-1">Admin</h6>
+                                <p class="text-sm">Contact Information</p>
+                            </div>
+                            <div class="row">
 
-                    <div class="col-12    mt-4 ">
-                        <div class="mb-3 ps-3">
-                            <h6 class="mb-1">Admin</h6>
-                            <p class="text-sm">Contact Information</p>
-                        </div>
-                        <div class="row">
+                                <?php foreach ($admins as $admin) { ?>
+                                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                                        <div class="card card-blog card-plain">
+                                            <div class="card-header p-0 m-2">
 
-                            <?php foreach ($admins as $admin) { ?>
-                                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                    <div class="card card-blog card-plain">
-                                        <div class="card-header p-0 m-2">
-
-                                        </div>
-                                        <div class="card-body p-3">
-                                            <!-- <p class="mb-0 text-sm"></p> -->
-                                            <a href="javascript:;">
-                                                <h5>
-                                                    <?php echo $admin['email'] ?>
-                                                </h5>
-                                            </a>
-                                            <!-- <p class="mb-4 text-sm">
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <!-- <p class="mb-0 text-sm"></p> -->
+                                                <a href="javascript:;">
+                                                    <h5>
+                                                        <?php echo $admin['email'] ?>
+                                                    </h5>
+                                                </a>
+                                                <!-- <p class="mb-4 text-sm">
                                                 Phone
                                             </p> -->
 
 
 
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <button type="button" id="notify" data-admin="<?php echo $admin['id'] ?>"
-                                                    class="btn btn-outline-primary btn-sm mb-0">Notify</button>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <button type="button" id="notify" data-admin="<?php echo $admin['id'] ?>"
+                                                        class="btn btn-outline-primary btn-sm mb-0">Notify</button>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            <?php } ?>
+                                <?php } ?>
 
 
+                            </div>
                         </div>
-                    </div>
+
+                    <?php } ?>
+
+
                 </div>
             </div>
 
