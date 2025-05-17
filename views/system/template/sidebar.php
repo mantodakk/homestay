@@ -26,12 +26,16 @@
                 </a>
                 <div class="collapse" id="sidebar_tempah" style="">
                     <ul class="nav ">
+                    <?php if ($role == 'guest') { ?>
+
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/tempah/baharu">
                                 <span class="sidenav-mini-icon"> B </span>
                                 <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
                             </a>
                         </li>
+                    <?php } ?>
+                        
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/tempah/senarai">
                                 <span class="sidenav-mini-icon"> S </span>
@@ -50,12 +54,15 @@
                 </a>
                 <div class="collapse" id="sidebar_review" style="">
                     <ul class="nav ">
+
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/review/baharu">
                                 <span class="sidenav-mini-icon"> B </span>
                                 <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
                             </a>
                         </li>
+
+                        
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/review/senarai">
                                 <span class="sidenav-mini-icon"> S </span>
