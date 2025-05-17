@@ -319,7 +319,7 @@
           console.log("Service Worker registered:", registration);
 
           const beamsClient = new PusherPushNotifications.Client({
-            instanceId: 'fdd92782-8efa-4d4a-b49d-d59a098a894d',
+            instanceId: 'e5f0a799-22e8-4046-8b42-d0fcff394367',
             serviceWorkerRegistration: registration  // 🔑 THIS is required
           });
 
