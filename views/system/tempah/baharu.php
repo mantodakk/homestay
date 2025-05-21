@@ -86,6 +86,11 @@
                                                 </div>
 
                                                 <div class="input-group input-group-static my-3">
+                                                    <label>Payment QR</label>
+                                                    <img src="<?php echo $rootPath ?>/assets/img/qr.jpg" class="img img-fluid">
+                                                </div>
+
+                                                <div class="input-group input-group-static my-3">
                                                     <label>Upload File</label>
                                                     <input type="file" class="form-control file-selector-button"
                                                         name="file_input[]" accept=".jpg, .jpeg, .png, .pdf">
