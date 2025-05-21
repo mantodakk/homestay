@@ -3,9 +3,9 @@
 if (isset($_POST['updateprofile'])) {
     $errors = array();
 
-    echo "<script>console.log('test');</script>";
+    // echo "<script>console.log('test');</script>";
 
-    echo "<script>console.log(" . json_encode($_POST) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
 
 
     if (!empty($_POST['user_id'])) {

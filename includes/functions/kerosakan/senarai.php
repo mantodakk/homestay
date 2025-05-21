@@ -170,7 +170,7 @@ if (isset($_POST['update_kerosakan'])) {
                            VALUES ($damage_id, $user_id, '$action', '$comment' )";
     if (mysqli_query($conn, $sql)) {
         // Success message or redirect
-        echo "Damage details updated successfully!";
+        // echo "Damage details updated successfully!";
         // Optionally redirect to the same page or another page:
         // header('Location: damage_details.php?id=' . $damage_id);
     } else {

@@ -39,7 +39,7 @@ function report_kerosakan_list()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Profile', 'url' => '/profile'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
 
 
@@ -65,7 +65,7 @@ function report_kerosakan_baharu()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Profile', 'url' => '/profile'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
 
 

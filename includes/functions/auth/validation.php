@@ -18,7 +18,7 @@ function checkRole()
         }
     }
 
-    echo "<script>console.log(" . json_encode($role) . ");</script>";
+    // echo "<script>console.log(" . json_encode($role) . ");</script>";
 
 }
 

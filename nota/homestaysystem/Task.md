@@ -13,7 +13,7 @@ kanban-plugin: board
 ## To DO
 
 - [ ] Removing excess (functions)
-- [ ] Status of booking ( snap pic before and after room)
+- [ ] add whastapp
 
 
 ## Bugs
@@ -26,6 +26,7 @@ kanban-plugin: board
 - [ ] CUTI (ADMIN)
 - [ ] REVIEW (USER)
 - [ ] DAMAGE (ADMIN)
+- [ ] Status of booking ( snap pic before and after room)
 - [ ] REVIEW (ADMIN)
 - [ ] DASHBOARD (ADMIN)
 - [ ] DAMAGE (USER)

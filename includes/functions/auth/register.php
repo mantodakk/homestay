@@ -3,7 +3,7 @@
 if (isset($_POST['register'])) {
   $errors = array();
 
-  echo "<script>console.log('testregister');</script>";
+  // echo "<script>console.log('testregister');</script>";
 
 
   if (empty($_POST['name'])) {

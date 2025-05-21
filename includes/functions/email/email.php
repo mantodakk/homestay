@@ -63,7 +63,7 @@ function sendEmail($receiver, $subject, $filePath, $variables = [])
         // echo 'Message has been sent'; // Optional: Uncomment for debugging
     } catch (Exception $e) {
         // Log or display error message
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
 

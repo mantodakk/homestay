@@ -3,7 +3,7 @@
 if (isset($_POST['login'])) {
     $errors = array();
 
-    echo "<script>console.log('testregister');</script>";
+    // echo "<script>console.log('testregister');</script>";
 
     $login = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -37,7 +37,7 @@ if (isset($_POST['login'])) {
             header("Location: " . $basePath2 . "/dashboard");
         } else {
             $errors['login'] = "User doesn't exist or wrong password";
-            echo "<script>console.log('error');</script>";
+            // echo "<script>console.log('error');</script>";
 
         }
     }

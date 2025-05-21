@@ -4,7 +4,7 @@ function deleteDirectory($dirPath)
 {
     // Check if the directory exists
     if (!is_dir($dirPath)) {
-        echo "<script>console.log('Directory does not exist');</script>";
+        // echo "<script>console.log('Directory does not exist');</script>";
         return;
     }
 
@@ -26,7 +26,7 @@ function deleteDirectory($dirPath)
 
     // After deleting all files and subdirectories, delete the now-empty directory
     rmdir($dirPath);
-    echo "<script>console.log('Directory and its contents deleted successfully');</script>";
+    // echo "<script>console.log('Directory and its contents deleted successfully');</script>";
 }
 
 

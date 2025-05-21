@@ -164,7 +164,7 @@ function profile()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Profile', 'url' => '/profile'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
 
 
@@ -375,7 +375,7 @@ function review_baharu()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Profile', 'url' => '/profile'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
 
 
@@ -400,7 +400,7 @@ function review_senarai()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Profile', 'url' => '/profile'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
 
 
