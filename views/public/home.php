@@ -27,7 +27,7 @@
         <!-- Start Card Blog Fullbackground - text centered -->
         <div class="card card-background  border-radius-xl min-vh-75 m-3  ">
             <div class="full-background "
-                style="background-image: url('<?= $rootPath ?>/assets/img/homestay/IMG-20250422-WA0029.jpg');">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0029.jpg');">
             </div>
             <div class="card-body pt-12 text-white">
                 <div class="container">
@@ -39,7 +39,7 @@
                                 evolutionarily recent positive-sum game. Status is an old zero-sum game. Those
                                 attacking wealth creation are often just seeking status.</p>
                             <div class="buttons fadeIn1 fadeInBottom">
-                                <button type="button" class="btn btn-lg bg-gradient-primary mt-4">Discover Now</button>
+                                <button type="button" class="btn btn-lg bg-gradient-primary mt-4">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover mb-4">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1560448070-9ebd42a5eeb2?auto=format&fit=crop&w=800&q=80')">
+                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_35d9687d.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Modern Cozy Rooms</h4>
@@ -83,7 +83,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80')">
+                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0042.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Swimming Pool</h4>
@@ -98,7 +98,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover mb-4">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80')">
+                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0053.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Spacious Area</h4>

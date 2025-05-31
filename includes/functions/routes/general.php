@@ -9,8 +9,8 @@ function home()
     $title = "Villa D'hati - Modern Family Homestay in Malaysia";
     $description = "Spacious, fully-equipped homestay with swimming pool and parking. Perfect for families seeking comfort and relaxation.";
     $keywords = "Malaysia homestay, family homestay, homestay with pool, modern homestay, vacation rental";
-    $url = "$rootpath"; // Use full canonical URL
-    $image = $rootpath."/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
+    $url = "$rootPath"; // Use full canonical URL
+    $image = $rootPath."/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
     $site_name = "Villa D'hati";
     $type = "website"; // Usually "website", could be "article", "product", etc.
 
