@@ -1,200 +1,45 @@
 <!--
-
 =========================================================
-* Now UI Kit - v1.3.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-kit-pro
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md)
-
-* Designed by www.invisionapp.com Coded by www.creative-tim.com
-
+* Soft UI Design System PRO - v1.1.0
 =========================================================
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+* Product Page:  https://themes.getbootstrap.com/product/soft-ui-design-system-pro/ 
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
 
--->
+ =========================================================
 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/head.php"); ?>
 
-
-<body class="presentation-page sidebar-collapse">
-
-
-
-    <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/navbar.php"); ?>
+<body class="presentation-page">
+    <!-- Navbar -->
+    <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/nav.php"); ?>
 
 
+    <!-- -------- START HEADER 10 w/ carousel ------- -->
+    <header>
 
-    <div class="wrapper">
-        <div class="page-header clear-filter">
-            <div class="rellax-header rellax-header-sky" data-rellax-speed="-4">
-                <div class="page-header-image"
-                    style="background-image: url('<?php echo $rootPath; ?>/assets/img/homestay/sky.png')">
-                </div>
+
+        <!-- Start Card Blog Fullbackground - text centered -->
+        <div class="card card-background  border-radius-xl min-vh-75 m-3  ">
+            <div class="full-background "
+                style="background-image: url('<?= $rootPath ?>/assets/img/homestay/IMG-20250422-WA0029.jpg');">
             </div>
-            <div class="rellax-header rellax-header-buildings" data-rellax-speed="0">
-                <div class="page-header-image page-header-city"
-                    style="background-image: url('<?php echo $rootPath; ?>/assets/img/homestay/test4.png')">
-                </div>
-            </div>
-
-            <div class="rellax-text-container rellax-text ">
-                <h1 class="h1-seo " data-rellax-speed="2">Villa D'hati</h1>
-                <!-- <div class="pro">PRO</div> -->
-            </div>
-
-            <!-- <h3 class="h3-description rellax-text" data-rellax-speed="-1">A beautiful premium Bootstrap 4 UI Kit.</h3> -->
-
-            <!-- <h6 class="category category-absolute rellax-text" data-rellax-speed="-1">Designed by <a
-                    href="http://invisionapp.com/" target="_blank"><img
-                        src="<?php echo $rootPath; ?>/assets/img/invision-white-slim.png" class="invision-logo" /></a>.
-                Coded by <a href="https://www.creative-tim.com" target="_blank"><img
-                        src="<?php echo $rootPath; ?>/assets/img/creative-tim-white-slim2.png"
-                        class="creative-tim-logo" /></a>.
-            </h6> -->
-        </div>
-
-
-        <!-- <div class="section section-components" data-background-color="dark-red">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="text-center title">Impressive collection of elements
-                            <br><small class="description">Designed to look gorgeous together</small>
-                        </h2>
-                        <h5 class="text-center description">Now UI Kit Pro comes with a huge number of customisable
-                            elements. They are not only designed to be pixel perfect and light but they are also easy to
-                            use and combine well with other components.</h5>
-
-                        <div class="space-50"></div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card-container first-card">
-                            <div class="card-component">
-                                <a href="index.html#basic-elements" target="_blank">
-                                    <div class="front">
-                                        <img
-                                            src="<?php echo $rootPath; ?>/assets/img/presentation-page/basic_thumb.jpg">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-container second-card">
-                            <div class="card-component">
-                                <a href="index.html#cards" target="_blank">
-                                    <div class="front">
-                                        <img
-                                            src="<?php echo $rootPath; ?>/assets/img/presentation-page/cards_thumb.jpg">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-container third-card">
-                            <div class="card-component">
-                                <a href="sections.html" target="_blank">
-                                    <div class="front">
-                                        <img
-                                            src="<?php echo $rootPath; ?>/assets/img/presentation-page/sections_thumb.jpg">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-container fourth-card">
-                            <div class="card-component">
-                                <a href="examples/product-page.html" target="_blank">
-                                    <div class="front">
-                                        <img
-                                            src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages2_thumb.jpg">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="section section-basic-components">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-7 ml-auto mr-auto">
-                        <h2 class="title">Basic Elements</h2>
-                        <h6 class="category">The core elements of your website</h6>
-                        <h5 class="description">We re-styled every Bootstrap 4 element to match the Now UI Kit style.
-                            All the Bootstrap 4 components that you need in a development have been re-design with the
-                            new look. Besides the numerous basic elements, we have also created additional classes. All
-                            these items will help you take your project to the next level.</h5>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="image-container">
-                            <img class="components-macbook" src="<?php echo $rootPath; ?>/assets/img/ipad.png" alt="">
-                            <img class="table-img" src="<?php echo $rootPath; ?>/assets/img/presentation-page/table.jpg"
-                                alt="">
-                            <img class="share-btn-img"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/share-btn.jpg" alt="">
-                            <img class="coloured-card-btn-img"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/coloured-card-with-btn.jpg"
-                                alt="">
-                            <img class="coloured-card-img"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/coloured-card.jpg" alt="">
-                            <img class="social-img"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/social-row.jpg" alt="">
-                            <img class="linkedin-btn-img"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/linkedin-btn.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="section section-cards" data-background-color="dark-red">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 text-center ml-auto mr-auto">
-                        <div class="section-description">
-                            <h2 class="title">Explore Our Homestay</h2>
-                            <h6 class="category">Gallery of Comfort & Style</h6>
-                            <h5 class="description">
-                                Take a closer look at our cozy rooms, modern amenities, and relaxing surroundings.
-                                Every photo tells a story of comfort and hospitality.
-                            </h5>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="images-container">
-                            <div class="image-container1  " data-rellax-speed="-3" >
-                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0031.jpg"  >
-                            </div>
-                            <div class="image-container2  "  data-rellax-speed="1">
-                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0032.jpg"  >
-                            </div>
-                            <div class="image-container3  "  data-rellax-speed="-3">
-                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0046.jpg"  >
-
-                            </div>
-                            <div class="image-container4  "   data-rellax-speed="1">
-                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0036.jpg" >
-                            </div>
-                            <div class="image-container5  "  data-rellax-speed="-3">
-                                <img src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0033.jpg" >
-
+            <div class="card-body pt-12 text-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 my-auto">
+                            <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Villa D'hati</h4>
+                            <h1 class="text-white fadeIn2 fadeInBottom">Feel at Home in Our Homestay</h1>
+                            <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Wealth creation is an
+                                evolutionarily recent positive-sum game. Status is an old zero-sum game. Those
+                                attacking wealth creation are often just seeking status.</p>
+                            <div class="buttons fadeIn1 fadeInBottom">
+                                <button type="button" class="btn btn-lg bg-gradient-primary mt-4">Discover Now</button>
                             </div>
                         </div>
                     </div>
@@ -202,764 +47,412 @@
             </div>
         </div>
 
-        <div class="section section-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="image-container">
-                            <img class="img img-raised rounded img-comments rellax" data-rellax-speed="1"
-                                src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0040.jpg">
-                            <img class="img img-raised rounded img-blog rellax" data-rellax-speed="4"
-                                src="<?php echo $rootPath; ?>/assets/img/homestay/IMG-20250422-WA0043.jpg">
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 ml-auto mr-auto">
-                        <div class="section-description">
-                            <h2 class="title">Stay in Comfort</h2>
-                            <h6 class="category">Your Home Away From Home</h6>
-                            <h5 class="description">
-                                Discover thoughtfully designed living spaces that blend modern convenience with cozy
-                                charm.
-                                Our homestay offers relaxing bedrooms, inviting common areas, and all the essentials you
-                                need
-                                for a peaceful getaway.
-                            </h5>
 
+    </header>
+
+
+    <section class="features-3 mt-n10 py-7">
+        <div class="container">
+            <div class="row text-center justify-content-center pt-10">
+                <div class="col-lg-6">
+                    <span class="badge rounded-pill badge-primary mb-2">Homestay</span>
+                    <h2>Discover the Unique Comforts of Our Homestay</h2>
+                    <p>
+                        Experience modern design in a spacious homestay area perfect for families. Enjoy relaxing
+                        amenities, ample parking, and a refreshing swimming pool—all crafted for your comfort.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 mb-lg-0 mb-4">
+                    <!-- Cozy Rooms -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover mb-4">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1560448070-9ebd42a5eeb2?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Modern Cozy Rooms</h4>
+                                <p>Our rooms feature sleek, modern decor combined with plush bedding, offering a
+                                    peaceful retreat for the whole family.</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                    <!-- Swimming Pool -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Swimming Pool</h4>
+                                <p>Dive into our pristine swimming pool surrounded by lush greenery, perfect for
+                                    relaxation and fun.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 mb-lg-0 mb-4">
+                    <!-- Large Homestay Area -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover mb-4">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Spacious Area</h4>
+                                <p>Our expansive homestay grounds offer plenty of space for kids to play and families to
+                                    relax together.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Parking Available -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Ample Parking</h4>
+                                <p>Enjoy convenient and secure parking spaces for all guests, making your arrival and
+                                    departure hassle-free.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Perfect for Family -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover mb-4">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Family Friendly</h4>
+                                <p>Our homestay is thoughtfully designed with families in mind, providing a safe and
+                                    welcoming environment for all ages.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Cozy Lounge Areas -->
+                    <a href="javascript:;">
+                        <div class="card card-background move-on-hover">
+                            <div class="full-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80')">
+                            </div>
+                            <div class="card-body pt-12">
+                                <h4 class="text-white">Cozy Lounge Areas</h4>
+                                <p>Relax in our inviting lounge spaces with comfortable seating, perfect for unwinding
+                                    or socializing.</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- <div class="section section-sections" data-background-color="gray">
-            <div class="container">
-                <div class="col-md-8 ml-auto mr-auto">
-                    <div class="section-description text-center">
-                        <h2 class="title">Sections you will love</h2>
 
-                        <h5 class="description"> Build pages in no time using pre-made sections! From headers to
-                            footers, you will be able to choose the best combination for your project. We have created
-                            multiple sections for you to put together and customise into pixel perfect example pages.
-                        </h5>
-
-                        <a href="sections.html" target="_blank" class="btn btn-primary btn-round">View All Sections</a>
-                    </div>
-                </div>
+    <section class="py-5 position-relative">
+        <div class="container-fluid">
+            <div class="container text-center">
+                <h2>What Our Guests Say</h2>
+                <p class="mb-5">Real stories from families who’ve experienced our homestay comfort.</p>
             </div>
-            <div class="container-fluid">
-                <div class="section-cols">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/header1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/header2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/header3.jpg" alt="">
-                            <img class="rellax" data-rellax-speed="4"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing5.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/header4.jpg" alt="">
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features3.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features4.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features5.jpg" alt="">
-                            <img class="rellax" data-rellax-speed="5"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/features2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features6.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features7.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/features8.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/blogpost1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/blogpost2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/blogpost3.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/blogpost4.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/blogpost5.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/team1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/team2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/team3.jpg" alt="">
-                            <img class="rellax" data-rellax-speed="5"
-                                src="<?php echo $rootPath; ?>/assets/img/presentation-page/contact1.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/team4.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/team5.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/projects1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/projects2.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/projects4.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/projects5.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing2.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing3.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing4.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pricing5.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/testimonials1.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/testimonials2.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/testimonials3.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/contact1.jpg" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/contact2.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="section section-examples" data-background-color="black">
-            <div class="container">
-                <div class="col-md-8 ml-auto mr-auto text-center">
-                    <div class="section-description">
-                        <h2 class="title">Example Pages</h2>
-                        <h5 class="description">Forget about building everything from scratch. From landing pages to
-                            e-commerce or blog pages, you will be able jump start your development. Show your clients a
-                            quick prototype and get inspired for your next project!</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <h5 class="title">About Us</h5>
-                        <div class="card">
-                            <a href="examples/about-us.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/about-us.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Landing Page</h5>
-                        <div class="card">
-                            <a href="examples/landing-page.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/landing.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Login Page</h5>
-                        <div class="card">
-                            <a href="examples/login-page.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/login.jpg" alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Signup Page</h5>
-                        <div class="card">
-                            <a href="examples/signup-page.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/signup.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <h5 class="title">Blog Post</h5>
-                        <div class="card">
-                            <a href="examples/blog-post.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/blog-post.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Product Page</h5>
-                        <div class="card">
-                            <a href="examples/product-page.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/product.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Profile Page</h5>
-                        <div class="card">
-                            <a href="examples/profile-page.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/profile.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-
-                        <h5 class="title">Pricing Page</h5>
-                        <div class="card">
-                            <a href="examples/pricing.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/pricing.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Ecommerce</h5>
-                        <div class="card">
-                            <a href="examples/ecommerce.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/ecommerce.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Blog Posts</h5>
-                        <div class="card">
-                            <a href="examples/blog-posts.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/blog-posts.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <h5 class="title">Contact Us</h5>
-                        <div class="card">
-                            <a href="examples/contact-us.html" target="_blank">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/pages/contact.jpg"
-                                    alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="section section-free-demo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 col-md-12">
-                        <div class="section-description">
-                            <h2 class="title">Free Demo</h2>
-                            <h5 class="description">Do you want to test and see the benefits of this kit before
-                                purchasing it? You can give the demo version a try. It features enough basic components
-                                for you to get a feel of the design and also test the quality of the code. Get it free
-                                on GitHub!</h5>
-
-                            <div class="github-buttons">
-                                <a href="https://github.com/creativetimofficial/ct-now-ui-kit-pro" target="_blank"
-                                    class="btn btn-primary btn-round">View Demo on Github</a>
-                                <div class="github-button">
-                                    <a class="github-button"
-                                        href="https://github.com/creativetimofficial/ct-now-ui-kit-pro"
-                                        data-icon="octicon-star" data-size="large" data-show-count="true">Star</a>
-                                    <a class="github-button"
-                                        href="https://github.com/creativetimofficial/ct-now-ui-kit-pro/fork"
-                                        data-icon="octicon-repo-forked" data-size="large"
-                                        data-show-count="true">Fork</a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 pt-5">
-                                <div class="card card-pricing card-background"
-                                    style="background-image:url('<?php echo $rootPath; ?>/assets/img/project1.jpg')">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Free Demo</h3>
-                                        <ul>
-                                            <li> <b>60</b> Components</li>
-                                            <li> <b>3</b> Example Pages</li>
-                                            <li><i class="now-ui-icons ui-1_simple-remove text-danger"></i> Beautiful
-                                                Cards</li>
-                                            <li><i class="now-ui-icons ui-1_simple-remove text-danger"></i> Sections
-                                            </li>
-                                            <li><i class="now-ui-icons ui-1_simple-remove text-danger"></i> Premium
-                                                Support</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 pt-5">
-                                <div class="card card-pricing card-background"
-                                    style="background-image:url('<?php echo $rootPath; ?>/assets/img/pricing1.jpg')">
-                                    <div class="card-body">
-                                        <h3 class="card-title">PRO Version</h3>
-                                        <ul>
-                                            <li> <b>1000+</b> Components</li>
-                                            <li> <b>10</b> Example Pages</li>
-                                            <li><i class="now-ui-icons ui-1_check text-success"></i> Beautiful Cards
-                                            </li>
-                                            <li><i class="now-ui-icons ui-1_check text-success"></i> Sections</li>
-                                            <li><i class="now-ui-icons ui-1_check text-success"></i> Premium Support
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 col-md-12">
-                        <div class="github-background-container">
-                            <i class="fab fa-github"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="section section-icons" data-background-color="black">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="icons-nucleo">
-                            <i class="first-left-icon now-ui-icons ui-1_send"></i>
-                            <i class="second-left-icon now-ui-icons ui-2_like"></i>
-                            <i class="third-left-icon now-ui-icons transportation_air-baloon"></i>
-                            <i class="fourth-left-icon now-ui-icons text_bold"></i>
-                            <i class="fifth-left-icon now-ui-icons tech_headphones"></i>
-                            <i class="sixth-left-icon now-ui-icons emoticons_satisfied"></i>
-                            <i class="seventh-left-icon now-ui-icons shopping_cart-simple"></i>
-                            <i class="eighth-left-icon now-ui-icons objects_spaceship"></i>
-                            <i class="ninth-left-icon now-ui-icons media-2_note-03"></i>
-                            <i class="tenth-left-icon now-ui-icons ui-2_favourite-28"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <h2 class="title">Custom Icons</h2>
-                        <h5 class="description">
-                            Now UI Kit PRO comes with 100 custom demo icons made by our friends from <a
-                                href="https://nucleoapp.com/?ref=1712" target="_blank">NucleoApp</a>. The official
-                            package contains over 20.729 icons which are looking great in combination with Now UI Kit
-                            PRO. Make sure you check all of them and use those that you like the most.
-                        </h5>
-                        <br>
-                        <a href="nucleo-icons.html" class="btn btn-primary btn-round btn-lg " target="_blank">View Demo
-                            Icons</a>
-                        <a href="https://nucleoapp.com/?ref=1712" class="btn btn-default btn-round btn-lg "
-                            target="_blank">View All Icons</a>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="icons-nucleo icons-nucleo-right">
-                            <i class="first-right-icon now-ui-icons design_palette"></i>
-                            <i class="second-right-icon now-ui-icons clothes_tie-bow"></i>
-                            <i class="third-right-icon now-ui-icons location_pin"></i>
-                            <i class="fourth-right-icon now-ui-icons objects_key-25"></i>
-                            <i class="fifth-right-icon now-ui-icons travel_istanbul"></i>
-                            <i class="sixth-right-icon now-ui-icons business_briefcase-24"></i>
-                            <i class="seventh-right-icon now-ui-icons design_image"></i>
-                            <i class="eighth-right-icon now-ui-icons location_world"></i>
-                            <i class="ninth-right-icon now-ui-icons objects_planet"></i>
-                            <i class="tenth-right-icon now-ui-icons education_atom"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="section features-7 section-image"
-            style="background-image: url('<?php echo $rootPath; ?>/assets/img/bg51.jpg')">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 px-0">
-                        <div class="col-sm-12">
-                            <div class="info info-horizontal">
-                                <div class="icon">
-                                    <i class="now-ui-icons business_money-coins"></i>
-                                </div>
-                                <div class="description">
-                                    <h5 class="info-title">Save Time & Money</h5>
-                                    <p class="description">Creating your design from scratch with dedicated designers
-                                        can be very expensive.Using Now UI Kit PRO you don't have to worry about
-                                        customising the basic Bootstrap 4 design or its components.</p>
-                                </div>
-                            </div>
-                            <div class="info info-horizontal">
-                                <div class="icon">
-                                    <i class="now-ui-icons text_bold"></i>
-                                </div>
-                                <div class="description">
-                                    <h5 class="info-title">Bootstrap 4 & Flexbox</h5>
-                                    <p class="description">It is built over Bootstrap 4, it's fully responsive and has
-                                        all the benefits of the flexbox for the layout, grid system and components. This
-                                        is a huge advantage when you work with columns.</p>
-                                </div>
-                            </div>
-                            <div class="info info-horizontal">
-                                <div class="icon">
-                                    <i class="now-ui-icons education_paper"></i>
-                                </div>
-                                <div class="description">
-                                    <h5 class="info-title">Fast Prototype</h5>
-                                    <p class="description">Using Now UI Kit PRO you can create hundreds of components
-                                        combinations within seconds and present them to your client. You just need to
-                                        change some classes and colors.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="image-container">
-                            <img src="<?php echo $rootPath; ?>/assets/img/ipad3.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
-
-        <div class="section section-testimonials" data-background-color="black">
             <div class="row">
-                <!-- <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h2 class="title">Trusted by 245,000+ People</h2>
-                    <h5 class="description">The UI Kits, Templates and Dashboards that we've created are used by
-                        <b>245,000+ web developers</b> in over <b>426,000 Web Projects</b>. This is what some of them
-                        think:
-                    </h5>
-                </div> -->
-            </div>
 
-            <div class="row" style="height: 300px;">
-
-                <div class="col-md-2">
-                    <div class="testimonials-people">
-                        <img class="left-first-person img-raised rellax" data-rellax-speed="1"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg" alt="">
-                        <img class="left-second-person img-raised rellax" data-rellax-speed="3"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/mlane/128.jpg" alt="">
-                        <img class="left-third-person img-raised rellax" data-rellax-speed="2"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="">
-                        <img class="left-fourth-person img-raised rellax" data-rellax-speed="5"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/kerem/128.jpg" alt="">
-                        <img class="left-fifth-person img-raised rellax" data-rellax-speed="7"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="">
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div id="carouselExampleIndicators2" class="carousel slide">
-                        <!-- <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-                        </ol> -->
-
-                        <!-- <div class="carousel-inner" role="listbox">
-
-                            <div class="carousel-item active justify-content-center">
-                                <div class="card card-testimonial card-plain">
-                                    <div class="card-avatar">
-                                        <a href="presentation.html#pablo">
-                                            <img class="img img-raised rounded"
-                                                src="https://s3.amazonaws.com/creativetim_bucket/photos/154001/thumb.JPG?1501184024" />
-                                        </a>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="card-description">"Awesome Design and very well organized code
-                                            structure! Also, it contains numerous elements using which achieving the
-                                            perfect or required template can be done with ease. Great job!"
-                                        </h5>
-                                        <h4 class="card-title">Stefan</h4>
-                                        <h6 class="category text-muted">Web Designer</h6>
-                                        <div class="card-footer">
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
+                <div class="col-10 mx-auto">
+                    <div id="carouselExampleTestimonials-11" class="carousel carousel-fade slide shadow-lg"
+                        data-bs-ride="carousel">
+                        <ol class="carousel-indicators z-index-2">
+                            <li data-bs-target="#carouselExampleTestimonials-11" data-bs-slide-to="0" class="active">
+                            </li>
+                            <li data-bs-target="#carouselExampleTestimonials-11" data-bs-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner rounded-3">
+                            <div class="carousel-item bg-cover active"
+                                style="background-image: url(<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0029.jpg)">
+                                <div class="z-index-1 my-md-8 my-6 position-relative z-index-2">
+                                    <div class="row h-100">
+                                        <div class="col-xl-6 my-auto px-6">
+                                            <h5 class="text-white font-weight-normal mb-3">"Absolutely loved the
+                                                spacious house and peaceful surroundings. Perfect for our family
+                                                weekend!"</h5>
+                                            <p class="text-white font-weight-bold">Nur Aisyah, <span
+                                                    class="text-xs font-weight-normal">Kuala
+                                                    Lumpur</span></p>
                                         </div>
+                                      
                                     </div>
                                 </div>
+                                <span class="mask bg-gradient-faded-primary opacity-10 z-index-0 rounded-3"></span>
                             </div>
 
-                            <div class="carousel-item justify-content-center">
-                                <div class="card card-testimonial card-plain">
-                                    <div class="card-avatar">
-                                        <a href="presentation.html#pablo">
-                                            <img class="img img-raised rounded"
-                                                src="https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg" />
-                                        </a>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="card-description">"It looks great and its somewhat futuristics cant
-                                            wait to use it on a project here in nigeria i'm sure it would put me ahead..
-                                            I cant wait to hv enough money to buy ur product."
-                                        </h5>
-                                        <h4 class="card-title">Mr. Bones</h4>
-                                        <h6 class="category text-muted">Web Designer</h6>
-                                        <div class="card-footer">
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
+                            <div class="carousel-item bg-cover active"
+                                style="background-image: url(<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0029.jpg)">
+                                <div class="z-index-1 my-md-8 my-6 position-relative z-index-2">
+                                    <div class="row h-100">
+                                        <div class="col-xl-6 my-auto px-6">
+                                            <h5 class="text-white font-weight-normal mb-3">"Absolutely loved the
+                                                spacious house and peaceful surroundings. Perfect for our family
+                                                weekend!"</h5>
+                                            <p class="text-white font-weight-bold">Nur Aisyah, <span
+                                                    class="text-xs font-weight-normal">Kuala
+                                                    Lumpur</span></p>
                                         </div>
+                                       
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="carousel-item justify-content-center">
-                                <div class="card card-testimonial card-plain">
-                                    <div class="card-avatar">
-                                        <a href="presentation.html#pablo">
-                                            <img class="img img-raised rounded"
-                                                src="https://s3.amazonaws.com/creativetim_bucket/photos/123124/thumb.?1480480048" />
-                                        </a>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <h5 class="card-description">"Everything is perfect. Codes are really organized.
-                                            It's easy to edit for my own purposes. It's great that it is built on top of
-                                            Bootstrap 4."<br><br>
-                                        </h5>
-                                        <h4 class="card-title">DOĞA</h4>
-                                        <h6 class="category text-muted">Web Developer</h6>
-                                        <div class="card-footer">
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                                <span class="mask bg-gradient-faded-primary opacity-10 z-index-0 rounded-3"></span>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="presentation.html#carouselExampleIndicators2"
-                            role="button" data-slide="prev">
-                            <i class="now-ui-icons arrows-1_minimal-left"></i>
-                        </a>
-                        <a class="carousel-control-next" href="presentation.html#carouselExampleIndicators2"
-                            role="button" data-slide="next">
-                            <i class="now-ui-icons arrows-1_minimal-right"></i>
-                        </a> -->
                     </div>
-                </div>
 
-                <div class="col-md-2">
-                    <div class="testimonials-people">
-                        <img class="right-first-person img-raised rellax" data-rellax-speed="5"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/tonypeterson/128.jpg" alt="">
-                        <img class="right-second-person img-raised rellax" data-rellax-speed="1"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="">
-                        <img class="right-fourth-person img-raised rellax" data-rellax-speed="7"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/mattsince87/128.jpg" alt="">
-                        <img class="right-fifth-person img-raised rellax" data-rellax-speed="3"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/rem/128.jpg" alt="">
-                        <img class="right-sixth-person img-raised rellax" data-rellax-speed="5"
-                            src="https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg" alt="">
-                    </div>
                 </div>
-
             </div>
+    </section>
 
+    <section class=" py-7 bg-light">
+        <div class="container text-center">
+            <h2>Price for Our Hospitality</h2>
+            <p class="mb-5">Enjoy your stay with comfort and space perfect for your family.</p>
+            <div class="pricing-card mx-auto"
+                style="max-width: 400px; border: 1px solid #ddd; border-radius: 8px; padding: 30px; background: #fff; box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);">
+                <h3 class="mb-3">Modern Family Homestay</h3>
+                <p class="mb-3">Spacious, modern design with swimming pool and parking. Perfect for family getaways.</p>
+                <div class="pricing mb-4 fs-4">
+                    <span class="text-muted text-decoration-line-through me-3">RM 800/night</span>
+                    <div>
+
+                        <span class="fw-bold text-primary">RM 600/night</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary btn-lg w-100">Book Now</a>
+            </div>
         </div>
+    </section>
+
+    <section class=" py-7">
+        <div class="container text-center">
+            <h2>Find Us Here</h2>
+            <p class="mb-4">Our homestay is located in a peaceful neighborhood with easy access to local attractions.
+            </p>
+            <div class="map-container"
+                style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.547847198543!2d101.686855!3d3.139003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49b8b6143a6f%3A0x4a7c4476e6cf63b9!2sKuala%20Lumpur!5e0!3m2!1sen!2smy!4v1717148400000!5m2!1sen!2smy"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
 
-        <!-- <div class="section section-pricing" id="sectionBuy">
-            <div class="container">
-                <div class="our-clients">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2 ml-auto">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/vodafone.jpg" alt="" />
-                            </div>
-                            <div class="col-md-2">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/microsoft.jpg" alt="" />
-                            </div>
-                            <div class="col-md-2">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/harvard.jpg" alt="" />
-                            </div>
-                            <div class="col-md-2 mr-auto">
-                                <img src="<?php echo $rootPath; ?>/assets/img/presentation-page/stanford.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
+    <section class="py-5">
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Got questions about booking your stay? We’ve got you covered with all the info you need!</p>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">Ready to grab Now UI Kit PRO?</h2>
-                    </div>
-
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <p class="description mb-5 text-center">You have <b>Free Unlimited Updates</b> and <b>Premium
-                                Support</b> on each package. You also have <b>30 days</b> to request a refund if you're
-                            not happy with your purchase.
-                            <br>
-                            Read more about <b><a href="https://www.creative-tim.com/license" target="_blank">licenses
-                                    here</a></b>.
-                        </p>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card card-pricing card-background card-raised card-margin"
-                                    style="background-image: url('<?php echo $rootPath; ?>/assets/img/bg27.jpg')">
-                                    <div class="card-body">
-                                        <h6 class="category">Personal License</h6>
-                                        <h1 class="card-title"><small>$</small>69</h1>
-                                        <ul>
-                                            <li><b>HTML/CSS/JS/SASS</b> Files</li>
-                                            <li><b>Fully Coded</b> Components</li>
-                                            <li><b>Responsive</b> Design</li>
-                                            <li>Product<b> Documentation</b></li>
-                                        </ul>
-                                        <a href="https://www.creative-tim.com/buy/now-ui-kit-pro?license=1"
-                                            class="btn btn-primary btn-round">
-                                            Buy Now!
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card card-pricing card-background card-raised"
-                                    style="background-image: url('<?php echo $rootPath; ?>/assets/img/bg37.jpg')">
-                                    <div class="card-body">
-                                        <h6 class="category">Developer License</h6>
-                                        <h1 class="card-title"><small>$</small>279</h1>
-                                        <ul>
-                                            <li>Everything in Personal</li>
-                                            <li><b>+</b> Create <b>Multiple Websites</b></li>
-                                            <li><b>+</b> Sell to <b>Multiple Clients</b></li>
-                                            <li><b>+</b> Can<b> Charge Customers</b></li>
-                                            <li><b>+</b> Use in<b> Commercial Projects</b></li>
-                                            <li><b>+</b> Use in<b> SaaS Projects</b></li>
-                                        </ul>
-                                        <a href="https://www.creative-tim.com/buy/now-ui-kit-pro?license=2"
-                                            class="btn btn-primary btn-round">
-                                            Buy Now!
-                                        </a>
-                                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <div class="accordion" id="accordionBooking">
+                        <div class="accordion-item mb-3">
+                            <h5 class="accordion-header" id="headingOne">
+                                <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    How do I book a homestay room?
+                                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                </button>
+                            </h5>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionBooking">
+                                <div class="accordion-body text-sm opacity-8">
+                                    Booking is easy! Simply visit our website or contact us directly via phone or email.
+                                    Choose your preferred dates, room type, and number of guests, then confirm your
+                                    reservation through our secure booking system. You’ll receive a confirmation email
+                                    with all details.
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="text-center col-md-8 ml-auto mr-auto">
-                        <h3>Thank you for supporting us!</h3>
-                    </div>
-                    <div class="text-center col-md-8 ml-auto mr-auto">
-                        <a href="presentation.html#pablo"
-                            class="btn btn-icon btn-lg btn-round btn-twitter twitter-sharrre sharrre" rel="tooltip"
-                            title="" data-original-title="Tweet!">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="presentation.html#pablo"
-                            class="btn btn-lg btn-round btn-icon btn-facebook facebook-sharrre sharrre" rel="tooltip"
-                            title="" data-original-title="Share!">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                        <a href="presentation.html#pablo"
-                            class="btn btn-lg btn-round btn-icon btn-linkedin linkedin-sharrre sharrre" rel="tooltip"
-                            title="" data-original-title="Share!">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/creativetimofficial/ct-now-ui-kit-pro"
-                            class="btn btn-lg btn-round btn-icon btn-github" rel="tooltip" title=""
-                            data-original-title="Star on Github">
-                            <i class="fab fa-github"></i>
-                        </a>
+                        <div class="accordion-item mb-3">
+                            <h5 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    How many guests (pax) can stay in one room?
+                                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                </button>
+                            </h5>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionBooking">
+                                <div class="accordion-body text-sm opacity-8">
+                                    Each room has a maximum occupancy limit depending on its size and bed configuration.
+                                    Typically, our cozy rooms accommodate 2 guests, while larger family rooms can host
+                                    up to 4. Please specify the number of guests during booking to ensure the best fit
+                                    and comfort.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h5 class="accordion-header" id="headingThree">
+                                <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    What are the standard operating procedures (SOP) during the stay?
+                                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                </button>
+                            </h5>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionBooking">
+                                <div class="accordion-body text-sm opacity-8">
+                                    To ensure a safe and comfortable stay for everyone, we follow these SOPs: regular
+                                    cleaning and sanitization of rooms, mandatory mask-wearing in common areas, social
+                                    distancing protocols, and contactless check-in/out options. Please adhere to these
+                                    guidelines during your stay. For any concerns, our team is always available to
+                                    assist you.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h5 class="accordion-header" id="headingFour">
+                                <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    What payment methods do you accept?
+                                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                </button>
+                            </h5>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionBooking">
+                                <div class="accordion-body text-sm opacity-8">
+                                    We accept multiple payment options including credit/debit cards, bank transfers, and
+                                    popular online payment gateways. Full or partial payment may be required to confirm
+                                    your booking. Payment details will be shared during the reservation process.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h5 class="accordion-header" id="headingFive">
+                                <button class="accordion-button border-bottom font-weight-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    Can I modify or cancel my booking?
+                                    <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                    <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                                </button>
+                            </h5>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionBooking">
+                                <div class="accordion-body text-sm opacity-8">
+                                    Yes! You can modify or cancel your booking subject to our cancellation policy.
+                                    Please check the terms and conditions or contact our support team for assistance. We
+                                    recommend notifying us as early as possible to avoid any charges.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
-        <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/footer.php"); ?>
-
-
-    </div>
+        </div>
+    </section>
 
 
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h1 class="text-gradient text-primary mb-2">Experience</h1>
+                    <h1 class="mb-3">Authentic Malaysian Homestay</h1>
+                    <p class="lead text-secondary">
+                        Relax in cozy, comfortable rooms surrounded by lush greenery. Dive into our refreshing swimming
+                        pool and enjoy the true warmth of Malaysian hospitality.
+                    </p>
+                    <div class="buttons mt-4">
+                        <button type="button" class="btn btn-primary btn-lg">Book Your Stay</button>
+                    </div>
+                </div>
+                <div class="col-lg-8 ps-md-5  ps-0 pe-0 mt-auto mt-md-3">
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <img class="w-100 border-radius-lg shadow mt-0 mt-lg-7"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desire.jpg"
+                                alt="">
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <img class="w-100 border-radius-lg shadow"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/chair.jpg"
+                                alt="">
+                            <img class="w-100 border-radius-lg shadow mt-4"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/facade.jpg"
+                                alt="">
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <img class="w-100 border-radius-lg shadow mt-0 mt-lg-5"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/architecture.jpg"
+                                alt="">
+                            <img class="w-100 border-radius-lg shadow mt-4"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/baloon.jpg"
+                                alt="">
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <img class="w-100 border-radius-lg shadow mt-3"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/seaside.jpg"
+                                alt="">
+                            <img class="w-100 border-radius-lg shadow mt-4"
+                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/medusa.jpg"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/footer.php"); ?>
 
-
-
-
-
-
+    <!--   Core JS Files   -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/script.php"); ?>
 
 
-
-
-
+    <script>
+    </script>
+    <script type="text/javascript">
+        if (document.getElementById('state1')) {
+            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+        if (document.getElementById('state2')) {
+            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+            if (!countUp1.error) {
+                countUp1.start();
+            } else {
+                console.error(countUp1.error);
+            }
+        }
+        if (document.getElementById('state3')) {
+            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+            if (!countUp2.error) {
+                countUp2.start();
+            } else {
+                console.error(countUp2.error);
+            };
+        }
+    </script>
 </body>
 
 </html>

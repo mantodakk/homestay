@@ -4,6 +4,17 @@
 function home()
 {
     include('includes/server.php');
+
+
+    $title = "Villa D'hati - Modern Family Homestay in Malaysia";
+    $description = "Spacious, fully-equipped homestay with swimming pool and parking. Perfect for families seeking comfort and relaxation.";
+    $keywords = "Malaysia homestay, family homestay, homestay with pool, modern homestay, vacation rental";
+    $url = "$rootpath"; // Use full canonical URL
+    $image = $rootpath."assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
+    $site_name = "Villa D'hati";
+    $type = "website"; // Usually "website", could be "article", "product", etc.
+
+
     include 'views/public/home.php';
 }
 
@@ -342,7 +353,7 @@ function tempah($tempah_id)
 
     // Initialize an empty array to store all admins
     $admins = [];
-    if ($result_admins->num_rows > 0) {    
+    if ($result_admins->num_rows > 0) {
         // Fetch all rows using a while loop
         while ($row = $result_admins->fetch_assoc()) {
             $admins[] = $row;  // Add each row to the $admins array

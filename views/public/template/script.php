@@ -1,58 +1,62 @@
+<script src="<?php echo $rootPath; ?>/assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js" type="text/javascript"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<!--  Plugin for TypedJS, full documentation here: https://github.com/mattboldt/typed.js/ -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/typedjs.js"></script>
+<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/countup.min.js"></script>
+<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/rellax.min.js"></script>
+<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/tilt.min.js"></script>
+<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/choices.min.js"></script>
+<!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/parallax.min.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the GlideJS Carousel, full documentation here: http://kenwheeler.github.io/slick/ -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/glidejs.min.js" type="text/javascript"></script>
+<!--  Plugin for the blob animation -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/anime.min.js" type="text/javascript"></script>
+<!-- Chart JS -->
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
+<!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
+<!--  Google Maps Plugin    -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js></script> -->
+
+<script src="<?php echo $rootPath; ?>/assets/js/soft-design-system-pro.min.js" type="text/javascript"></script>
 
 
 
-
-    <!--   Core JS Files   -->
-    <script src="<?php echo $rootPath; ?>/assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="<?php echo $rootPath; ?>/assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="<?php echo $rootPath; ?>/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/bootstrap-switch.js"></script>
-
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/moment.min.js"></script>
-
-    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/bootstrap-tagsinput.js"></script>
-    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
-
-    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/bootstrap-datetimepicker.js"
-        type="text/javascript"></script>
-
-    <!--  Google Maps Plugin    -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>/assets/js/service-worker.js')
+        .then(reg => console.log("Service Worker Registered", reg))
+        .catch(err => console.log("Service Worker Registration Failed", err));
+    });
+  }
+</script>
 
 
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="<?php echo $rootPath; ?>/assets/js/now-ui-kit.min.js" type="text/javascript"></script>
-    <!-- Sharrre libray -->
-    <script src="<?php echo $rootPath; ?>/assets/demo/jquery.sharrre.js"></script>
+<script>
 
-  
+$.ajax({
+  url: '<?php echo $rootPath ?>/views/update',  // Your API URL
+  type: 'POST',
+   data: {
+    page_view: "pageview",
+    page_url: window.location.href
+  },
+  success: function (data) {
 
-    <!-- Library for parallax, used just in Presentation Page -->
-    <script src="<?php echo $rootPath; ?>/assets/js/plugins/rellax.min.js"
-        type="text/javascript"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
+      console.log(data);  },
+  error: function () {
+    console.error('Error fetching weather data');
+  }
+});
 
 
-     <script type="text/javascript">
-
-        $(document).ready(function () {
- 
-                var rellax = new Rellax('.rellax', {
-                        center: true
-                    });
-
-                var rellaxHeader = new Rellax('.rellax-header');
-                var rellaxText = new Rellax('.rellax-text');
- 
-        });
-    </script>
+</script>

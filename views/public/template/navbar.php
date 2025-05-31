@@ -1,151 +1,28 @@
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
-        <div class="container">
-
-
-            <div class="navbar-translate">
-                <a class="navbar-brand" href="index.html" rel="tooltip"
-                    title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                    Villa D'hati
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                    aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-bar top-bar"></span>
-                    <span class="navbar-toggler-bar middle-bar"></span>
-                    <span class="navbar-toggler-bar bottom-bar"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse"
-                data-nav-image="<?php echo $rootPath; ?>/assets/img/presentation-page/blurred-image-1.jpg" data-color="black">
-                <ul class="navbar-nav ml-auto">
-
-<!-- 
-                    <li class="nav-item dropdown">
-                        <a href="presentation.html#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1"
-                            data-toggle="dropdown">
-                            <i class="now-ui-icons design_app"></i>
-                            <p>Components</p>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="index.html">
-                                <i class="now-ui-icons business_chart-pie-36"></i>
-                                All components
-                            </a>
-                            <a class="dropdown-item" target="_blank" href="docs/1.0/getting-started/introduction.html">
-                                <i class="now-ui-icons design_bullet-list-67"></i>
-                                Documentation
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a href="presentation.html#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                            data-toggle="dropdown">
-                            <i class="now-ui-icons files_paper" aria-hidden="true"></i>
-                            <p>Sections</p>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="sections.html#headers">
-                                <i class="now-ui-icons shopping_box"></i>
-                                Headers
-                            </a>
-                            <a class="dropdown-item" href="sections.html#features">
-                                <i class="now-ui-icons ui-2_settings-90"></i>
-                                Features
-                            </a>
-                            <a class="dropdown-item" href="sections.html#blogs">
-                                <i class="now-ui-icons text_align-left"></i>
-                                Blogs
-                            </a>
-                            <a class="dropdown-item" href="sections.html#teams">
-                                <i class="now-ui-icons sport_user-run"></i>
-                                Teams
-                            </a>
-                            <a class="dropdown-item" href="sections.html#projects">
-                                <i class="now-ui-icons education_paper"></i>
-                                Projects
-                            </a>
-                            <a class="dropdown-item" href="sections.html#pricing">
-                                <i class="now-ui-icons business_money-coins"></i>
-                                Pricing
-                            </a>
-                            <a class="dropdown-item" href="sections.html#testimonials">
-                                <i class="now-ui-icons ui-2_chat-round"></i>
-                                Testimonials
-                            </a>
-                            <a class="dropdown-item" href="sections.html#contactus">
-                                <i class="now-ui-icons tech_mobile"></i>
-                                Contact Us
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a href="presentation.html#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                            data-toggle="dropdown">
-                            <i class="now-ui-icons design_image" aria-hidden="true"></i>
-                            <p>Examples</p>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="examples/about-us.html">
-                                <i class="now-ui-icons business_bulb-63"></i>
-                                About-us
-                            </a>
-                            <a class="dropdown-item" href="examples/blog-post.html">
-                                <i class="now-ui-icons text_align-left"></i>
-                                Blog Post
-                            </a>
-                            <a class="dropdown-item" href="examples/blog-posts.html">
-                                <i class="now-ui-icons design_bullet-list-67"></i>
-                                Blog Posts
-                            </a>
-                            <a class="dropdown-item" href="examples/contact-us.html">
-                                <i class="now-ui-icons location_pin"></i>
-                                Contact Us
-                            </a>
-                            <a class="dropdown-item" href="examples/landing-page.html">
-                                <i class="now-ui-icons education_paper"></i>
-                                Landing Page
-                            </a>
-                            <a class="dropdown-item" href="examples/login-page.html">
-                                <i class="now-ui-icons users_circle-08"></i>
-                                Login Page
-                            </a>
-                            <a class="dropdown-item" href="examples/pricing.html">
-                                <i class="now-ui-icons business_money-coins"></i>
-                                Pricing
-                            </a>
-                            <a class="dropdown-item" href="examples/ecommerce.html">
-                                <i class="now-ui-icons shopping_shop"></i>
-                                Ecommerce Page
-                            </a>
-                            <a class="dropdown-item" href="examples/product-page.html">
-                                <i class="now-ui-icons shopping_bag-16"></i>
-                                Product Page
-                            </a>
-                            <a class="dropdown-item" href="examples/profile-page.html">
-                                <i class="now-ui-icons users_single-02"></i>
-                                Profile Page
-                            </a>
-                            <a class="dropdown-item" href="examples/signup-page.html">
-                                <i class="now-ui-icons tech_mobile"></i>
-                                Signup Page
-                            </a>
-                        </div>
-                    </li> -->
-
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="<?php echo $rootPath; ?>/dashboard"
-                            >
-                            <p>Book Now</p>
-                        </a>
-                    </li>
-
-
-                </ul>
-            </div>
+  <header class="header-2">
+    <div class="page-header min-vh-85 relative" style="background-image: url('https://images.unsplash.com/photo-1682686581427-7c80ab60e3f3?q=80&amp;w=1400&amp;auto=format&amp;fit=crop')">
+      <span class="mask bg-dark opacity-3"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white font-weight-bolder pt-3 mt-n5">Soft UI Design System 3 PRO</h1>
+            <p class="lead text-white mt-3">Simple and innovative Web UI Kit built on top of Bootstrap 5. <br> Join over 2.6 million developers around the world. </p>
+          </div>
         </div>
-    </nav>
-    <!-- End Navbar -->
+      </div>
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95"></use>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
