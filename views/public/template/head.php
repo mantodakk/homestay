@@ -4,7 +4,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $rootPath; ?>/assets/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/img/favicon-32x32.png">
   <title>
-    Selama Community Based Tourism
+    <?php echo $title ?>
   </title>
   <!-- Canonical SEO -->
   <link rel="canonical" href="<?= htmlspecialchars($url) ?>" />
