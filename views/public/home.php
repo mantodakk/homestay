@@ -111,7 +111,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80')">
+                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0044.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Ample Parking</h4>
@@ -126,7 +126,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover mb-4">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&w=800&q=80')">
+                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_ca4ee373.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Family Friendly</h4>
@@ -139,7 +139,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80')">
+                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0047.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Cozy Lounge Areas</h4>
@@ -386,31 +386,31 @@
                     <div class="row">
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-0 mt-lg-7"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desire.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0045.jpg"
                                 alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/chair.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0041.jpg"
                                 alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/facade.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0043.jpg"
                                 alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-0 mt-lg-5"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/architecture.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0047.jpg"
                                 alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/baloon.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_01d1fa71.jpg"
                                 alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-3"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/seaside.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0049.jpg"
                                 alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
-                                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/medusa.jpg"
+                                src="<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_69b9402b.jpg"
                                 alt="">
                         </div>
                     </div>

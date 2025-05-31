@@ -10,7 +10,7 @@
             Villa D'hati
           </a>
           <a href="<?php echo $basePath2; ?>/dashboard"
-            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Visit Now</a>
+            class="btn btn-sm  bg-gradient-primary  mb-0 ms-auto d-lg-none d-block">Book Now</a>
           <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -23,34 +23,18 @@
           <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover mx-auto">
 
-              <!-- <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                  aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
-                  Attractions
-                </a>
-              </li>
+           
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                  aria-expanded="false" href="<?php echo $basePath2; ?>/facilities">
+                  aria-expanded="false" href="#facilities">
                   Facilities
                 </a>
-              </li> -->
-              <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                  aria-expanded="false" href="<?php echo $basePath2; ?>/blog/list">
-                  Blogs
-                </a>
               </li>
-              <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                  aria-expanded="false" href="<?php echo $basePath2; ?>/contactus">
-                  Contact
-                </a>
-              </li>
+      
              </ul>
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
-                <a href="<?php echo $basePath2; ?>/book" class="btn btn-sm  bg-gradient-primary   mb-0 me-1">Visit Now</a>
+                <a href="<?php echo $basePath2; ?>/book" class="btn btn-sm  bg-gradient-primary   mb-0 me-1">Book Now</a>
               </li>
             </ul>
           </div>
