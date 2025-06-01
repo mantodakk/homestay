@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 01, 2025 at 08:11 PM
+-- Generation Time: Jun 01, 2025 at 08:23 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -40,14 +40,15 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `total_price` text COLLATE utf8mb4_general_ci,
   `payment_file` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`, `status`, `status2`, `reason`, `total_price`, `payment_file`) VALUES
-(69, 2, '2025-06-28 14:00:00', '2025-06-29 12:00:00', '2025-06-01 18:48:10', 2, 4, NULL, NULL, 'WhatsApp Image 2025-05-11 at 01.41.04_f8dd7e33.jpg');
+(69, 2, '2025-06-28 14:00:00', '2025-06-29 12:00:00', '2025-06-01 18:48:10', 2, 4, NULL, NULL, 'WhatsApp Image 2025-05-11 at 01.41.04_f8dd7e33.jpg'),
+(70, 2, '2025-06-23 14:00:00', '2025-06-24 12:00:00', '2025-06-01 20:15:25', 1, 0, NULL, '600.00', 'ETS_Intercity - Ticket.pdf');
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `page_views` (
   `view_count` int DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_page_date` (`page_name`,`view_date`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `page_views`
@@ -192,8 +193,9 @@ INSERT INTO `page_views` (`id`, `page_name`, `view_date`, `view_count`) VALUES
 (9, '#facilities', '2025-06-01', 3),
 (10, '#faq', '2025-06-01', 1),
 (11, 'index', '2025-06-02', 19),
-(12, 'login', '2025-06-02', 8),
-(13, 'register', '2025-06-02', 1);
+(12, 'login', '2025-06-02', 10),
+(13, 'register', '2025-06-02', 1),
+(14, '#facilities', '2025-06-02', 1);
 
 -- --------------------------------------------------------
 
@@ -281,7 +283,14 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`id`, `user_id`, `name`, `ic`, `image`, `passport`, `phone`, `address`) VALUES
+(1, 1, '', '', NULL, NULL, '60107627918', '');
 
 -- --------------------------------------------------------
 
