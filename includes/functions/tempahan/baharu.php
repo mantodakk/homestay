@@ -8,6 +8,7 @@ if (isset($_POST['tempahan_baharu_form'])) {
     $user_id = $_POST['user_id'];
     $tarikh_mula = $_POST['tarikh_mula'];
     $tarikh_tamat = $_POST['tarikh_tamat'];
+    $total_price = $_POST['total_price'];
 
     // Convert the string date inputs to DateTime objects
     try {
@@ -29,8 +30,8 @@ if (isset($_POST['tempahan_baharu_form'])) {
 
     if (empty($errors)) {
         // Insert into `permohonan` table
-        $sql = "INSERT INTO bookings (user_id, tarikh_mula, tarikh_tamat) 
-                VALUES ('$user_id', '$formattedStartDate', '$formattedEndDate')";
+        $sql = "INSERT INTO bookings (user_id, tarikh_mula, tarikh_tamat,total_price) 
+                VALUES ('$user_id', '$formattedStartDate', '$formattedEndDate','$total_price')";
 
         if (mysqli_query($conn, $sql)) {
             $booking_id = mysqli_insert_id($conn);  // Get the ID of the newly inserted booking

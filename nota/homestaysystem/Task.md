@@ -8,6 +8,7 @@ kanban-plugin: board
 
 - [ ] Home Page Design
 - [ ] Setting for price
+- [ ] Profile
 
 
 ## To DO

@@ -44,9 +44,9 @@ function home()
     while ($row = $result->fetch_assoc()) {
         $reviews[] = $row;
     }
- 
 
-  
+
+
 
 
     include 'views/public/home.php';
@@ -404,8 +404,11 @@ function tempah($tempah_id)
 
 
     // Query to get all admin users (role = 1)
-    $sql_admins = "SELECT * FROM users WHERE role = '1'";
-
+    $sql_admins = "SELECT u.email, u.role  , ud.*
+    FROM users u
+    LEFT JOIN user_details ud ON u.id = ud.user_id
+    WHERE u.role = '1';
+        ";
     // Execute the query
     $result_admins = $conn->query($sql_admins);
 

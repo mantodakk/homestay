@@ -69,6 +69,8 @@
                                                 <div class="col-6">
                                                     <input type="hidden" class="form-control" name="user_id"
                                                         value="<?php echo $_SESSION['user_details']['id'] ?>">
+
+                                                    <input type="hidden" class="form-control" name="total_price" id="total_price">
                                                     <div class="input-group input-group-static my-3 ">
                                                         <label>Tarikh Mula</label>
                                                         <input type="text" class="form-control" id="tarikh_mula"
@@ -87,17 +89,19 @@
 
                                                 <div class="input-group input-group-static my-3">
                                                     <div class="row d-flex  w-100">
-                                                    <div class="col-12"> <label>Payment QR</label></div>
-                                                    <div class="col-12 justify-content-center"><h1 class="mt-2 text-center" id="price">RM600</h1></div>
-                                                   </div>
+                                                        <div class="col-12"> <label>Payment QR</label></div>
+                                                        <div class="col-12 justify-content-center">
+                                                            <h1 class="mt-2 text-center" id="price">RM600</h1>
+                                                        </div>
+                                                    </div>
                                                     <img src="<?php echo $rootPath ?>/assets/img/qr.jpg"
                                                         class="img img-fluid">
                                                 </div>
 
                                                 <div class="input-group input-group-static my-3">
-                                                    <label>Upload File</label>
+                                                    <label>Payment Details</label>
                                                     <input type="file" class="form-control file-selector-button"
-                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf" multiple>
+                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf"   required>
                                                 </div>
 
                                                 <div class="text-center">
@@ -239,11 +243,12 @@
                 const totalDays = Math.max(diffDays, 1);
 
                 // Calculate the total price
-                const pricePerDay = <?php echo $priceToUse?>; // RM600 per day
+                const pricePerDay = <?php echo $priceToUse ?>; // RM600 per day
                 const totalPrice = pricePerDay * totalDays;
 
                 // Update the price in the HTML
                 document.getElementById("price").textContent = "RM" + totalPrice.toFixed(2); // Update price dynamically
+                document.getElementById("total_price").value =  totalPrice.toFixed(2); // Update price dynamically
 
                 // Format the dates (assuming you are using moment.js or similar date formatting function)
                 const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)

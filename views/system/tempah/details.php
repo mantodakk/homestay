@@ -63,6 +63,12 @@
 
                                 <hr class="horizontal gray-light my-2">
                                 <ul class="list-group">
+                                    <li class="list-group-item border-0 ps-0 text-sm">
+                                        <strong class="text-dark">Status:</strong>
+                                        <button class="<?php echo $statusbooking['btnClass']; ?>">
+                                            <?php echo $statusbooking['statusLabel']; ?>
+                                        </button>
+                                    </li>
                                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
                                             class="text-dark">ID:</strong> <?php echo $tempah['id'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarikh
@@ -71,12 +77,12 @@
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarikh
                                             Check Out:</strong>
                                         <?php echo $tempah['tarikh_tamat'] ?></li>
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                        <strong class="text-dark">Status:</strong>
-                                        <button class="<?php echo $statusbooking['btnClass']; ?>">
-                                            <?php echo $statusbooking['statusLabel']; ?>
-                                        </button>
-                                    </li>
+
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Total
+                                            Price
+                                            :</strong>
+                                        <?php echo $tempah['total_price'] ?></li>
+
 
                                     <li class="list-group-item border-0 ps-0 text-sm">
                                         <strong class="text-dark">Payment File:</strong>
@@ -165,7 +171,7 @@
                         </div>
                         <hr class="vertical dark">
                     </div>
-                    <?php if ($tempah['status'] >= 2 ) { ?>
+                    <?php if ($tempah['status'] >= 2) { ?>
 
                         <div class="col-12 col-xl-6 mt-xl-0 mt-4">
 
@@ -281,14 +287,14 @@
                                             </li>
                                         </ul>
 
-                    <?php if ($role != "admin" && $tempah['status2'] != 4 ) { ?>
+                                        <?php if ($role != "admin" && $tempah['status2'] != 4) { ?>
 
-                                        <!-- Submit Button -->
-                                        <div class="text-end mt-3">
-                                            <button type="submit" name="update_booking_details"
-                                                class="btn btn-primary">Update Booking Details</button>
-                                        </div>
-                    <?php } ?>
+                                            <!-- Submit Button -->
+                                            <div class="text-end mt-3">
+                                                <button type="submit" name="update_booking_details"
+                                                    class="btn btn-primary">Update Booking Details</button>
+                                            </div>
+                                        <?php } ?>
 
                                     </form>
 
@@ -319,6 +325,14 @@
                                                     <h5>
                                                         <?php echo $admin['email'] ?>
                                                     </h5>
+                                                </a>
+                                                  <a >
+                                                 <h5>
+    <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $admin['phone']); ?>" target="_blank">
+        <?php echo $admin['phone']; ?>
+    </a>
+</h5>
+
                                                 </a>
                                                 <!-- <p class="mb-4 text-sm">
                                                 Phone
