@@ -37,15 +37,26 @@ if (isset($_POST['senarai_tempahan_list'])) {
     $bookings_data = [];
 
     while ($row = $result->fetch_assoc()) {
+        // Format the date columns using DateTime
+        $tarikh_mula = new DateTime($row['tarikh_mula']);
+        $tarikh_tamat = new DateTime($row['tarikh_tamat']);
+        $created_at = new DateTime($row['created_at']);
+
+        // Format the dates as '23/07/2025 2PM'
+        $formatted_tarikh_mula = $tarikh_mula->format('d/m/Y gA');
+        $formatted_tarikh_tamat = $tarikh_tamat->format('d/m/Y gA');
+        $formatted_created_at = $created_at->format('d/m/Y gA');
+
         $bookings_data[] = [
             'id' => $row['id'],
             'user_id' => $row['user_id'],
-            'tarikh_mula' => $row['tarikh_mula'],
-            'tarikh_tamat' => $row['tarikh_tamat'],
-            'created_at' => $row['created_at'],
+            'tarikh_mula' => $formatted_tarikh_mula,
+            'tarikh_tamat' => $formatted_tarikh_tamat,
+            'created_at' => $formatted_created_at,
             'status' => $row['status']
         ];
     }
+
 
     // JSON response
     $response = [
@@ -68,7 +79,7 @@ if (isset($_POST['senarai_tempahan_chart'])) {
 
     // Sanitize inputs (in case of user input, for security)
     $year = $conn->real_escape_string($year);
-    
+
     // Array to store monthly bookings for the given status
     $monthly_bookings = array_fill(1, 12, 0);
 

@@ -13,29 +13,31 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active bg-gradient-dark text-white" href="<?php echo $rootPath ?>/dashboard">
+                <a class="nav-link  <?php echo set_active_class('dashboard'); ?>"
+                    href="<?php echo $rootPath ?>/dashboard">
                     <i class="material-symbols-rounded opacity-5">dashboard</i>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a data-bs-toggle="collapse" href="#sidebar_tempah" class="nav-link text-dark collapsed"
+                <a data-bs-toggle="collapse" href="#sidebar_tempah"
+                    class="nav-link   collapsed <?php echo set_active_class('tempah'); ?>"
                     aria-controls="sidebar_tempah" role="button" aria-expanded="false">
-                    <i class="material-symbols-rounded opacity-5   me-2 ">account_circle</i>
+                    <i class="material-symbols-rounded opacity-5   me-2 ">book_online</i>
                     <span class="nav-link-text ms-1 ps-1">Tempah</span>
                 </a>
                 <div class="collapse" id="sidebar_tempah" style="">
                     <ul class="nav ">
-                    <?php if ($role == 'guest') { ?>
+                        <?php if ($role == 'guest') { ?>
 
-                        <li class="nav-item  ms-1">
-                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/tempah/baharu">
-                                <span class="sidenav-mini-icon"> B </span>
-                                <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                        
+                            <li class="nav-item  ms-1">
+                                <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/tempah/baharu">
+                                    <span class="sidenav-mini-icon"> B </span>
+                                    <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
+                                </a>
+                            </li>
+                        <?php } ?>
+
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/tempah/senarai">
                                 <span class="sidenav-mini-icon"> S </span>
@@ -47,22 +49,25 @@
                 </div>
             </li>
             <li class="nav-item ">
-                <a data-bs-toggle="collapse" href="#sidebar_review" class="nav-link text-dark collapsed"
-                    aria-controls="sidebar_review" role="button" aria-expanded="false">
-                    <i class="material-symbols-rounded opacity-5   me-2 ">account_circle</i>
+                <a data-bs-toggle="collapse" href="#sidebar_review"
+                    class="nav-link <?php echo set_active_class('review'); ?> collapsed" aria-controls="sidebar_review"
+                    role="button" aria-expanded="false">
+                    <i class="material-symbols-rounded opacity-5   me-2 ">rate_review</i>
                     <span class="nav-link-text ms-1 ps-1">Review</span>
                 </a>
                 <div class="collapse" id="sidebar_review" style="">
                     <ul class="nav ">
+                        <?php if ($role != 'admin') { ?>
 
-                        <li class="nav-item  ms-1">
-                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/review/baharu">
-                                <span class="sidenav-mini-icon"> B </span>
-                                <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
-                            </a>
-                        </li>
+                            <li class="nav-item  ms-1">
+                                <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/review/baharu">
+                                    <span class="sidenav-mini-icon"> B </span>
+                                    <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
+                                </a>
+                            </li>
+                        <?php } ?>
 
-                        
+
                         <li class="nav-item  ms-1">
                             <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/review/senarai">
                                 <span class="sidenav-mini-icon"> S </span>
@@ -73,68 +78,74 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item ">
-                <a data-bs-toggle="collapse" href="#sidebar_report" class="nav-link text-dark collapsed"
-                    aria-controls="sidebar_report" role="button" aria-expanded="true">
-                    <i class="material-symbols-rounded opacity-5   me-2 ">dashboard</i>
-                    <span class="nav-link-text ms-1 ps-1">Report</span>
-                </a>
-                <div class="collapse  " id="sidebar_report" style="">
-                    <ul class="nav ">
-                        <li class="nav-item  ms-1">
-                            <a class="nav-link text-dark  collapsed" data-bs-toggle="collapse" aria-expanded="false"
-                                href="#sidebar_kerosakan">
-                                <span class="sidenav-mini-icon"> K </span>
-                                <span class="sidenav-normal  ms-1  ps-1"> Kerosakan <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse" id="sidebar_kerosakan" style="">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item ms-2">
-                                        <a class="nav-link text-dark "
-                                            href="<?php echo $rootPath; ?>/aduan/kerosakan/baharu">
-                                            <span class="sidenav-mini-icon"> B </span>
-                                            <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ms-2">
-                                        <a class="nav-link text-dark "
-                                            href="<?php echo $rootPath; ?>/aduan/kerosakan/senarai">
-                                            <span class="sidenav-mini-icon"> S </span>
-                                            <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+            <?php if ($role == 'admin') { ?>
 
-                    </ul>
-                </div>
-            </li>
+                <li class="nav-item ">
+                    <a data-bs-toggle="collapse" href="#sidebar_report"
+                        class="nav-link <?php echo set_active_class('aduan'); ?> collapsed" aria-controls="sidebar_report"
+                        role="button" aria-expanded="true">
+                        <i class="material-symbols-rounded opacity-5   me-2 ">assessment</i>
+                        <span class="nav-link-text ms-1 ps-1">Report</span>
+                    </a>
+                    <div class="collapse  " id="sidebar_report" style="">
+                        <ul class="nav ">
+                            <li class="nav-item  ms-1">
+                                <a class="nav-link text-dark  collapsed" data-bs-toggle="collapse" aria-expanded="false"
+                                    href="#sidebar_kerosakan">
+                                    <span class="sidenav-mini-icon"> K </span>
+                                    <span class="sidenav-normal  ms-1  ps-1"> Kerosakan <b class="caret"></b></span>
+                                </a>
+                                <div class="collapse" id="sidebar_kerosakan" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item ms-2">
+                                            <a class="nav-link text-dark "
+                                                href="<?php echo $rootPath; ?>/aduan/kerosakan/baharu">
+                                                <span class="sidenav-mini-icon"> B </span>
+                                                <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item ms-2">
+                                            <a class="nav-link text-dark "
+                                                href="<?php echo $rootPath; ?>/aduan/kerosakan/senarai">
+                                                <span class="sidenav-mini-icon"> S </span>
+                                                <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-            <li class="nav-item ">
-                <a data-bs-toggle="collapse" href="#sidebar_cuti" class="nav-link text-dark collapsed"
-                    aria-controls="sidebar_cuti" role="button" aria-expanded="false">
-                    <i class="material-symbols-rounded opacity-5   me-2 ">account_circle</i>
-                    <span class="nav-link-text ms-1 ps-1">Cuti</span>
-                </a>
-                <div class="collapse" id="sidebar_cuti" style="">
-                    <ul class="nav ">
-                        <li class="nav-item  ms-1">
-                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/cuti/baharu">
-                                <span class="sidenav-mini-icon"> B </span>
-                                <span class="sidenav-normal  ms-1  ps-1"> Baharu </span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ms-1">
-                            <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/cuti/senarai">
-                                <span class="sidenav-mini-icon"> S </span>
-                                <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
-                            </a>
-                        </li>
+                        </ul>
+                    </div>
+                </li>
+            <?php } ?>
 
-                    </ul>
-                </div>
-            </li>
+            <?php if ($role == 'admin') { ?>
+
+
+                <li class="nav-item ">
+                    <a data-bs-toggle="collapse" href="#sidebar_cuti"
+                        class="nav-link <?php echo set_active_class('cuti'); ?> collapsed" aria-controls="sidebar_cuti"
+                        role="button" aria-expanded="false">
+                        <i class="material-symbols-rounded opacity-5   me-2 ">holiday_village</i>
+                        <span class="nav-link-text ms-1 ps-1">Cuti</span>
+                    </a>
+                    <div class="collapse" id="sidebar_cuti" style="">
+                        <ul class="nav ">
+
+                            <li class="nav-item  ms-1">
+                                <a class="nav-link text-dark " href="<?php echo $rootPath; ?>/cuti/senarai">
+                                    <span class="sidenav-mini-icon"> S </span>
+                                    <span class="sidenav-normal  ms-1  ps-1"> Senarai </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+            <?php } ?>
+
         </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">

@@ -95,37 +95,45 @@ if (isset($_POST['update_booking_details'])) {
     $pic_task2 = $pic_task3 = "";
     $insertSql = "";
     // Check if task 2 picture is uploaded
-    if ($task2 && isset($_FILES['pic_task2'])) {
+    if (isset($_FILES['pic_task2'])) {
         // File upload for Task 2
 
-        $uploadResult = uploadFile('pic_task2', "assets/uploads/booking/$tempah_id/");  // Replace 'file_input' with your actual form input name
-        if ($uploadResult) {
-             $pic_task2 = $uploadResult[0]['file_name'];
-            // Assuming $uploadResult contains the file path or name
-            echo "File upload test.";
-
-        } else {
-            echo "File upload failed.";
+        $uploadResults = uploadFile('pic_task2', "assets/uploads/$tempah_id/booking/");  // Replace 'file_input' with your actual form input name
+ 
+        // Check each result for errors
+        foreach ($uploadResults as $uploadResult) {
+            if ($uploadResult['success']) {
+                // If upload is successful, get the file name and update the database
+                $pic_task2 = $uploadResult['file_name'];  // Get the file name
+                $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
+                  VALUES ($tempah_id, '2',  '$pic_task2')";
+                  $task2 = 1;
+            } else {
+                // If upload fails, add an error to the errors array
+                $errors['file'] = $uploadResult['message'];  // Use the error message from the upload
+            }
         }
         // Prepare SQL for inserting into booking_details table
-        $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
-                  VALUES ($tempah_id, '2',  '$pic_task2')";
+
     }
 
     // Check if task 3 picture is uploaded
-    if ($task3 && isset($_FILES['pic_task3'])) {
-        $uploadResult = uploadFile('pic_task3', "assets/uploads/booking/$tempah_id/");  // Replace 'file_input' with your actual form input name
-        if ($uploadResult) {
-            $pic_task3 = $uploadResult[0]['file_name'];
-            // Assuming $uploadResult contains the file path or name
-            echo "File upload test.";
-
-        } else {
-            echo "File upload failed.";
-        }
-        // Prepare SQL for inserting into booking_details table
-        $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
+    if (isset($_FILES['pic_task3'])) {
+        $uploadResults = uploadFile('pic_task3', "assets/uploads/$tempah_id/booking/");  // Replace 'file_input' with your actual form input name
+        // Check each result for errors
+        foreach ($uploadResults as $uploadResult) {
+            if ($uploadResult['success']) {
+                // If upload is successful, get the file name and update the database
+                $pic_task3 = $uploadResult['file_name'];  // Get the file name
+                $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
                   VALUES ($tempah_id, '3',  '$pic_task3')";
+                  $task3 = 1;
+
+            } else {
+                // If upload fails, add an error to the errors array
+                $errors['file'] = $uploadResult['message'];  // Use the error message from the upload
+            }
+        }
 
     }
 
@@ -137,18 +145,21 @@ if (isset($_POST['update_booking_details'])) {
 
     // Execute the update query
     if ($conn->query($updateSql) === TRUE) {
-        echo $insertSql;
         if (!empty($insertSql)) {
             if (mysqli_query($conn, $insertSql)) {
 
-                echo "Booking details updated successfully!";
+                // echo "Booking details updated successfully!";
             }
-            echo "Booasdsaking details updated successfully!";
+            // echo "Booasdsaking details updated successfully!";
 
         }
     } else {
         // echo "Error updating booking details: " . $conn->error;
     }
+ 
     header("Location: " . $basePath2 . "/tempah/details/$tempah_id");
     exit();
 }
+
+
+// Function to get status label and button class based on the input value

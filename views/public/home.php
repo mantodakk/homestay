@@ -52,11 +52,11 @@
     </header>
 
 
-    <section class="features-3 mt-n10 py-7">
+    <section class="features-3 mt-n10 py-7" id="facilities">
         <div class="container">
             <div class="row text-center justify-content-center pt-10">
                 <div class="col-lg-6">
-                    <span class="badge rounded-pill badge-primary mb-2">Homestay</span>
+                    <span class="badge rounded-pill badge-primary mb-2">Facilities</span>
                     <h2>Discover the Unique Comforts of Our Homestay</h2>
                     <p>
                         Experience modern design in a spacious homestay area perfect for families. Enjoy relaxing
@@ -68,9 +68,9 @@
                 <div class="col-lg-4 mb-lg-0 mb-4">
                     <!-- Cozy Rooms -->
                     <a href="javascript:;">
-                        <div class="card card-background move-on-hover mb-4">
+                        <div class="card card-background move-on-hover mb-4 ">
                             <div class="full-background"
-                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_35d9687d.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_35d9687d.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Modern Cozy Rooms</h4>
@@ -83,7 +83,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0042.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0042.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Swimming Pool</h4>
@@ -98,7 +98,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover mb-4">
                             <div class="full-background"
-                                style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0053.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0053.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Spacious Area</h4>
@@ -111,7 +111,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0044.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0044.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Ample Parking</h4>
@@ -126,7 +126,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover mb-4">
                             <div class="full-background"
-                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_ca4ee373.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_ca4ee373.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Family Friendly</h4>
@@ -139,7 +139,7 @@
                     <a href="javascript:;">
                         <div class="card card-background move-on-hover">
                             <div class="full-background"
-                                 style="background-image: url('<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0047.jpg')">
+                                style="background-image: url('<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0047.jpg')">
                             </div>
                             <div class="card-body pt-12">
                                 <h4 class="text-white">Cozy Lounge Areas</h4>
@@ -154,7 +154,7 @@
     </section>
 
 
-    <section class="py-5 position-relative">
+    <section class="py-5 position-relative" id="testimonials">
         <div class="container-fluid">
             <div class="container text-center">
                 <h2>What Our Guests Say</h2>
@@ -167,46 +167,56 @@
                     <div id="carouselExampleTestimonials-11" class="carousel carousel-fade slide shadow-lg"
                         data-bs-ride="carousel">
                         <ol class="carousel-indicators z-index-2">
-                            <li data-bs-target="#carouselExampleTestimonials-11" data-bs-slide-to="0" class="active">
-                            </li>
-                            <li data-bs-target="#carouselExampleTestimonials-11" data-bs-slide-to="1"></li>
+                            <?php
+                            foreach ($reviews as $index => $review) {
+                                $activeClass = $index === 0 ? 'active' : ''; ?>
+                                <li data-bs-target="#carouselExampleTestimonials-11" data-bs-slide-to="<?php echo $index ?>"
+                                    class="<?php echo $activeClass ?>"></li>
+                                <?php
+
+                            }
+                            ?>
                         </ol>
                         <div class="carousel-inner rounded-3">
-                            <div class="carousel-item bg-cover active"
-                                style="background-image: url(<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0029.jpg)">
-                                <div class="z-index-1 my-md-8 my-6 position-relative z-index-2">
-                                    <div class="row h-100">
-                                        <div class="col-xl-6 my-auto px-6">
-                                            <h5 class="text-white font-weight-normal mb-3">"Absolutely loved the
-                                                spacious house and peaceful surroundings. Perfect for our family
-                                                weekend!"</h5>
-                                            <p class="text-white font-weight-bold">Nur Aisyah, <span
-                                                    class="text-xs font-weight-normal">Kuala
-                                                    Lumpur</span></p>
-                                        </div>
-                                      
-                                    </div>
-                                </div>
-                                <span class="mask bg-gradient-faded-primary opacity-10 z-index-0 rounded-3"></span>
-                            </div>
+                            <?php
+                            foreach ($reviews as $index => $review) {
+                                $activeClass = $index === 0 ? 'active' : '';
+                                $rating = $review['star'];
+    $stars = '';
+    for ($i = 1; $i <= 5; $i++) {
+        if ($i <= $rating) {
+            $stars .= '<span class="fa fa-star"></span>'; // Filled star
+        } else {
+            $stars .= '<span class="fa fa-star-o"></span>'; // Empty star
+        }
+    }
 
-                            <div class="carousel-item bg-cover active"
-                                style="background-image: url(<?php echo $rootPath?>/assets/img/homestay/IMG-20250422-WA0029.jpg)">
-                                <div class="z-index-1 my-md-8 my-6 position-relative z-index-2">
-                                    <div class="row h-100">
-                                        <div class="col-xl-6 my-auto px-6">
-                                            <h5 class="text-white font-weight-normal mb-3">"Absolutely loved the
-                                                spacious house and peaceful surroundings. Perfect for our family
-                                                weekend!"</h5>
-                                            <p class="text-white font-weight-bold">Nur Aisyah, <span
-                                                    class="text-xs font-weight-normal">Kuala
-                                                    Lumpur</span></p>
+                                ?>
+
+
+
+                                <div class="carousel-item bg-cover active"
+                                    style="background-image: url(<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0029.jpg)">
+                                    <div class="z-index-1 my-md-8 my-6 position-relative z-index-2">
+                                        <div class="row h-100">
+                                            <div class="col-xl-6 my-auto px-6">
+                                                <h5 class="text-white font-weight-normal mb-3">
+                                                    "<?php echo $review['description'] ?>"</h5>
+                                                <div class="stars">
+                                                    <?php echo $stars ?>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                       
                                     </div>
+                                    <span class="mask bg-gradient-faded-primary opacity-10 z-index-0 rounded-3"></span>
                                 </div>
-                                <span class="mask bg-gradient-faded-primary opacity-10 z-index-0 rounded-3"></span>
-                            </div>
+
+                            <?php }
+                            ?>
+
+
+
                         </div>
                     </div>
 
@@ -214,27 +224,101 @@
             </div>
     </section>
 
-    <section class=" py-7 bg-light">
-        <div class="container text-center">
-            <h2>Price for Our Hospitality</h2>
-            <p class="mb-5">Enjoy your stay with comfort and space perfect for your family.</p>
-            <div class="pricing-card mx-auto"
-                style="max-width: 400px; border: 1px solid #ddd; border-radius: 8px; padding: 30px; background: #fff; box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);">
-                <h3 class="mb-3">Modern Family Homestay</h3>
-                <p class="mb-3">Spacious, modern design with swimming pool and parking. Perfect for family getaways.</p>
-                <div class="pricing mb-4 fs-4">
-                    <span class="text-muted text-decoration-line-through me-3">RM 800/night</span>
-                    <div>
 
-                        <span class="fw-bold text-primary">RM 600/night</span>
+
+    <section class="py-sm-7 bg-light" id="pricing">
+        <div class="bg-gradient-primary position-relative m-3 border-radius-xl">
+            <img src="<?php echo $rootPath ?>/assets/img/shapes/pattern-lines.svg" alt="pattern-lines"
+                class="position-absolute start-0 top-md-0 w-100 opacity-6">
+            <div class="container pb-lg-8 pb-7 pt-5 postion-relative z-index-2 position-relative">
+                <div class="row">
+                    <div class="col-md-7 mx-auto text-center">
+                        <span class="badge bg-gradient-dark mb-2">Booking Rates</span>
+                        <h3 class="text-white">Ready to book your stay at our Homestay?</h3>
+                        <p class="text-white">Choose your preferred plan based on your stay duration and guest count.
+                        </p>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary btn-lg w-100">Book Now</a>
+            </div>
+        </div>
+        <div class="mt-lg-n8 mt-n6">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-3 p-md-0 mb-lg-auto mb-4 z-index-2 mx-auto">
+                        <div class="card shadow-lg ">
+                            <div class="card-header text-center pt-5 pb-3">
+                                <h6 class="text-dark opacity-8 text mb-0 my-2">1 Night Stay</h6>
+
+                                <?php if ($discountedPrice > 0): ?>
+                                    <span class="text-muted text-decoration-line-through font-weight-bolder me-3">RM
+                                        <?php echo number_format($originalPrice, 2); ?>/night
+                                    </span>
+                                    <h1 class="font-weight-bolder">
+                                        <small>RM</small><?php echo number_format($discountedPrice, 2); ?>
+                                    </h1>
+                                <?php else: ?>
+                                    <!-- Display only Original Price -->
+                                    <h1 class="font-weight-bolder">
+                                        <small>RM</small><?php echo number_format($originalPrice, 2); ?>
+                                    </h1>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="card-body mx-auto pt-0">
+
+                                <div class="justify-content-start d-flex px-2 py-1">
+                                    <div>
+                                        <i class="fas fa-check text-dark opacity-6 text-sm"></i>
+                                    </div>
+                                    <div class="ps-2">
+                                        <span class="text-sm">Free Wi-Fi</span>
+                                    </div>
+                                </div>
+                                <div class="justify-content-start d-flex px-2 py-1">
+                                    <div>
+                                        <i class="fas fa-check text-dark opacity-6 text-sm"></i>
+                                    </div>
+                                    <div class="ps-2">
+                                        <span class="text-sm">Breakfast Included</span>
+                                    </div>
+                                </div>
+
+                                <div class="justify-content-start d-flex px-2 py-1">
+                                    <div>
+                                        <i class="fas fa-check text-dark opacity-6 text-sm"></i>
+                                    </div>
+                                    <div class="ps-2">
+                                        <span class="text-sm">Access to All Amenities</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer pt-0">
+                                <a href="https://your-booking-link.com"
+                                    class="btn btn-icon bg-gradient-primary d-block mb-0 icon-move-right">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center mt-5">
+                            <i class="fa fa-lock"></i> Secured Payment by <b>DuitNow QR</b>:
+                            <br><br>
+                            <i class="fa fa-qrcode fa-2x"></i> <span>Pay via DuitNow QR Code</span>
+                        </p>
+                        <p class="text-center max-width-500 mx-auto"> <b>Info:</b> Enjoy a seamless payment experience
+                            with DuitNow QR. Be sure to uploaded the receipts of payment.</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
 
-    <section class=" py-7">
+    <section class=" py-7" id="location">
         <div class="container text-center">
             <h2>Find Us Here</h2>
             <p class="mb-4">Our homestay is located in a peaceful neighborhood with easy access to local attractions.
@@ -251,7 +335,7 @@
     </section>
 
 
-    <section class="py-5">
+    <section class="py-5" id="faq">
         <div class="container">
             <div class="row my-5">
                 <div class="col-md-6 mx-auto text-center">
@@ -386,29 +470,24 @@
                     <div class="row">
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-0 mt-lg-7"
-                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0045.jpg"
-                                alt="">
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0045.jpg" alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow"
-                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0041.jpg"
-                                alt="">
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0041.jpg" alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
-                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0043.jpg"
-                                alt="">
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0043.jpg" alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-0 mt-lg-5"
-                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0047.jpg"
-                                alt="">
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0047.jpg" alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
                                 src="<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_01d1fa71.jpg"
                                 alt="">
                         </div>
                         <div class="col-lg-3 col-6">
                             <img class="w-100 border-radius-lg shadow mt-3"
-                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0049.jpg"
-                                alt="">
+                                src="<?php echo $rootPath ?>/assets/img/homestay/IMG-20250422-WA0049.jpg" alt="">
                             <img class="w-100 border-radius-lg shadow mt-4"
                                 src="<?php echo $rootPath ?>/assets/img/homestay/WhatsApp Image 2025-05-08 at 20.50.04_69b9402b.jpg"
                                 alt="">

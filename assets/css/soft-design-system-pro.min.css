@@ -28353,3 +28353,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .ql-editor {
   min-height: 100px;  /* Ensure the editor area itself is at least 100px tall */
 }
+
+.stars {
+    margin-top: 10px;
+}
+
+.stars .fa {
+    font-size: 30px;  /* Adjust the size of the stars */
+    color: #ff9800;   /* Set color to gold or any color you prefer */
+    margin-right: 5px; /* Add spacing between stars */
+}

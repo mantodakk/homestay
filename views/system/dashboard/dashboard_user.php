@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
                   <div class="dropdown float-lg-end pe-4">
-
+                    <a class="btn btn-primary" href="<?php echo $rootPath?>/tempah/baharu">Add New</a>
                   </div>
                 </div>
               </div>

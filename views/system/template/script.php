@@ -6,7 +6,7 @@
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/fullcalendar.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js"></script>
-<script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.min.js"></script>
 
 
 <!-- Kanban scripts -->

@@ -33,7 +33,7 @@
 
 
             <div class="row ">
-                <div class="col-lg-8 col-12 mb-lg-0 mb-4">
+                <div class="  col-12 mb-lg-0 mb-4">
                     <div class="card">
                         <div class="card-header pb-0">
                             <div class="row">

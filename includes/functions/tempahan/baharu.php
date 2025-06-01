@@ -2,58 +2,68 @@
 
 
 if (isset($_POST['tempahan_baharu_form'])) {
-
-
+    $errors = array();
 
     // Make sure to sanitize the inputs
     $user_id = $_POST['user_id'];
     $tarikh_mula = $_POST['tarikh_mula'];
     $tarikh_tamat = $_POST['tarikh_tamat'];
 
-
     // Convert the string date inputs to DateTime objects
-    $startDate = new DateTime($tarikh_mula);
-    $endDate = new DateTime($tarikh_tamat);
+    try {
+        $startDate = new DateTime($tarikh_mula);
+        $endDate = new DateTime($tarikh_tamat);
 
-    // Set check-in time to 14:00 (2:00 PM)
-    $startDate->setTime(14, 0); // 14:00 (2:00 PM)
+        // Set check-in time to 14:00 (2:00 PM)
+        $startDate->setTime(14, 0); // 14:00 (2:00 PM)
 
-    // Set check-out time to 12:00 (12:00 PM)
-    $endDate->setTime(12, 0); // 12:00 (12:00 PM)
+        // Set check-out time to 12:00 (12:00 PM)
+        $endDate->setTime(12, 0); // 12:00 (12:00 PM)
 
-
-    // $filename = basename($_FILES['bukti']["name"]);
-
-    // Format the dates as needed (for example, 'Y-m-d H:i:s')
-    $formattedStartDate = $startDate->format('Y-m-d H:i:s');
-    $formattedEndDate = $endDate->format('Y-m-d H:i:s');
-
-    // // Insert into `permohonan`
-    $sql = "INSERT INTO bookings (user_id, tarikh_mula, tarikh_tamat) 
-    VALUES ('$user_id', '$formattedStartDate', '$formattedEndDate')";
-
-    if (mysqli_query($conn, $sql)) {
-        $booking_id = mysqli_insert_id($conn);  // Get the ID of the newly inserted booking
-
-        $uploadResult = uploadFile('file_input');  // Replace 'file_input' with your actual form input name
-        if ($uploadResult) {
-            $filename = $uploadResult['file_name'];
-            // Assuming $uploadResult contains the file path or name
-            $updateSql = "UPDATE bookings SET payment_file = '$filename' WHERE id = $booking_id";
-            if (!mysqli_query($conn, $updateSql)) {
-                echo "Error updating payment_file: " . mysqli_error($conn);
-            }
-        } else {
-            echo "File upload failed.";
-        }
-    } else {
-        echo "Error: " . mysqli_error($conn);
+        // Format the dates as needed (for example, 'Y-m-d H:i:s')
+        $formattedStartDate = $startDate->format('Y-m-d H:i:s');
+        $formattedEndDate = $endDate->format('Y-m-d H:i:s');
+    } catch (Exception $e) {
+        $errors['date'] = "Invalid date format!";
     }
 
-    //     // Redirect after success
-    header("Location: " . $basePath2 . "/tempah/baharu");
-    exit();
-    // }
+    if (empty($errors)) {
+        // Insert into `permohonan` table
+        $sql = "INSERT INTO bookings (user_id, tarikh_mula, tarikh_tamat) 
+                VALUES ('$user_id', '$formattedStartDate', '$formattedEndDate')";
+
+        if (mysqli_query($conn, $sql)) {
+            $booking_id = mysqli_insert_id($conn);  // Get the ID of the newly inserted booking
+
+            // Call the upload function and get the results
+            $uploadResults = uploadFile('file_input', "assets/uploads/$booking_id/");
+
+            // Check each result for errors
+            foreach ($uploadResults as $uploadResult) {
+                if ($uploadResult['success']) {
+                    // If upload is successful, get the file name and update the database
+                    $filename = $uploadResult['file_name'];  // Get the file name
+                    $updateSql = "UPDATE bookings SET payment_file = '$filename' WHERE id = $booking_id";
+                    if (!mysqli_query($conn, $updateSql)) {
+                        $errors['mysql'] = "Error updating payment_file: " . mysqli_error($conn);
+                    }
+                } else {
+                    // If upload fails, add an error to the errors array
+                    $errors['file'] = $uploadResult['message'];  // Use the error message from the upload
+                }
+            }
+
+        } else {
+            $errors['mysql'] = mysqli_error($conn);
+        }
+
+    }
+
+ 
+        // No errors, proceed to redirect
+        header("Location: " . $basePath2 . "/tempah/baharu");
+        exit();
+    
 }
 
 if (isset($_POST['tempahan_calendar'])) {

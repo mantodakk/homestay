@@ -153,7 +153,8 @@
                     // { "data": "student_name" },
                     // { "data": "lecturer_name" },
                     { "data": "description", class: " ", responsivePriority: 2 },
-                    { "data": "star", class: " ", responsivePriority: 3 },
+                    { "data": "star", class: "star-rating2 ", responsivePriority: 3 },
+                    { "data": "created_at", class: " text-center        ", responsivePriority: 3 },
                     // { "data": "start" },
                     // { "data": "end" },
 

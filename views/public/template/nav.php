@@ -26,15 +26,39 @@
            
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                  aria-expanded="false" href="#facilities">
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/#facilities">
                   Facilities
                 </a>
               </li>
-      
+                 <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/#testimonials">
+                  Testominials
+                </a>
+              </li>
+         <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/#pricing">
+                  Pricing
+                </a>
+              </li>
+        <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/#location">
+                  Location
+                </a>
+              </li>
+
+                   <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/#faq">
+                  FAQ
+                </a>
+              </li>
              </ul>
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
-                <a href="<?php echo $basePath2; ?>/book" class="btn btn-sm  bg-gradient-primary   mb-0 me-1">Book Now</a>
+                <a href="<?php echo $basePath2; ?>/dashboard" class="btn btn-sm  bg-gradient-primary   mb-0 me-1">Book Now</a>
               </li>
             </ul>
           </div>

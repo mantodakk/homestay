@@ -7,7 +7,7 @@ kanban-plugin: board
 ## Backlog
 
 - [ ] Home Page Design
-- [ ] Profile
+- [ ] Setting for price
 
 
 ## To DO
@@ -26,6 +26,7 @@ kanban-plugin: board
 - [ ] CUTI (ADMIN)
 - [ ] REVIEW (USER)
 - [ ] DAMAGE (ADMIN)
+- [ ] testimonials
 - [ ] Status of booking ( snap pic before and after room)
 - [ ] REVIEW (ADMIN)
 - [ ] DASHBOARD (ADMIN)

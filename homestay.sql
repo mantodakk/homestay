@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2025 at 10:24 PM
+-- Generation Time: Jun 01, 2025 at 08:11 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -37,24 +37,17 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `status` int DEFAULT '1',
   `status2` int DEFAULT '0',
   `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `total_price` text COLLATE utf8mb4_general_ci,
   `payment_file` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`, `status`, `status2`, `reason`, `payment_file`) VALUES
-(6, 1, '2025-05-19 14:00:00', '2025-05-20 12:00:00', '2025-05-08 05:55:49', 1, NULL, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
-(7, 2, '2025-05-18 14:00:00', '2025-05-19 12:00:00', '2025-05-08 05:55:49', 1, NULL, NULL, '482050322_593653983720609_6627846518497808137_n.jpg'),
-(8, 1, '2025-05-20 14:00:00', '2025-05-21 12:00:00', '2025-05-08 09:55:10', 1, NULL, NULL, ''),
-(9, 1, '2025-05-21 14:00:00', '2025-05-22 12:00:00', '2025-05-08 09:55:41', 1, NULL, NULL, ''),
-(10, 1, '2025-05-22 14:00:00', '2025-05-24 12:00:00', '2025-05-08 16:49:39', 2, 4, NULL, 'schedule_calendar.pdf'),
-(11, 3, '2025-05-24 14:00:00', '2025-05-25 12:00:00', '2025-05-14 19:04:00', 1, NULL, NULL, ''),
-(12, 2, '2025-05-29 14:00:00', '2025-05-30 12:00:00', '2025-05-17 20:18:17', 1, NULL, NULL, NULL),
-(13, 2, '2025-05-30 14:00:00', '2025-05-31 12:00:00', '2025-05-17 20:19:44', 1, NULL, NULL, ''),
-(14, 2, '2025-05-31 14:00:00', '2025-06-01 12:00:00', '2025-05-17 22:24:06', 1, 0, NULL, '');
+INSERT INTO `bookings` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`, `status`, `status2`, `reason`, `total_price`, `payment_file`) VALUES
+(69, 2, '2025-06-28 14:00:00', '2025-06-29 12:00:00', '2025-06-01 18:48:10', 2, 4, NULL, NULL, 'WhatsApp Image 2025-05-11 at 01.41.04_f8dd7e33.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,15 +64,15 @@ CREATE TABLE IF NOT EXISTS `booking_details` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking_details`
 --
 
 INSERT INTO `booking_details` (`id`, `booking_id`, `int_cond`, `file`, `created_at`) VALUES
-(5, 10, 2, '1746894718222.jpg', '2025-05-17 22:16:34'),
-(7, 10, 3, '1746899231303.jpg', '2025-05-17 22:23:22');
+(22, 69, 2, '117395236_4807587732599968_9108203099612728337_n.jpg', '2025-06-01 19:12:27'),
+(28, 69, 3, '1746894718222.jpg', '2025-06-01 19:39:15');
 
 -- --------------------------------------------------------
 
@@ -96,14 +89,6 @@ CREATE TABLE IF NOT EXISTS `cuti` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cuti`
---
-
-INSERT INTO `cuti` (`id`, `user_id`, `tarikh_mula`, `tarikh_tamat`, `created_at`) VALUES
-(1, 1, '2025-05-06', '2025-05-06', '2025-04-30 07:56:13'),
-(2, 1, '2025-05-28', '2025-05-28', '2025-05-17 19:01:57');
 
 -- --------------------------------------------------------
 
@@ -126,13 +111,6 @@ CREATE TABLE IF NOT EXISTS `damage` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `damage`
---
-
-INSERT INTO `damage` (`id`, `title`, `description`, `status`, `user_id`, `category_id`, `priority`, `cost`, `created_at`, `updated_at`) VALUES
-(51, 'test', 'asdas', 0, 1, NULL, 1, 232, '2025-05-17 20:16:48', '2025-05-17 20:16:48');
-
 -- --------------------------------------------------------
 
 --
@@ -147,14 +125,6 @@ CREATE TABLE IF NOT EXISTS `damage_attachments` (
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `damage_attachments`
---
-
-INSERT INTO `damage_attachments` (`id`, `damage_id`, `file`, `uploaded_at`) VALUES
-(8, 51, 'assets/uploads/kerosakan/51/1746899231303.jpg', '2025-05-17 20:16:48'),
-(7, 51, 'assets/uploads/kerosakan/51/1746894718222.jpg', '2025-05-17 20:16:48');
 
 -- --------------------------------------------------------
 
@@ -204,14 +174,26 @@ CREATE TABLE IF NOT EXISTS `page_views` (
   `view_count` int DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_page_date` (`page_name`,`view_date`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `page_views`
 --
 
 INSERT INTO `page_views` (`id`, `page_name`, `view_date`, `view_count`) VALUES
-(1, 'index', '2025-05-15', 16);
+(1, 'index', '2025-05-15', 16),
+(2, 'index', '2025-05-31', 218),
+(3, 'login', '2025-05-31', 11),
+(4, 'register', '2025-05-31', 5),
+(5, 'register', '2025-06-01', 5),
+(6, 'login', '2025-06-01', 14),
+(7, 'index', '2025-06-01', 2),
+(8, 'login#facilities', '2025-06-01', 1),
+(9, '#facilities', '2025-06-01', 3),
+(10, '#faq', '2025-06-01', 1),
+(11, 'index', '2025-06-02', 19),
+(12, 'login', '2025-06-02', 8),
+(13, 'register', '2025-06-02', 1);
 
 -- --------------------------------------------------------
 
@@ -244,14 +226,15 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `status` int DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `reviews`
 --
 
 INSERT INTO `reviews` (`id`, `user_id`, `description`, `star`, `status`, `created_at`) VALUES
-(4, 2, 'asdasda', 3, 1, '2025-05-17 10:05:53');
+(4, 2, 'asdasda', 3, 1, '2025-05-17 10:05:53'),
+(5, 2, 'test', 1, 0, '2025-06-01 16:14:51');
 
 -- --------------------------------------------------------
 
@@ -320,6 +303,32 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 INSERT INTO `user_role` (`id`, `name`) VALUES
 (1, 'admin'),
 (2, 'guest');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `web_settings`
+--
+
+DROP TABLE IF EXISTS `web_settings`;
+CREATE TABLE IF NOT EXISTS `web_settings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `setting_key` varchar(255) NOT NULL,
+  `setting_value` text NOT NULL,
+  `setting_type` enum('string','int','bool','json','float','date') DEFAULT 'string',
+  `description` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `web_settings`
+--
+
+INSERT INTO `web_settings` (`id`, `setting_key`, `setting_value`, `setting_type`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'price_per_night', '800.00', 'float', 'Base price per night for booking', '2025-06-01 18:01:27', '2025-06-01 18:01:27'),
+(2, 'discount_price_per_night', '600.00', 'float', 'Discounted price per night for booking', '2025-06-01 18:02:29', '2025-06-01 18:08:37');
 
 --
 -- Constraints for dumped tables

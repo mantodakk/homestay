@@ -53,15 +53,37 @@ if (isset($_POST['senarai_review'])) {
     // Prepare response data
     $reviews_data = [];
     while ($row = $result->fetch_assoc()) {
+        // Create a DateTime object from the 'created_at' field
+        $created_at = new DateTime($row['created_at']);
+
+        // Format the 'created_at' date to the desired format
+
+        $formatted_created_at = $created_at->format('d/m/Y g:iA');  // 23/07/2000 3.14PM
+
+
+
+        $star_rating = '';
+        for ($i = 1; $i <= 5; $i++) {
+            if ($i <= $row['star']) {
+                // If the star rating is equal to or greater than the index, use a filled star
+                $star_rating .= '<span class="material-symbols-outlined star2 active">star</span>';
+            } else {
+                // Otherwise, use an empty star
+                $star_rating .= '<span class="material-symbols-outlined star2 ">star_border</span>';
+            }
+        }
+
+        // Add the formatted date to the reviews_data array
         $reviews_data[] = [
             'id' => $row['id'],
             'user_id' => $row['user_id'],
             'description' => $row['description'],
-            'star' => $row['star'],
-            'created_at' => $row['created_at'],
+            'star' => $star_rating,  // Add Material Symbol stars here
+            'created_at' => $formatted_created_at,  // Use the formatted date
             'status' => $row['status']
         ];
     }
+
 
     echo json_encode([
         'draw' => $draw,
@@ -83,3 +105,7 @@ if (isset($_POST['review_update_status'])) {
     echo json_encode($response);
     exit;
 }
+
+
+
+ 

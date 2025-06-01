@@ -10,9 +10,43 @@ function home()
     $description = "Spacious, fully-equipped homestay with swimming pool and parking. Perfect for families seeking comfort and relaxation.";
     $keywords = "Malaysia homestay, family homestay, homestay with pool, modern homestay, vacation rental";
     $url = "$rootPath"; // Use full canonical URL
-    $image = $rootPath."/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
+    $image = $rootPath . "/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
     $site_name = "Villa D'hati";
     $type = "website"; // Usually "website", could be "article", "product", etc.
+
+
+
+
+    $query = "SELECT setting_key, setting_value FROM web_settings";
+    $result = $conn->query($query);
+    $settings = [];
+
+    // Fetch settings into an associative array
+    while ($row = $result->fetch_assoc()) {
+        $settings[$row['setting_key']] = $row['setting_value'];
+    }
+
+    // Fetch the original price (fallback) and the discounted price (if available)
+    $originalPrice = isset($settings['price_per_night']) ? floatval($settings['price_per_night']) : 0;
+    $discountedPrice = isset($settings['discount_price_per_night']) ? floatval($settings['discount_price_per_night']) : 0;
+
+    // Determine which price to use
+    $priceToUse = ($discountedPrice > 0) ? $discountedPrice : $originalPrice;
+
+
+
+
+    $query = "SELECT * FROM reviews WHERE status = 1";
+    $result = $conn->query($query);
+    $reviews = [];
+
+    // Fetch settings into an associative array
+    while ($row = $result->fetch_assoc()) {
+        $reviews[] = $row;
+    }
+ 
+
+  
 
 
     include 'views/public/home.php';
@@ -23,9 +57,20 @@ function login()
 {
     include('includes/server.php');
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+
+
+
+    $title = "Villa D'hati - Modern Family Homestay in Malaysia";
+    $description = "Spacious, fully-equipped homestay with swimming pool and parking. Perfect for families seeking comfort and relaxation.";
+    $keywords = "Malaysia homestay, family homestay, homestay with pool, modern homestay, vacation rental";
+    $url = "$rootPath"; // Use full canonical URL
+    $image = $rootPath . "/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
+    $site_name = "Villa D'hati";
+    $type = "website"; // Usually "website", could be "article", "product", etc.
     redirectIfLoggedIn('/dashboard'); // or '/dashboard'
 
-    include 'views/system/auth/login.php';
+    include 'views/public/auth/login.php';
 }
 
 function register()
@@ -33,9 +78,18 @@ function register()
 
     include('includes/server.php');
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+
+    $title = "Villa D'hati - Modern Family Homestay in Malaysia";
+    $description = "Spacious, fully-equipped homestay with swimming pool and parking. Perfect for families seeking comfort and relaxation.";
+    $keywords = "Malaysia homestay, family homestay, homestay with pool, modern homestay, vacation rental";
+    $url = "$rootPath"; // Use full canonical URL
+    $image = $rootPath . "/assets/img/homestay/IMG-20250422-WA0029.jpg"; // Social preview image (recommended 1200x630)
+    $site_name = "Villa D'hati";
+    $type = "website"; // Usually "website", could be "article", "product", etc.
     redirectIfLoggedIn('/dashboard'); // or '/dashboard'
 
-    include 'views/system/auth/register.php';
+    include 'views/public/auth/register.php';
 }
 
 
@@ -70,7 +124,7 @@ function notFound($requestUri)
     // echo $requestUri;
     include('includes/server.php');
 
-    include 'views/system/auth/404.php';
+    include 'views/public/auth/404.php';
 
 }
 
@@ -345,6 +399,10 @@ function tempah($tempah_id)
         }
     }
 
+
+    $statusbooking = getStatusLabelAndButtonClass($tempah['status']);
+
+
     // Query to get all admin users (role = 1)
     $sql_admins = "SELECT * FROM users WHERE role = '1'";
 
@@ -503,4 +561,48 @@ function cuti_calendar()
 
 
 
+}
+
+
+function set_active_class($path)
+{
+    global $requestUri; // Access global $requestUri inside the function
+
+    // Check if the current path starts with the given path
+    if (strpos($requestUri, $path) === 0) { // 0 means it starts with the given path
+        return 'active bg-gradient-dark text-white'; // Active classes
+    }
+    return 'text-dark'; // Default classes
+}
+
+function getStatusLabelAndButtonClass($statusCode)
+{
+    // Initialize variables
+    $statusLabel = '';
+    $btnClass = '';
+
+    // Switch based on status code
+    switch ($statusCode) {
+        case '0':
+        case 0:
+            $statusLabel = 'Rejected';
+            $btnClass = 'btn btn-danger';
+            break;
+        case '1':
+        case 1:
+            $statusLabel = 'Pending';
+            $btnClass = 'btn btn-warning';
+            break;
+        case '2':
+        case 2:
+            $statusLabel = 'Approved';
+            $btnClass = 'btn btn-success';
+            break;
+        default:
+            $statusLabel = 'Unknown';
+            $btnClass = 'btn btn-secondary btn-sm';
+    }
+
+    // Return the status label and button class as an array
+    return ['statusLabel' => $statusLabel, 'btnClass' => $btnClass];
 }

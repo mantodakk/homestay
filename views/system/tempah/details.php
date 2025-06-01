@@ -45,14 +45,18 @@
 
                     <div class="col-12 col-xl-6 mt-xl-0 mt-4 position-relative">
                         <div class="card card-plain h-100">
-                            <div class="card-header pb-0 p-3">
-                                <div class="row">
-                                    <div class="col-md-8 d-flex align-items-center">
+                            <div class="card-header p-3">
+                                <div
+                                    class="icon icon-lg icon-shape bg-gradient-info shadow text-center border-radius-lg float-start">
+                                    <i class="material-symbols-rounded opacity-10">content_paste_search</i>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
                                         <h6 class="mb-0">Maklumat Tempahan</h6>
                                     </div>
-                                    <div class="col-md-4 text-end">
-
-                                    </div>
+                                    <!-- <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                            <small>Today</small>
+                                        </div> -->
                                 </div>
                             </div>
                             <div class="card-body p-3">
@@ -67,16 +71,20 @@
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarikh
                                             Check Out:</strong>
                                         <?php echo $tempah['tarikh_tamat'] ?></li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Status:</strong> <?php echo $tempah['status'] ?></li>
+                                    <li class="list-group-item border-0 ps-0 text-sm">
+                                        <strong class="text-dark">Status:</strong>
+                                        <button class="<?php echo $statusbooking['btnClass']; ?>">
+                                            <?php echo $statusbooking['statusLabel']; ?>
+                                        </button>
+                                    </li>
 
                                     <li class="list-group-item border-0 ps-0 text-sm">
                                         <strong class="text-dark">Payment File:</strong>
                                         <?php
-                                         if (!empty($tempah['payment_file'])) {
+                                        if (!empty($tempah['payment_file'])) {
                                             $paymentFile = $tempah['payment_file']; // Assuming the payment file path is stored in the `payment_file` column
                                             ?>
-                                            <a href="<?php echo $rootPath . "/assets/uploads/" . $paymentFile; ?>"
+                                            <a href="<?php echo $rootPath . "/assets/uploads/" . $tempah['id'] . "/" . $paymentFile; ?>"
                                                 class="fancybox" data-fancybox="gallery" data-caption="Payment File">
                                                 <button class="btn btn-outline-primary btn-sm">View Payment File</button>
                                             </a>
@@ -86,32 +94,49 @@
                                         }
                                         ?>
                                     </li>
+
+                                    <?php if ($tempah['status'] >= 1 && ($tempah['status2'] >= 2)) { // Check if the status is '1' ?>
+
                                         <strong class="text-dark">Pictures:</strong>
 
-                                    <li class="list-group-item border-0 ps-0 text-sm">
-                                        <?php
-                                        // Debug output - Optional for troubleshooting
+                                        <li class="list-group-item border-0 ps-0 text-sm">
+                                            <?php
+                                            // Debug output - Optional for troubleshooting
                                         
-                                        // Loop through the $tempah_details array
-                                        foreach ($tempah_details as $detail) {
-                                            if (!empty($detail['file'])) {
-                                                $filepath = $detail['file']; // Assuming the payment file path is stored in the `payment_file` column
-                                                $name = $detail['int_cond']; // Assuming the payment file path is stored in the `payment_file` column
-                                                ?>
-                                                <a href="<?php echo $rootPath . "/assets/uploads/" . htmlspecialchars($filepath); ?>"
-                                                    class="fancybox" data-fancybox="gallery" data-caption="<?php echo $name ?>">
-                                                    <button class="btn btn-outline-primary btn-sm">View Picture</button>
-                                                </a>
-                                                <?php
-                                            } else {
-                                                echo "<span>No payment file available.</span>";
+                                            // Loop through the $tempah_details array
+                                            foreach ($tempah_details as $detail) {
+                                                if (!empty($detail['file'])) {
+                                                    $filepath = $detail['file']; // Assuming the payment file path is stored in the `payment_file` column
+                                                    $name = $detail['int_cond']; // Assuming the 'int_cond' value represents the task condition
+                                        
+                                                    // Check the value of 'int_cond' to determine before or after
+                                                    if ($detail['int_cond'] == 2) {
+                                                        // This block will execute if 'int_cond' is 2 (before)
+                                                        $name = "before";
+
+                                                        // Example of further actions for "before" condition
+                                                        // For example, you can call a function or prepare data
+                                                        // processBefore();
+                                        
+                                                    } else {
+                                                        // Handle cases when int_cond is neither 2 nor 3
+                                                        $name = "after";
+                                                    } ?>
+                                                    <a href="<?php echo $rootPath . "/assets/uploads/" . $tempah['id'] . "/booking" . "/" . htmlspecialchars($filepath); ?>"
+                                                        class="fancybox" data-fancybox="gallery" data-caption="<?php echo $name ?>">
+                                                        <button class="btn btn-outline-primary btn-sm">View Picture</button>
+                                                    </a>
+                                                    <?php
+                                                } else {
+                                                    echo "<span>No picture  available.</span>";
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </li>
+                                            ?>
+                                        </li>
 
+                                    <?php } ?>
 
-                                    <?php if ($tempah['status'] == 1) { // Check if the status is '1' ?>
+                                    <?php if ($tempah['status'] == 1 && $role == 'admin') { // Check if the status is '1' ?>
 
 
                                         <li class="list-group-item border-0 ps-0 text-sm">
@@ -140,135 +165,138 @@
                         </div>
                         <hr class="vertical dark">
                     </div>
+                    <?php if ($tempah['status'] >= 2 ) { ?>
 
-                    <div class="col-12 col-xl-6 mt-xl-0 mt-4">
+                        <div class="col-12 col-xl-6 mt-xl-0 mt-4">
 
-                        <?php
-
-
-
+                            <?php
 
 
-                        ?>
 
-                        <div class="card card-plain h-100">
-                            <div class="card-header p-3">
-                                <div
-                                    class="icon icon-lg icon-shape bg-gradient-info shadow text-center border-radius-lg float-start">
-                                    <i class="material-symbols-rounded opacity-10">key</i>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                        <h6 class="mb-0">Guest To-Do List</h6>
+
+
+                            ?>
+
+                            <div class="card card-plain h-100">
+                                <div class="card-header p-3">
+                                    <div
+                                        class="icon icon-lg icon-shape bg-gradient-info shadow text-center border-radius-lg float-start">
+                                        <i class="material-symbols-rounded opacity-10">key</i>
                                     </div>
-                                    <!-- <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <h6 class="mb-0">Guest To-Do List</h6>
+                                        </div>
+                                        <!-- <div class="col-md-6 d-flex justify-content-end align-items-center">
                                             <small>Today</small>
                                         </div> -->
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="tempah_id" value="<?php echo $tempah['id']; ?>" />
+                                        <ul class="list-group list-group-flush" data-toggle="checklist">
+
+                                            <!-- Task 1 -->
+                                            <li
+                                                class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                                <div class="checklist-item ps-2 ms-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="form-check is-filled">
+                                                            <input class="form-check-input me-2" type="checkbox"
+                                                                name="task_1" value="1" id="checkIn" <?php echo ($tempah['status2'] >= 1) ? 'checked' : ''; ?>     <?php echo ($tempah['status2'] < 0) ? 'disabled' : ''; ?>>
+                                                        </div>
+                                                        <h6 class="mb-0 text-dark text-sm">Go to the lobby/counter to
+                                                            collect your key</h6>
+                                                    </div>
+                                                </div>
+                                                <hr class="horizontal dark mt-4 mb-0">
+                                            </li>
+
+                                            <!-- Task 2 -->
+                                            <li
+                                                class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                                <div class="checklist-item ps-2 ms-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="form-check is-filled">
+                                                            <input class="form-check-input me-2" type="checkbox"
+                                                                name="task_2" value="1" id="takePicture1" <?php echo ($tempah['status2'] >= 2) ? 'checked' : ''; ?>     <?php echo ($tempah['status2'] < 1) ? 'disabled' : ''; ?>>
+                                                        </div>
+                                                        <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
+                                                            for comparison of the condition of the house</h6>
+                                                    </div>
+
+                                                    <?php if ($tempah['status2'] == 1) { ?>
+                                                        <div class="input-group input-group-static my-3">
+                                                            <label>Upload Picture</label>
+                                                            <input type="file" class="form-control file-selector-button"
+                                                                name="pic_task2[]" accept=".jpg, .jpeg, .png" id="pic_task2"
+                                                                onchange="compressImage(event, 'pic_task2')">
+                                                        </div>
+                                                    <?php } ?>
+
+                                                </div>
+                                                <hr class="horizontal dark mt-4 mb-0">
+                                            </li>
+
+                                            <!-- Task 3 -->
+                                            <li
+                                                class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                                <div class="checklist-item ps-2 ms-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="form-check is-filled">
+                                                            <input class="form-check-input me-2" type="checkbox"
+                                                                name="task_3" value="1" id="takePicture2" <?php echo ($tempah['status2'] >= 3) ? 'checked' : ''; ?>     <?php echo ($tempah['status2'] < 2) ? 'disabled' : ''; ?>>
+                                                        </div>
+                                                        <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
+                                                            for comparison of the condition of the house</h6>
+                                                    </div>
+
+                                                    <?php if ($tempah['status2'] == 2) { ?>
+                                                        <div class="input-group input-group-static my-3">
+                                                            <label>Upload Picture</label>
+                                                            <input type="file" class="form-control file-selector-button"
+                                                                name="pic_task3[]" accept=".jpg, .jpeg, .png" id="pic_task3"
+                                                                onchange="compressImage(event, 'pic_task3')">
+                                                        </div>
+                                                    <?php } ?>
+
+                                                </div>
+                                                <hr class="horizontal dark mt-4 mb-0">
+                                            </li>
+
+                                            <!-- Task 4 -->
+                                            <li
+                                                class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
+                                                <div class="checklist-item ps-2 ms-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="form-check is-filled">
+                                                            <input class="form-check-input me-2" type="checkbox"
+                                                                name="task_4" value="1" id="checkOut" <?php echo ($tempah['status2'] >= 4) ? 'checked' : ''; ?>     <?php echo ($tempah['status2'] < 3) ? 'disabled' : ''; ?>>
+                                                        </div>
+                                                        <h6 class="mb-0 text-dark text-sm">Return to the lobby/counter to
+                                                            check out</h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                    <?php if ($role != "admin" && $tempah['status2'] != 4 ) { ?>
+
+                                        <!-- Submit Button -->
+                                        <div class="text-end mt-3">
+                                            <button type="submit" name="update_booking_details"
+                                                class="btn btn-primary">Update Booking Details</button>
+                                        </div>
+                    <?php } ?>
+
+                                    </form>
+
+
                                 </div>
                             </div>
-                            <div class="card-body p-3">
-                                <form method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="tempah_id" value="<?php echo $tempah['id']; ?>" />
-                                    <ul class="list-group list-group-flush" data-toggle="checklist">
-
-                                        <!-- Task 1 -->
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input me-2" type="checkbox"
-                                                            name="task_1" value="1" id="checkIn" <?php echo ($tempah['status2'] >= 1) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 0) ? 'disabled' : ''; ?>>
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Go to the lobby/counter to
-                                                        collect your key</h6>
-                                                </div>
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-
-                                        <!-- Task 2 -->
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input me-2" type="checkbox"
-                                                            name="task_2" value="1" id="takePicture1" <?php echo ($tempah['status2'] >= 2) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 1) ? 'disabled' : ''; ?>>
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
-                                                        for comparison of the condition of the house</h6>
-
-
-
-                                                </div>
-
-
-                                                <?php if ($tempah['status2'] == 1) { ?>
-                                                    <div class="input-group input-group-static my-3">
-                                                        <label>Upload Picture</label>
-                                                        <input type="file" class="form-control file-selector-button"
-                                                            name="pic_task2[]" accept=".jpg, .jpeg, .png, .pdf">
-                                                    </div>
-                                                <?php } ?>
-
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-
-                                        <!-- Task 3 -->
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input me-2" type="checkbox"
-                                                            name="task_3" value="1" id="takePicture2" <?php echo ($tempah['status2'] >= 3) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 2) ? 'disabled' : ''; ?>>
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Take a picture of the homestay
-                                                        for comparison of the condition of the house</h6>
-                                                </div>
-
-                                                <?php if ($tempah['status2'] == 2) { ?>
-                                                    <div class="input-group input-group-static my-3">
-                                                        <label>Upload Picture</label>
-                                                        <input type="file" class="form-control file-selector-button"
-                                                            name="pic_task3[]" accept=".jpg, .jpeg, .png, .pdf">
-                                                    </div>
-                                                <?php } ?>
-                                            </div>
-                                            <hr class="horizontal dark mt-4 mb-0">
-                                        </li>
-
-                                        <!-- Task 4 -->
-                                        <li
-                                            class="list-group-item border-0 flex-column align-items-start ps-0 py-0 mb-3">
-                                            <div class="checklist-item ps-2 ms-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="form-check is-filled">
-                                                        <input class="form-check-input me-2" type="checkbox"
-                                                            name="task_4" value="1" id="checkOut" <?php echo ($tempah['status2'] >= 4) ? 'checked' : ''; ?> <?php echo ($tempah['status2'] < 3) ? 'disabled' : ''; ?>>
-                                                    </div>
-                                                    <h6 class="mb-0 text-dark text-sm">Return to the lobby/counter to
-                                                        check out</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-
-                                    <!-- Submit Button -->
-                                    <div class="text-end mt-3">
-                                        <button type="submit" name="update_booking_details"
-                                            class="btn btn-primary">Update Booking Details</button>
-                                    </div>
-
-                                </form>
-
-
-                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
 
 
                     <?php if ($role == 'guest') { ?>
@@ -423,6 +451,15 @@
             });
         });
     </script>
+
+
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+
+
 </body>
 
 </html>

@@ -67,8 +67,8 @@
                                         <form role="form text-left">
                                             <div class="row">
                                                 <div class="col-6">
-                                                <input type="hidden" class="form-control"  
-                                                name="user_id" value="<?php  echo $_SESSION['user_details']['id']?>" >
+                                                    <input type="hidden" class="form-control" name="user_id"
+                                                        value="<?php echo $_SESSION['user_details']['id'] ?>">
                                                     <div class="input-group input-group-static my-3 ">
                                                         <label>Tarikh Mula</label>
                                                         <input type="text" class="form-control" id="tarikh_mula"
@@ -86,14 +86,18 @@
                                                 </div>
 
                                                 <div class="input-group input-group-static my-3">
-                                                    <label>Payment QR</label>
-                                                    <img src="<?php echo $rootPath ?>/assets/img/qr.jpg" class="img img-fluid">
+                                                    <div class="row d-flex  w-100">
+                                                    <div class="col-12"> <label>Payment QR</label></div>
+                                                    <div class="col-12 justify-content-center"><h1 class="mt-2 text-center" id="price">RM600</h1></div>
+                                                   </div>
+                                                    <img src="<?php echo $rootPath ?>/assets/img/qr.jpg"
+                                                        class="img img-fluid">
                                                 </div>
 
                                                 <div class="input-group input-group-static my-3">
                                                     <label>Upload File</label>
                                                     <input type="file" class="form-control file-selector-button"
-                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf">
+                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf" multiple>
                                                 </div>
 
                                                 <div class="text-center">
@@ -166,7 +170,7 @@
                 var eventId = info.event.id;
 
                 console.log("Event ID: " + eventId);
-                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId ;
+                window.location.href = "<?php echo $basePath2 ?>/tempah/details/" + eventId;
 
 
             },
@@ -213,16 +217,34 @@
             selectable: true,
             select: function (info) {
                 if (info.view.type === 'timeGridWeek') {
-
                     return; // Do nothing
                 }
+
                 const selectedStart = info.start;
                 const selectedEnd = info.end;
+
                 // Set check-in time to 14:00 PM (2:00 PM) for the start date
                 selectedStart.setHours(14, 0, 0, 0); // Set to 14:00:00 (2:00 PM)
 
                 // Set check-out time to 12:00 PM (12:00 PM) for the end date
                 selectedEnd.setHours(12, 0, 0, 0);  // Set to 12:00:00 (12:00 PM)
+
+                // Calculate the difference in time (in milliseconds)
+                const diffTime = selectedEnd - selectedStart;
+
+                // Convert the time difference into days (milliseconds to days)
+                const diffDays = diffTime / (1000 * 3600 * 24); // Convert from milliseconds to days
+
+                // If the difference is less than 1 day, set it to 1 day minimum
+                const totalDays = Math.max(diffDays, 1);
+
+                // Calculate the total price
+                const pricePerDay = <?php echo $priceToUse?>; // RM600 per day
+                const totalPrice = pricePerDay * totalDays;
+
+                // Update the price in the HTML
+                document.getElementById("price").textContent = "RM" + totalPrice.toFixed(2); // Update price dynamically
+
                 // Format the dates (assuming you are using moment.js or similar date formatting function)
                 const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)
                 const endStr = formatDate(selectedEnd);
@@ -233,11 +255,14 @@
 
                 console.log(selectedStart);
                 console.log(selectedEnd);
+                console.log("Total Days: " + totalDays);
+                console.log("Total Price: RM" + totalPrice.toFixed(2));
 
                 // Show the modal (if needed)
                 var modal = new bootstrap.Modal(document.getElementById('eventModal'));
                 modal.show();
             }
+
 
 
 

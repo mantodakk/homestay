@@ -1,7 +1,8 @@
 <?php
 
 
-function uploadFile($fileInputName, $targetDir = "assets/uploads/", $allowedTypes = ['jpg', 'png', 'jpeg', 'pdf'], $maxSizeMB = 5) {
+function uploadFile($fileInputName, $targetDir = "assets/uploads/", $allowedTypes = ['jpg', 'png', 'jpeg', 'pdf'], $maxSizeMB = 5)
+{
     // Initialize results array to store upload success/failure info
     $uploadResults = [];
 
@@ -19,29 +20,34 @@ function uploadFile($fileInputName, $targetDir = "assets/uploads/", $allowedType
     for ($i = 0; $i < count($_FILES[$fileInputName]['name']); $i++) {
         // Fetch individual file info
         $fileName = $_FILES[$fileInputName]['name'][$i];
-        $fileTmp  = $_FILES[$fileInputName]['tmp_name'][$i];
+        $fileTmp = $_FILES[$fileInputName]['tmp_name'][$i];
         $fileSize = $_FILES[$fileInputName]['size'][$i];
         $fileError = $_FILES[$fileInputName]['error'][$i];
-        $fileExt  = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
         $maxSizeBytes = $maxSizeMB * 1024 * 1024;
 
-        // Check for upload error
-        if ($fileError !== UPLOAD_ERR_OK) {
-            $uploadResults[] = ['success' => false, 'message' => "Error uploading file: $fileName (Error code: $fileError)"];
-            continue;
-        }
+
 
         // Validate file extension
         if (!in_array($fileExt, $allowedTypes)) {
-            $uploadResults[] = ['success' => false, 'message' => "Invalid file type for file: $fileName"];
-            continue;
+            $uploadResults[] = ['success' => false, 'message' => "Invalid file type for file: $fileName , $fileExt"];
+            return $uploadResults;
         }
 
         // Validate file size
         if ($fileSize > $maxSizeBytes) {
             $uploadResults[] = ['success' => false, 'message' => "File too large for file: $fileName"];
-            continue;
+            return $uploadResults;
         }
+
+
+        // Check for upload error
+        if ($fileError !== UPLOAD_ERR_OK) {
+            $uploadResults[] = ['success' => false, 'message' => "Error uploading file: $fileName (Error code: $fileError)"];
+            return $uploadResults;
+        }
+
+
 
         // Define the target file path (here using $damage_id as part of the directory structure)
         $targetPath = $targetDir . basename($fileName);
