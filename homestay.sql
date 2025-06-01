@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 01, 2025 at 08:23 PM
+-- Generation Time: Jun 01, 2025 at 08:26 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -322,14 +322,14 @@ INSERT INTO `user_role` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `web_settings`;
 CREATE TABLE IF NOT EXISTS `web_settings` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `setting_key` varchar(255) NOT NULL,
-  `setting_value` text NOT NULL,
-  `setting_type` enum('string','int','bool','json','float','date') DEFAULT 'string',
-  `description` text,
+  `setting_key` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `setting_value` text COLLATE utf8mb4_general_ci NOT NULL,
+  `setting_type` enum('string','int','bool','json','float','date') COLLATE utf8mb4_general_ci DEFAULT 'string',
+  `description` text COLLATE utf8mb4_general_ci,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `web_settings`

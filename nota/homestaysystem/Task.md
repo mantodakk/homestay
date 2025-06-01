@@ -13,8 +13,6 @@ kanban-plugin: board
 
 ## To DO
 
-- [ ] Removing excess (functions)
-- [ ] add whastapp
 
 
 ## Bugs
@@ -24,7 +22,9 @@ kanban-plugin: board
 ## In Progress
 
 - [ ] Booking (USER)
+- [ ] Removing excess (functions)
 - [ ] CUTI (ADMIN)
+- [ ] add whastapp
 - [ ] REVIEW (USER)
 - [ ] DAMAGE (ADMIN)
 - [ ] testimonials
