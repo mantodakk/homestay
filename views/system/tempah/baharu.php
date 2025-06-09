@@ -240,11 +240,13 @@
                 const diffDays = diffTime / (1000 * 3600 * 24); // Convert from milliseconds to days
 
                 // If the difference is less than 1 day, set it to 1 day minimum
-                const totalDays = Math.max(diffDays, 1);
+const totalDays = Math.ceil(diffDays); // Round up to the next whole day
 
                 // Calculate the total price
                 const pricePerDay = <?php echo $priceToUse ?>; // RM600 per day
                 const totalPrice = pricePerDay * totalDays;
+
+                console.log(totalDays);
 
                 // Update the price in the HTML
                 document.getElementById("price").textContent = "RM" + totalPrice.toFixed(2); // Update price dynamically
