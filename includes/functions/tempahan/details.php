@@ -33,7 +33,7 @@ if (isset($_POST['approve_booking'])) {
     $sql = "UPDATE bookings SET status = '2' WHERE id = $tempah_id";
     if (mysqli_query($conn, $sql)) {
 
-
+        //hantar notification
         $result = publishToBeamsInterests(
             [$guest_id],    // or ['2'] for testing
             'Booking Approved',
@@ -99,7 +99,7 @@ if (isset($_POST['update_booking_details'])) {
         // File upload for Task 2
 
         $uploadResults = uploadFile('pic_task2', "assets/uploads/$tempah_id/booking/");  // Replace 'file_input' with your actual form input name
- 
+
         // Check each result for errors
         foreach ($uploadResults as $uploadResult) {
             if ($uploadResult['success']) {
@@ -107,7 +107,7 @@ if (isset($_POST['update_booking_details'])) {
                 $pic_task2 = $uploadResult['file_name'];  // Get the file name
                 $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
                   VALUES ($tempah_id, '2',  '$pic_task2')";
-                  $task2 = 1;
+                $task2 = 1;
             } else {
                 // If upload fails, add an error to the errors array
                 $errors['file'] = $uploadResult['message'];  // Use the error message from the upload
@@ -127,7 +127,7 @@ if (isset($_POST['update_booking_details'])) {
                 $pic_task3 = $uploadResult['file_name'];  // Get the file name
                 $insertSql = "INSERT INTO booking_details (booking_id ,int_cond,file) 
                   VALUES ($tempah_id, '3',  '$pic_task3')";
-                  $task3 = 1;
+                $task3 = 1;
 
             } else {
                 // If upload fails, add an error to the errors array
@@ -156,7 +156,7 @@ if (isset($_POST['update_booking_details'])) {
     } else {
         // echo "Error updating booking details: " . $conn->error;
     }
- 
+
     header("Location: " . $basePath2 . "/tempah/details/$tempah_id");
     exit();
 }

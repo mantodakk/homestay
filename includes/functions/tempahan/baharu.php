@@ -60,11 +60,11 @@ if (isset($_POST['tempahan_baharu_form'])) {
 
     }
 
- 
-        // No errors, proceed to redirect
-        header("Location: " . $basePath2 . "/tempah/baharu");
-        exit();
-    
+
+    // No errors, proceed to redirect
+    header("Location: " . $basePath2 . "/tempah/baharu");
+    exit();
+
 }
 
 if (isset($_POST['tempahan_calendar'])) {

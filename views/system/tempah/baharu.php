@@ -70,7 +70,8 @@
                                                     <input type="hidden" class="form-control" name="user_id"
                                                         value="<?php echo $_SESSION['user_details']['id'] ?>">
 
-                                                    <input type="hidden" class="form-control" name="total_price" id="total_price">
+                                                    <input type="hidden" class="form-control" name="total_price"
+                                                        id="total_price">
                                                     <div class="input-group input-group-static my-3 ">
                                                         <label>Tarikh Mula</label>
                                                         <input type="text" class="form-control" id="tarikh_mula"
@@ -101,7 +102,7 @@
                                                 <div class="input-group input-group-static my-3">
                                                     <label>Payment Details</label>
                                                     <input type="file" class="form-control file-selector-button"
-                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf"   required>
+                                                        name="file_input[]" accept=".jpg, .jpeg, .png, .pdf" required>
                                                 </div>
 
                                                 <div class="text-center">
@@ -240,7 +241,7 @@
                 const diffDays = diffTime / (1000 * 3600 * 24); // Convert from milliseconds to days
 
                 // If the difference is less than 1 day, set it to 1 day minimum
-const totalDays = Math.ceil(diffDays); // Round up to the next whole day
+                const totalDays = Math.ceil(diffDays); // Round up to the next whole day
 
                 // Calculate the total price
                 const pricePerDay = <?php echo $priceToUse ?>; // RM600 per day
@@ -250,7 +251,7 @@ const totalDays = Math.ceil(diffDays); // Round up to the next whole day
 
                 // Update the price in the HTML
                 document.getElementById("price").textContent = "RM" + totalPrice.toFixed(2); // Update price dynamically
-                document.getElementById("total_price").value =  totalPrice.toFixed(2); // Update price dynamically
+                document.getElementById("total_price").value = totalPrice.toFixed(2); // Update price dynamically
 
                 // Format the dates (assuming you are using moment.js or similar date formatting function)
                 const startStr = formatDate(selectedStart); // Custom function to format the date (use your preferred formatting method)

@@ -42,11 +42,7 @@ $routes = [
     'login' => 'login',
     'register' => 'register',
     'logout' => 'logout',
-    'profile' => 'profile',
-
-
-    //userprofile
-    'profile/update' => 'profile_update',
+  
 
 
     //tempah
