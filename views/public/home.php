@@ -293,7 +293,7 @@
                                 </div>
                             </div>
                             <div class="card-footer pt-0">
-                                <a href="https://your-booking-link.com"
+                                <a href="<?php echo $rootPath?>/book"
                                     class="btn btn-icon bg-gradient-primary d-block mb-0 icon-move-right">Book Now</a>
                             </div>
                         </div>
@@ -326,7 +326,7 @@
             <div class="map-container"
                 style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.547847198543!2d101.686855!3d3.139003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49b8b6143a6f%3A0x4a7c4476e6cf63b9!2sKuala%20Lumpur!5e0!3m2!1sen!2smy!4v1717148400000!5m2!1sen!2smy"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d243.29792621347867!2d103.10571955422071!3d5.277168071858043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smy!4v1717932000000!5m2!1sen!2smy"
                     width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>

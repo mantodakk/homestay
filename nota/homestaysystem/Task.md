@@ -6,9 +6,6 @@ kanban-plugin: board
 
 ## Backlog
 
-- [ ] Home Page Design
-- [ ] Setting for price
-- [ ] Profile
 
 
 ## To DO
@@ -21,23 +18,24 @@ kanban-plugin: board
 
 ## In Progress
 
-- [ ] Booking (USER)
-- [ ] Removing excess (functions)
-- [ ] CUTI (ADMIN)
-- [ ] add whastapp
-- [ ] REVIEW (USER)
-- [ ] DAMAGE (ADMIN)
-- [ ] testimonials
-- [ ] Status of booking ( snap pic before and after room)
-- [ ] REVIEW (ADMIN)
-- [ ] DASHBOARD (ADMIN)
-- [ ] DAMAGE (USER)
-- [ ] Booking (ADMIN)
-- [ ] DASHBOARD (USER)
 
 
 ## Done
 
+- [ ] DAMAGE (USER)
+- [ ] REVIEW (ADMIN)
+- [ ] DASHBOARD (USER)
+- [ ] testimonials
+- [ ] DASHBOARD (ADMIN)
+- [ ] DAMAGE (ADMIN)
+- [ ] Status of booking ( snap pic before and after room)
+- [ ] REVIEW (USER)
+- [ ] add whastapp
+- [ ] CUTI (ADMIN)
+- [ ] Booking (USER)
+- [ ] Removing excess (functions)
+- [ ] Home Page Design
+- [ ] Booking (ADMIN)
 
 
 ## Stuck
