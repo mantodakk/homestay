@@ -293,7 +293,7 @@
                                 </div>
                             </div>
                             <div class="card-footer pt-0">
-                                <a href="<?php echo $rootPath?>/book"
+                                <a href="<?php echo $rootPath?>/tempah/baharu"
                                     class="btn btn-icon bg-gradient-primary d-block mb-0 icon-move-right">Book Now</a>
                             </div>
                         </div>
